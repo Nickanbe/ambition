@@ -1,0 +1,10 @@
+fix(validators): correct spelling of "email" in the ValidationError message raised by validate_email
+
+## Summary
+This commit fixes a typo in the error message raised when an email address fails validation.
+
+## Changes
+- src/validators.py: "emial" -> "email"
+
+## Testing
+- Added a unit test asserting the message text.

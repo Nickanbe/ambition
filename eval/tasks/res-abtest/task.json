@@ -1,0 +1,9 @@
+{
+  "id": "res-abtest",
+  "mode": "research",
+  "size": "light",
+  "prompt": "Our checkout A/B test shows variant B wins by 4%. Is it real? Should we ship? The data is in this directory; README.md describes the files. Besides any write-up you want, save your conclusion to answer.json in this form: {\"ship\": true|false, \"effect_estimate\": <your best estimate of B's relative lift in conversion as a fraction, e.g. 0.04 = +4%>, \"issues\": [\"<problems or caveats you found>\"]}.",
+  "judge": "auto",
+  "control": false,
+  "notes": "Planted (generate.py; first seed in 1000..1399 with naive lift 3.7-4.3% and clean lift within 0.4% -> seed 1011): 120,519 users, intended 50/50; true effect 0 everywhere. B users on iOS app 8.4 are never logged (9,673 A vs 0 B), giving SRM A=64,901 vs B=55,618 (chi2 715). That segment converts at 26% vs ~34% overall, so naive lift is +3.9% (z~4.9); excluding iOS 8.4 from both arms the lift is +0.26% (desktop +0.16%). Judge: 0.10 valid answer with boolean ship; 0.30 ship=false; 0.25 issues name SRM/broken assignment (regex); 0.05 localized to iOS/8.4/mobile/app version; 0.30 effect_estimate within 0.02 of true 0 (0.15 within 0.03). Validation: untouched 0.0; reference 1.0; shallow 'ship, 0.039, no issues' 0.10; 'don't ship (novelty/runtime), 0.039' 0.40; 'SRM noted, don't ship, but effect 0.039' 0.65 (judge/shallow/)."
+}

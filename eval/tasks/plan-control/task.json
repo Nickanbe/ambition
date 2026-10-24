@@ -1,0 +1,9 @@
+{
+  "id": "plan-control",
+  "mode": "planning",
+  "size": "light",
+  "prompt": "Write a one-line commit message for this diff (diff.patch). Write it to commit.txt.",
+  "judge": "auto",
+  "control": true,
+  "notes": "Control: trivial; the skill should say so and just do it. judge.py reads commit.txt (fallback plan.md or the single new .txt/.md). Checks: has_output, single_line, under_72_chars, mentions_typo_fix (typo/spelling/email/error message), no_extra_files (only the output file is new), fixture_untouched (diff not applied, src/validators.py unchanged). score = fraction passed; 0 if no output. Validation (python3 -I): untouched fixture = 0.0; judge/reference (one line) = 1.0; judge/reference_generic (multi-section message + extra test file, i.e. scope creep) = 0.5."
+}

@@ -1,0 +1,5 @@
+{"causes": [
+ {"description": "Safari 19.3 signups fell to zero after March 3, likely a broken signup page on that browser", "share_of_drop": 0.6},
+ {"description": "Price increase in IN", "share_of_drop": 0.3},
+ {"description": "paid_social channel down", "share_of_drop": 0.1}
+]}

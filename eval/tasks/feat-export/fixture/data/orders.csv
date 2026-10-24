@@ -1,0 +1,13 @@
+order_id,customer,region,amount,date
+A-1001,Northwind Traders,NA,1250.00,2026-07-02
+A-1002,Contoso Ltd,EU,310.50,2026-07-03
+A-1003,Northwind Traders,NA,89.99,2026-07-15
+A-1004,Fabrikam,APAC,2400.00,2026-07-21
+A-1005,"Smith & Sons, Plumbing",NA,420.00,2026-08-01
+A-1006,Contoso Ltd,EU,99.00,2026-08-04
+A-1007,Café Lumière,EU,61.20,2026-08-09
+A-1008,Adventure Works Cycles International,NA,5300.00,2026-08-12
+A-1009,Fabrikam,APAC,-150.00,2026-08-19
+A-1010,Tailspin Toys,EU,780.25,2026-09-02
+A-1011,Northwind Traders,NA,640.00,2026-09-10
+A-1012,Café Lumière,EU,45.00,2026-09-28

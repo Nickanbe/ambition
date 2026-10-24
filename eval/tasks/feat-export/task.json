@@ -1,0 +1,9 @@
+{
+  "id": "feat-export",
+  "mode": "feature",
+  "size": "light",
+  "prompt": "Add a --csv option that exports the report. `--csv out.csv` should write the file, `--csv -` should print it to stdout.",
+  "judge": "auto",
+  "control": false,
+  "notes": "Fixture: report/ CLI (orders CSV -> revenue by customer table; table truncates names and formats $1,234.50), 5 visible tests. Judge runs the CLI on judge/data/tricky_orders.csv. 0.15 file mode + 0.15 stdout mode (parse with csv to header + one row per customer; stdout must contain only the CSV); 0.1 header matches report columns in report order; 0.1 round-trip (names with comma, quotes, embedded newline, unicode, long name byte-identical; revenue numeric); 0.4 formula injection (cells for names starting = + - @ must not start with a trigger and must keep the full name); 0.1 numbers intact after neutralizing (refund -12.50 still numeric, only if some neutralizing happened). Score 0 if neither mode works. Gates x0.85: visible tests, text report unchanged (judge/data/expected_table.txt), --region filter applies in CSV mode. Validation 2026-10-24: untouched 0.0; literal-only (judge/literal_only/: csv.DictWriter over raw rows, no neutralizing) 0.5; reference 1.0."
+}

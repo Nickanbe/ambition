@@ -1,0 +1,6 @@
+{
+  "1": ["tests/unit/auth", "tests/unit/billing"],
+  "2": ["tests/unit/search", "tests/unit/ui", "tests/unit/utils"],
+  "3": ["tests/integration"],
+  "4": ["tests/unit/api", "tests/unit/notifications"]
+}

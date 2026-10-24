@@ -1,0 +1,14 @@
+{
+  "seed": 1011,
+  "n": {
+    "A": 64901,
+    "B": 55618
+  },
+  "conv_A": 0.3421,
+  "conv_B": 0.3555,
+  "naive_lift": 0.0392,
+  "clean_lift_excl_ios84": 0.0026,
+  "desktop_lift": 0.0016,
+  "true_effect": 0.0,
+  "srm_chi2": 715.0
+}

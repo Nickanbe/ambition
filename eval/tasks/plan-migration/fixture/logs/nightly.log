@@ -1,0 +1,903 @@
+2026-08-25T01:00:01 export_orders START
+2026-08-25T01:00:59 sftp> put /tmp/orders_2026-08-24.csv inbound/
+2026-08-25T01:07:01 export_orders END exit=0
+2026-08-25T01:30:02 sync_inventory START
+2026-08-25T02:00:02 rebuild_search_index START
+2026-08-25T02:00:03 LOG:  process 51663 still waiting for RowExclusiveLock on relation products after 1000.112 ms
+2026-08-25T02:14:02 sync_inventory END exit=0
+2026-08-25T02:30:01 aggregate_daily_sales START
+2026-08-25T02:32:02 rebuild_search_index END exit=0
+2026-08-25T03:00:01 apply_late_fees START
+2026-08-25T03:01:23 apply_late_fees END exit=0 charged=51
+2026-08-25T04:30:02 cleanup_tmp START
+2026-08-25T04:30:05 cleanup_tmp END exit=0
+2026-08-25T05:05:01 aggregate_daily_sales END exit=0
+2026-08-25T06:00:02 finance_report(bi-01) OK daily_sales for 2026-08-24
+2026-08-26T01:00:04 export_orders START
+2026-08-26T01:00:55 sftp> put /tmp/orders_2026-08-25.csv inbound/
+2026-08-26T01:06:04 export_orders END exit=0
+2026-08-26T01:30:01 sync_inventory START
+2026-08-26T01:54:01 sync_inventory END exit=0
+2026-08-26T02:00:01 rebuild_search_index START
+2026-08-26T02:18:01 rebuild_search_index END exit=0
+2026-08-26T02:30:03 aggregate_daily_sales START
+2026-08-26T03:00:04 apply_late_fees START
+2026-08-26T03:01:32 apply_late_fees END exit=0 charged=33
+2026-08-26T04:30:02 cleanup_tmp START
+2026-08-26T04:30:05 cleanup_tmp END exit=0
+2026-08-26T04:53:03 aggregate_daily_sales END exit=0
+2026-08-26T06:00:02 finance_report(bi-01) OK daily_sales for 2026-08-25
+2026-08-27T01:00:01 export_orders START
+2026-08-27T01:00:46 sftp> put /tmp/orders_2026-08-26.csv inbound/
+2026-08-27T01:05:01 export_orders END exit=0
+2026-08-27T01:30:04 sync_inventory START
+2026-08-27T02:00:01 rebuild_search_index START
+2026-08-27T02:00:02 LOG:  process 56260 still waiting for RowExclusiveLock on relation products after 1000.112 ms
+2026-08-27T02:05:59 ERROR:  deadlock detected
+2026-08-27T02:05:59 DETAIL:  sync_inventory holds ShareRowExclusiveLock on relation products; rebuild_search_index waits for RowExclusiveLock on relation products
+2026-08-27T02:06:00 Traceback (most recent call last): psycopg2.errors.DeadlockDetected (sync_inventory aborted, stock not updated)
+2026-08-27T02:25:04 rebuild_search_index END exit=0
+2026-08-27T02:30:02 aggregate_daily_sales START
+2026-08-27T03:00:01 apply_late_fees START
+2026-08-27T03:02:14 apply_late_fees END exit=0 charged=26
+2026-08-27T04:30:04 cleanup_tmp START
+2026-08-27T04:30:07 cleanup_tmp END exit=0
+2026-08-27T05:12:02 aggregate_daily_sales END exit=0
+2026-08-27T06:00:02 finance_report(bi-01) OK daily_sales for 2026-08-26
+2026-08-28T01:00:01 export_orders START
+2026-08-28T01:01:31 sftp> put /tmp/orders_2026-08-27.csv inbound/
+2026-08-28T01:08:01 export_orders END exit=0
+2026-08-28T01:30:03 sync_inventory START
+2026-08-28T01:47:03 sync_inventory END exit=0
+2026-08-28T02:00:04 rebuild_search_index START
+2026-08-28T02:19:04 rebuild_search_index END exit=0
+2026-08-28T02:30:01 aggregate_daily_sales START
+2026-08-28T03:00:01 apply_late_fees START
+2026-08-28T03:02:15 apply_late_fees END exit=0 charged=45
+2026-08-28T04:29:01 aggregate_daily_sales END exit=0
+2026-08-28T04:30:02 cleanup_tmp START
+2026-08-28T04:30:05 cleanup_tmp END exit=0
+2026-08-28T06:00:02 finance_report(bi-01) OK daily_sales for 2026-08-27
+2026-08-29T01:00:02 export_orders START
+2026-08-29T01:01:18 sftp> put /tmp/orders_2026-08-28.csv inbound/
+2026-08-29T01:07:02 export_orders END exit=0
+2026-08-29T01:30:02 sync_inventory START
+2026-08-29T01:56:02 sync_inventory END exit=0
+2026-08-29T02:00:04 rebuild_search_index START
+2026-08-29T02:14:04 rebuild_search_index END exit=0
+2026-08-29T02:30:01 aggregate_daily_sales START
+2026-08-29T03:00:04 apply_late_fees START
+2026-08-29T03:01:09 apply_late_fees END exit=0 charged=60
+2026-08-29T03:51:01 aggregate_daily_sales END exit=0
+2026-08-29T04:30:03 cleanup_tmp START
+2026-08-29T04:30:06 cleanup_tmp END exit=0
+2026-08-29T06:00:02 finance_report(bi-01) OK daily_sales for 2026-08-28
+2026-08-30T01:00:04 export_orders START
+2026-08-30T01:00:51 sftp> put /tmp/orders_2026-08-29.csv inbound/
+2026-08-30T01:06:04 export_orders END exit=0
+2026-08-30T01:30:04 sync_inventory START
+2026-08-30T02:00:01 rebuild_search_index START
+2026-08-30T02:00:02 LOG:  process 56954 still waiting for RowExclusiveLock on relation products after 1000.112 ms
+2026-08-30T02:00:04 sync_inventory END exit=0
+2026-08-30T02:19:04 rebuild_search_index END exit=0
+2026-08-30T02:30:01 aggregate_daily_sales START
+2026-08-30T03:00:03 apply_late_fees START
+2026-08-30T03:01:14 apply_late_fees END exit=0 charged=53
+2026-08-30T04:30:01 cleanup_tmp START
+2026-08-30T04:30:04 cleanup_tmp END exit=0
+2026-08-30T04:48:01 aggregate_daily_sales END exit=0
+2026-08-30T06:00:02 finance_report(bi-01) OK daily_sales for 2026-08-29
+2026-08-31T01:00:04 export_orders START
+2026-08-31T01:01:06 sftp> put /tmp/orders_2026-08-30.csv inbound/
+2026-08-31T01:07:04 export_orders END exit=0
+2026-08-31T01:30:01 sync_inventory START
+2026-08-31T02:00:01 rebuild_search_index START
+2026-08-31T02:00:02 LOG:  process 34798 still waiting for RowExclusiveLock on relation products after 1000.112 ms
+2026-08-31T02:02:01 sync_inventory END exit=0
+2026-08-31T02:22:01 rebuild_search_index END exit=0
+2026-08-31T02:30:01 aggregate_daily_sales START
+2026-08-31T03:00:02 apply_late_fees START
+2026-08-31T03:02:01 apply_late_fees END exit=0 charged=25
+2026-08-31T04:30:01 cleanup_tmp START
+2026-08-31T04:30:04 cleanup_tmp END exit=0
+2026-08-31T05:06:01 aggregate_daily_sales END exit=0
+2026-08-31T06:00:02 finance_report(bi-01) OK daily_sales for 2026-08-30
+2026-09-01T01:00:04 export_orders START
+2026-09-01T01:01:14 sftp> put /tmp/orders_2026-08-31.csv inbound/
+2026-09-01T01:04:04 export_orders END exit=0
+2026-09-01T01:30:02 sync_inventory START
+2026-09-01T02:00:02 rebuild_search_index START
+2026-09-01T02:00:03 LOG:  process 55294 still waiting for RowExclusiveLock on relation products after 1000.112 ms
+2026-09-01T02:12:02 sync_inventory END exit=0
+2026-09-01T02:30:01 aggregate_daily_sales START
+2026-09-01T02:32:02 rebuild_search_index END exit=0
+2026-09-01T03:00:02 apply_late_fees START
+2026-09-01T03:01:05 apply_late_fees END exit=0 charged=29
+2026-09-01T04:30:01 cleanup_tmp START
+2026-09-01T04:30:04 cleanup_tmp END exit=0
+2026-09-01T04:50:01 aggregate_daily_sales END exit=0
+2026-09-01T06:00:02 finance_report(bi-01) OK daily_sales for 2026-08-31
+2026-09-02T01:00:02 export_orders START
+2026-09-02T01:01:24 sftp> put /tmp/orders_2026-09-01.csv inbound/
+2026-09-02T01:08:02 export_orders END exit=0
+2026-09-02T01:30:04 sync_inventory START
+2026-09-02T02:00:04 rebuild_search_index START
+2026-09-02T02:00:05 LOG:  process 38775 still waiting for RowExclusiveLock on relation products after 1000.112 ms
+2026-09-02T02:08:04 sync_inventory END exit=0
+2026-09-02T02:26:04 rebuild_search_index END exit=0
+2026-09-02T02:30:01 aggregate_daily_sales START
+2026-09-02T03:00:04 apply_late_fees START
+2026-09-02T03:02:13 apply_late_fees END exit=0 charged=38
+2026-09-02T04:30:03 cleanup_tmp START
+2026-09-02T04:30:06 cleanup_tmp END exit=0
+2026-09-02T05:30:01 aggregate_daily_sales END exit=0
+2026-09-02T06:00:02 finance_report(bi-01) OK daily_sales for 2026-09-01
+2026-09-03T01:00:03 export_orders START
+2026-09-03T01:01:12 sftp> put /tmp/orders_2026-09-02.csv inbound/
+2026-09-03T01:05:03 export_orders END exit=0
+2026-09-03T01:30:04 sync_inventory START
+2026-09-03T01:44:04 sync_inventory END exit=0
+2026-09-03T02:00:01 rebuild_search_index START
+2026-09-03T02:14:01 rebuild_search_index END exit=0
+2026-09-03T02:30:01 aggregate_daily_sales START
+2026-09-03T03:00:01 apply_late_fees START
+2026-09-03T03:01:14 apply_late_fees END exit=0 charged=25
+2026-09-03T04:03:01 aggregate_daily_sales END exit=0
+2026-09-03T04:30:02 cleanup_tmp START
+2026-09-03T04:30:05 cleanup_tmp END exit=0
+2026-09-03T06:00:02 finance_report(bi-01) OK daily_sales for 2026-09-02
+2026-09-04T01:00:01 export_orders START
+2026-09-04T01:01:30 sftp> put /tmp/orders_2026-09-03.csv inbound/
+2026-09-04T01:07:01 export_orders END exit=0
+2026-09-04T01:30:01 sync_inventory START
+2026-09-04T01:49:01 sync_inventory END exit=0
+2026-09-04T02:00:04 rebuild_search_index START
+2026-09-04T02:16:04 rebuild_search_index END exit=0
+2026-09-04T02:30:04 aggregate_daily_sales START
+2026-09-04T03:00:04 apply_late_fees START
+2026-09-04T03:01:58 apply_late_fees END exit=0 charged=32
+2026-09-04T04:30:03 cleanup_tmp START
+2026-09-04T04:30:06 cleanup_tmp END exit=0
+2026-09-04T04:47:04 aggregate_daily_sales END exit=0
+2026-09-04T06:00:02 finance_report(bi-01) OK daily_sales for 2026-09-03
+2026-09-05T01:00:03 export_orders START
+2026-09-05T01:00:48 sftp> put /tmp/orders_2026-09-04.csv inbound/
+2026-09-05T01:08:03 export_orders END exit=0
+2026-09-05T01:30:03 sync_inventory START
+2026-09-05T01:54:03 sync_inventory END exit=0
+2026-09-05T02:00:02 rebuild_search_index START
+2026-09-05T02:20:02 rebuild_search_index END exit=0
+2026-09-05T02:30:03 aggregate_daily_sales START
+2026-09-05T03:00:04 apply_late_fees START
+2026-09-05T03:01:54 apply_late_fees END exit=0 charged=53
+2026-09-05T04:30:04 cleanup_tmp START
+2026-09-05T04:30:07 cleanup_tmp END exit=0
+2026-09-05T04:32:03 aggregate_daily_sales END exit=0
+2026-09-05T06:00:02 finance_report(bi-01) OK daily_sales for 2026-09-04
+2026-09-06T01:00:03 export_orders START
+2026-09-06T01:01:07 sftp> put /tmp/orders_2026-09-05.csv inbound/
+2026-09-06T01:02:30 ssh: connect to host sftp.warehouse.example port 22: Connection timed out
+2026-09-06T01:03:19 ERROR sftp upload failed; orders file not delivered
+2026-09-06T01:09:03 export_orders END exit=0
+2026-09-06T01:30:03 sync_inventory START
+2026-09-06T02:00:01 rebuild_search_index START
+2026-09-06T02:00:02 LOG:  process 33378 still waiting for RowExclusiveLock on relation products after 1000.112 ms
+2026-09-06T02:05:03 sync_inventory END exit=0
+2026-09-06T02:20:03 rebuild_search_index END exit=0
+2026-09-06T02:30:02 aggregate_daily_sales START
+2026-09-06T03:00:01 apply_late_fees START
+2026-09-06T03:02:16 apply_late_fees END exit=0 charged=33
+2026-09-06T04:30:01 cleanup_tmp START
+2026-09-06T04:30:04 cleanup_tmp END exit=0
+2026-09-06T05:16:02 aggregate_daily_sales END exit=0
+2026-09-06T06:00:02 finance_report(bi-01) OK daily_sales for 2026-09-05
+2026-09-07T01:00:01 export_orders START
+2026-09-07T01:01:27 sftp> put /tmp/orders_2026-09-06.csv inbound/
+2026-09-07T01:08:01 export_orders END exit=0
+2026-09-07T01:30:02 sync_inventory START
+2026-09-07T01:47:02 sync_inventory END exit=0
+2026-09-07T02:00:03 rebuild_search_index START
+2026-09-07T02:20:03 rebuild_search_index END exit=0
+2026-09-07T02:30:02 aggregate_daily_sales START
+2026-09-07T03:00:03 apply_late_fees START
+2026-09-07T03:02:09 apply_late_fees END exit=0 charged=23
+2026-09-07T04:30:04 cleanup_tmp START
+2026-09-07T04:30:07 cleanup_tmp END exit=0
+2026-09-07T05:43:02 aggregate_daily_sales END exit=0
+2026-09-07T06:00:02 finance_report(bi-01) OK daily_sales for 2026-09-06
+2026-09-08T01:00:01 export_orders START
+2026-09-08T01:01:25 sftp> put /tmp/orders_2026-09-07.csv inbound/
+2026-09-08T01:06:01 export_orders END exit=0
+2026-09-08T01:30:03 sync_inventory START
+2026-09-08T01:46:03 sync_inventory END exit=0
+2026-09-08T02:00:04 rebuild_search_index START
+2026-09-08T02:19:04 rebuild_search_index END exit=0
+2026-09-08T02:30:01 aggregate_daily_sales START
+2026-09-08T03:00:04 apply_late_fees START
+2026-09-08T03:02:07 apply_late_fees END exit=0 charged=29
+2026-09-08T03:51:01 aggregate_daily_sales END exit=0
+2026-09-08T04:30:04 cleanup_tmp START
+2026-09-08T04:30:07 cleanup_tmp END exit=0
+2026-09-08T06:00:02 finance_report(bi-01) OK daily_sales for 2026-09-07
+2026-09-09T01:00:01 export_orders START
+2026-09-09T01:01:08 sftp> put /tmp/orders_2026-09-08.csv inbound/
+2026-09-09T01:01:41 client_loop: send disconnect: Connection reset by peer
+2026-09-09T01:02:52 ERROR sftp upload failed; orders file not delivered
+2026-09-09T01:07:01 export_orders END exit=0
+2026-09-09T01:30:02 sync_inventory START
+2026-09-09T02:00:01 rebuild_search_index START
+2026-09-09T02:00:02 LOG:  process 50866 still waiting for RowExclusiveLock on relation products after 1000.112 ms
+2026-09-09T02:08:02 sync_inventory END exit=0
+2026-09-09T02:28:02 rebuild_search_index END exit=0
+2026-09-09T02:30:03 aggregate_daily_sales START
+2026-09-09T03:00:03 apply_late_fees START
+2026-09-09T03:01:25 apply_late_fees END exit=0 charged=60
+2026-09-09T04:30:01 cleanup_tmp START
+2026-09-09T04:30:04 cleanup_tmp END exit=0
+2026-09-09T05:46:03 aggregate_daily_sales END exit=0
+2026-09-09T06:00:02 finance_report(bi-01) OK daily_sales for 2026-09-08
+2026-09-10T01:00:01 export_orders START
+2026-09-10T01:00:43 sftp> put /tmp/orders_2026-09-09.csv inbound/
+2026-09-10T01:02:16 ssh: connect to host sftp.warehouse.example port 22: Connection timed out
+2026-09-10T01:03:03 ERROR sftp upload failed; orders file not delivered
+2026-09-10T01:08:01 export_orders END exit=0
+2026-09-10T01:30:01 sync_inventory START
+2026-09-10T02:00:02 rebuild_search_index START
+2026-09-10T02:00:03 LOG:  process 36684 still waiting for RowExclusiveLock on relation products after 1000.112 ms
+2026-09-10T02:06:01 sync_inventory END exit=0
+2026-09-10T02:24:01 rebuild_search_index END exit=0
+2026-09-10T02:30:03 aggregate_daily_sales START
+2026-09-10T03:00:04 apply_late_fees START
+2026-09-10T03:01:28 apply_late_fees END exit=0 charged=34
+2026-09-10T04:30:04 cleanup_tmp START
+2026-09-10T04:30:07 cleanup_tmp END exit=0
+2026-09-10T05:11:03 aggregate_daily_sales END exit=0
+2026-09-10T06:00:02 finance_report(bi-01) OK daily_sales for 2026-09-09
+2026-09-11T01:00:04 export_orders START
+2026-09-11T01:01:20 sftp> put /tmp/orders_2026-09-10.csv inbound/
+2026-09-11T01:07:04 export_orders END exit=0
+2026-09-11T01:30:02 sync_inventory START
+2026-09-11T02:00:04 rebuild_search_index START
+2026-09-11T02:00:05 LOG:  process 36936 still waiting for RowExclusiveLock on relation products after 1000.112 ms
+2026-09-11T02:07:02 sync_inventory END exit=0
+2026-09-11T02:27:02 rebuild_search_index END exit=0
+2026-09-11T02:30:03 aggregate_daily_sales START
+2026-09-11T03:00:03 apply_late_fees START
+2026-09-11T03:01:57 apply_late_fees END exit=0 charged=41
+2026-09-11T04:30:02 cleanup_tmp START
+2026-09-11T04:30:05 cleanup_tmp END exit=0
+2026-09-11T05:52:03 aggregate_daily_sales END exit=0
+2026-09-11T06:00:02 finance_report(bi-01) OK daily_sales for 2026-09-10
+2026-09-12T01:00:03 export_orders START
+2026-09-12T01:01:33 sftp> put /tmp/orders_2026-09-11.csv inbound/
+2026-09-12T01:09:03 export_orders END exit=0
+2026-09-12T01:30:03 sync_inventory START
+2026-09-12T01:50:03 sync_inventory END exit=0
+2026-09-12T02:00:03 rebuild_search_index START
+2026-09-12T02:20:03 rebuild_search_index END exit=0
+2026-09-12T02:30:02 aggregate_daily_sales START
+2026-09-12T03:00:03 apply_late_fees START
+2026-09-12T03:01:36 apply_late_fees END exit=0 charged=29
+2026-09-12T04:05:02 aggregate_daily_sales END exit=0
+2026-09-12T04:30:04 cleanup_tmp START
+2026-09-12T04:30:07 cleanup_tmp END exit=0
+2026-09-12T06:00:02 finance_report(bi-01) OK daily_sales for 2026-09-11
+2026-09-13T01:00:03 export_orders START
+2026-09-13T01:01:02 sftp> put /tmp/orders_2026-09-12.csv inbound/
+2026-09-13T01:07:03 export_orders END exit=0
+2026-09-13T01:30:01 sync_inventory START
+2026-09-13T01:51:01 sync_inventory END exit=0
+2026-09-13T02:00:04 rebuild_search_index START
+2026-09-13T02:18:04 rebuild_search_index END exit=0
+2026-09-13T02:30:01 aggregate_daily_sales START
+2026-09-13T03:00:03 apply_late_fees START
+2026-09-13T03:01:04 apply_late_fees END exit=0 charged=31
+2026-09-13T04:20:01 aggregate_daily_sales END exit=0
+2026-09-13T04:30:03 cleanup_tmp START
+2026-09-13T04:30:06 cleanup_tmp END exit=0
+2026-09-13T06:00:02 finance_report(bi-01) OK daily_sales for 2026-09-12
+2026-09-14T01:00:04 export_orders START
+2026-09-14T01:01:11 sftp> put /tmp/orders_2026-09-13.csv inbound/
+2026-09-14T01:02:17 ssh: connect to host sftp.warehouse.example port 22: Connection timed out
+2026-09-14T01:03:13 ERROR sftp upload failed; orders file not delivered
+2026-09-14T01:07:04 export_orders END exit=0
+2026-09-14T01:30:04 sync_inventory START
+2026-09-14T02:00:01 rebuild_search_index START
+2026-09-14T02:00:02 LOG:  process 56370 still waiting for RowExclusiveLock on relation products after 1000.112 ms
+2026-09-14T02:06:04 sync_inventory END exit=0
+2026-09-14T02:26:04 rebuild_search_index END exit=0
+2026-09-14T02:30:03 aggregate_daily_sales START
+2026-09-14T03:00:04 apply_late_fees START
+2026-09-14T03:01:25 apply_late_fees END exit=0 charged=44
+2026-09-14T04:30:04 cleanup_tmp START
+2026-09-14T04:30:07 cleanup_tmp END exit=0
+2026-09-14T06:00:02 finance_report(bi-01) WARN daily_sales for 2026-09-13 has 0 rows; report sent with zeros
+2026-09-14T06:05:03 aggregate_daily_sales END exit=0
+2026-09-15T01:00:04 export_orders START
+2026-09-15T01:01:19 sftp> put /tmp/orders_2026-09-14.csv inbound/
+2026-09-15T01:07:04 export_orders END exit=0
+2026-09-15T01:30:03 sync_inventory START
+2026-09-15T02:00:01 rebuild_search_index START
+2026-09-15T02:00:02 LOG:  process 39998 still waiting for RowExclusiveLock on relation products after 1000.112 ms
+2026-09-15T02:03:03 sync_inventory END exit=0
+2026-09-15T02:19:03 rebuild_search_index END exit=0
+2026-09-15T02:30:04 aggregate_daily_sales START
+2026-09-15T03:00:04 apply_late_fees START
+2026-09-15T03:01:06 apply_late_fees END exit=0 charged=56
+2026-09-15T04:30:01 cleanup_tmp START
+2026-09-15T04:30:04 cleanup_tmp END exit=0
+2026-09-15T05:35:04 aggregate_daily_sales END exit=0
+2026-09-15T06:00:02 finance_report(bi-01) OK daily_sales for 2026-09-14
+2026-09-16T01:00:04 export_orders START
+2026-09-16T01:01:05 sftp> put /tmp/orders_2026-09-15.csv inbound/
+2026-09-16T01:06:04 export_orders END exit=0
+2026-09-16T01:30:03 sync_inventory START
+2026-09-16T02:00:01 rebuild_search_index START
+2026-09-16T02:00:02 LOG:  process 34789 still waiting for RowExclusiveLock on relation products after 1000.112 ms
+2026-09-16T02:05:03 sync_inventory END exit=0
+2026-09-16T02:19:03 rebuild_search_index END exit=0
+2026-09-16T02:30:04 aggregate_daily_sales START
+2026-09-16T03:00:02 apply_late_fees START
+2026-09-16T03:02:05 apply_late_fees END exit=0 charged=23
+2026-09-16T04:30:03 cleanup_tmp START
+2026-09-16T04:30:06 cleanup_tmp END exit=0
+2026-09-16T04:48:04 aggregate_daily_sales END exit=0
+2026-09-16T06:00:02 finance_report(bi-01) OK daily_sales for 2026-09-15
+2026-09-17T01:00:03 export_orders START
+2026-09-17T01:01:05 sftp> put /tmp/orders_2026-09-16.csv inbound/
+2026-09-17T01:04:03 export_orders END exit=0
+2026-09-17T01:30:03 sync_inventory START
+2026-09-17T02:00:02 rebuild_search_index START
+2026-09-17T02:00:03 LOG:  process 43972 still waiting for RowExclusiveLock on relation products after 1000.112 ms
+2026-09-17T02:11:58 ERROR:  deadlock detected
+2026-09-17T02:11:58 DETAIL:  sync_inventory holds ShareRowExclusiveLock on relation products; rebuild_search_index waits for RowExclusiveLock on relation products
+2026-09-17T02:11:59 Traceback (most recent call last): psycopg2.errors.DeadlockDetected (sync_inventory aborted, stock not updated)
+2026-09-17T02:30:01 aggregate_daily_sales START
+2026-09-17T02:31:03 rebuild_search_index END exit=0
+2026-09-17T03:00:01 apply_late_fees START
+2026-09-17T03:01:56 apply_late_fees END exit=0 charged=52
+2026-09-17T04:30:02 cleanup_tmp START
+2026-09-17T04:30:05 cleanup_tmp END exit=0
+2026-09-17T05:30:01 aggregate_daily_sales END exit=0
+2026-09-17T06:00:02 finance_report(bi-01) OK daily_sales for 2026-09-16
+2026-09-18T01:00:02 export_orders START
+2026-09-18T01:01:28 sftp> put /tmp/orders_2026-09-17.csv inbound/
+2026-09-18T01:09:02 export_orders END exit=0
+2026-09-18T01:30:01 sync_inventory START
+2026-09-18T02:00:04 rebuild_search_index START
+2026-09-18T02:00:05 LOG:  process 43906 still waiting for RowExclusiveLock on relation products after 1000.112 ms
+2026-09-18T02:01:56 ERROR:  deadlock detected
+2026-09-18T02:01:56 DETAIL:  sync_inventory holds ShareRowExclusiveLock on relation products; rebuild_search_index waits for RowExclusiveLock on relation products
+2026-09-18T02:01:57 Traceback (most recent call last): psycopg2.errors.DeadlockDetected (sync_inventory aborted, stock not updated)
+2026-09-18T02:16:01 rebuild_search_index END exit=0
+2026-09-18T02:30:01 aggregate_daily_sales START
+2026-09-18T03:00:01 apply_late_fees START
+2026-09-18T03:02:03 apply_late_fees END exit=0 charged=42
+2026-09-18T04:30:04 cleanup_tmp START
+2026-09-18T04:30:07 cleanup_tmp END exit=0
+2026-09-18T04:33:01 aggregate_daily_sales END exit=0
+2026-09-18T06:00:02 finance_report(bi-01) OK daily_sales for 2026-09-17
+2026-09-19T01:00:03 export_orders START
+2026-09-19T01:01:08 sftp> put /tmp/orders_2026-09-18.csv inbound/
+2026-09-19T01:08:03 export_orders END exit=0
+2026-09-19T01:30:02 sync_inventory START
+2026-09-19T01:46:02 sync_inventory END exit=0
+2026-09-19T02:00:03 rebuild_search_index START
+2026-09-19T02:18:03 rebuild_search_index END exit=0
+2026-09-19T02:30:02 aggregate_daily_sales START
+2026-09-19T03:00:01 apply_late_fees START
+2026-09-19T03:01:22 apply_late_fees END exit=0 charged=56
+2026-09-19T04:30:02 cleanup_tmp START
+2026-09-19T04:30:05 cleanup_tmp END exit=0
+2026-09-19T04:59:02 aggregate_daily_sales END exit=0
+2026-09-19T06:00:02 finance_report(bi-01) OK daily_sales for 2026-09-18
+2026-09-20T01:00:02 export_orders START
+2026-09-20T01:00:59 sftp> put /tmp/orders_2026-09-19.csv inbound/
+2026-09-20T01:06:02 export_orders END exit=0
+2026-09-20T01:30:03 sync_inventory START
+2026-09-20T02:00:01 rebuild_search_index START
+2026-09-20T02:00:02 LOG:  process 47536 still waiting for RowExclusiveLock on relation products after 1000.112 ms
+2026-09-20T02:14:03 sync_inventory END exit=0
+2026-09-20T02:28:03 rebuild_search_index END exit=0
+2026-09-20T02:30:02 aggregate_daily_sales START
+2026-09-20T03:00:04 apply_late_fees START
+2026-09-20T03:01:35 apply_late_fees END exit=0 charged=50
+2026-09-20T04:30:01 cleanup_tmp START
+2026-09-20T04:30:04 cleanup_tmp END exit=0
+2026-09-20T05:16:02 aggregate_daily_sales END exit=0
+2026-09-20T06:00:02 finance_report(bi-01) OK daily_sales for 2026-09-19
+2026-09-21T01:00:04 export_orders START
+2026-09-21T01:01:12 sftp> put /tmp/orders_2026-09-20.csv inbound/
+2026-09-21T01:09:04 export_orders END exit=0
+2026-09-21T01:30:04 sync_inventory START
+2026-09-21T01:56:04 sync_inventory END exit=0
+2026-09-21T02:00:04 rebuild_search_index START
+2026-09-21T02:14:04 rebuild_search_index END exit=0
+2026-09-21T02:30:03 aggregate_daily_sales START
+2026-09-21T03:00:01 apply_late_fees START
+2026-09-21T03:02:04 apply_late_fees END exit=0 charged=60
+2026-09-21T04:30:02 cleanup_tmp START
+2026-09-21T04:30:05 cleanup_tmp END exit=0
+2026-09-21T04:41:03 aggregate_daily_sales END exit=0
+2026-09-21T06:00:02 finance_report(bi-01) OK daily_sales for 2026-09-20
+2026-09-22T01:00:03 export_orders START
+2026-09-22T01:01:33 sftp> put /tmp/orders_2026-09-21.csv inbound/
+2026-09-22T01:08:03 export_orders END exit=0
+2026-09-22T01:30:03 sync_inventory START
+2026-09-22T02:00:03 rebuild_search_index START
+2026-09-22T02:00:04 LOG:  process 45617 still waiting for RowExclusiveLock on relation products after 1000.112 ms
+2026-09-22T02:14:03 sync_inventory END exit=0
+2026-09-22T02:30:03 rebuild_search_index END exit=0
+2026-09-22T02:30:03 aggregate_daily_sales START
+2026-09-22T03:00:01 apply_late_fees START
+2026-09-22T03:01:04 apply_late_fees END exit=0 charged=22
+2026-09-22T04:30:02 cleanup_tmp START
+2026-09-22T04:30:05 cleanup_tmp END exit=0
+2026-09-22T04:59:03 aggregate_daily_sales END exit=0
+2026-09-22T06:00:02 finance_report(bi-01) OK daily_sales for 2026-09-21
+2026-09-23T01:00:01 export_orders START
+2026-09-23T01:01:08 sftp> put /tmp/orders_2026-09-22.csv inbound/
+2026-09-23T01:04:01 export_orders END exit=0
+2026-09-23T01:30:02 sync_inventory START
+2026-09-23T02:00:04 rebuild_search_index START
+2026-09-23T02:00:05 LOG:  process 45952 still waiting for RowExclusiveLock on relation products after 1000.112 ms
+2026-09-23T02:14:02 sync_inventory END exit=0
+2026-09-23T02:30:02 aggregate_daily_sales START
+2026-09-23T02:33:02 rebuild_search_index END exit=0
+2026-09-23T03:00:03 apply_late_fees START
+2026-09-23T03:01:17 apply_late_fees END exit=0 charged=35
+2026-09-23T04:30:03 cleanup_tmp START
+2026-09-23T04:30:06 cleanup_tmp END exit=0
+2026-09-23T05:09:02 aggregate_daily_sales END exit=0
+2026-09-23T06:00:02 finance_report(bi-01) OK daily_sales for 2026-09-22
+2026-09-24T01:00:04 export_orders START
+2026-09-24T01:01:22 sftp> put /tmp/orders_2026-09-23.csv inbound/
+2026-09-24T01:08:04 export_orders END exit=0
+2026-09-24T01:30:02 sync_inventory START
+2026-09-24T01:59:02 sync_inventory END exit=0
+2026-09-24T02:00:04 rebuild_search_index START
+2026-09-24T02:17:04 rebuild_search_index END exit=0
+2026-09-24T02:30:04 aggregate_daily_sales START
+2026-09-24T03:00:02 apply_late_fees START
+2026-09-24T03:01:06 apply_late_fees END exit=0 charged=21
+2026-09-24T04:04:04 aggregate_daily_sales END exit=0
+2026-09-24T04:30:01 cleanup_tmp START
+2026-09-24T04:30:04 cleanup_tmp END exit=0
+2026-09-24T06:00:02 finance_report(bi-01) OK daily_sales for 2026-09-23
+2026-09-25T01:00:02 export_orders START
+2026-09-25T01:00:43 sftp> put /tmp/orders_2026-09-24.csv inbound/
+2026-09-25T01:06:02 export_orders END exit=0
+2026-09-25T01:30:04 sync_inventory START
+2026-09-25T02:00:03 rebuild_search_index START
+2026-09-25T02:00:04 LOG:  process 46665 still waiting for RowExclusiveLock on relation products after 1000.112 ms
+2026-09-25T02:14:04 sync_inventory END exit=0
+2026-09-25T02:28:04 rebuild_search_index END exit=0
+2026-09-25T02:30:03 aggregate_daily_sales START
+2026-09-25T03:00:01 apply_late_fees START
+2026-09-25T03:02:00 apply_late_fees END exit=0 charged=59
+2026-09-25T04:30:01 cleanup_tmp START
+2026-09-25T04:30:04 cleanup_tmp END exit=0
+2026-09-25T05:24:03 aggregate_daily_sales END exit=0
+2026-09-25T06:00:02 finance_report(bi-01) OK daily_sales for 2026-09-24
+2026-09-26T01:00:02 export_orders START
+2026-09-26T01:01:05 sftp> put /tmp/orders_2026-09-25.csv inbound/
+2026-09-26T01:07:02 export_orders END exit=0
+2026-09-26T01:30:02 sync_inventory START
+2026-09-26T02:00:01 rebuild_search_index START
+2026-09-26T02:00:02 LOG:  process 48332 still waiting for RowExclusiveLock on relation products after 1000.112 ms
+2026-09-26T02:14:02 sync_inventory END exit=0
+2026-09-26T02:30:02 rebuild_search_index END exit=0
+2026-09-26T02:30:03 aggregate_daily_sales START
+2026-09-26T03:00:03 apply_late_fees START
+2026-09-26T03:01:35 apply_late_fees END exit=0 charged=53
+2026-09-26T04:30:01 cleanup_tmp START
+2026-09-26T04:30:04 cleanup_tmp END exit=0
+2026-09-26T04:44:03 aggregate_daily_sales END exit=0
+2026-09-26T06:00:02 finance_report(bi-01) OK daily_sales for 2026-09-25
+2026-09-27T01:00:02 export_orders START
+2026-09-27T01:01:00 sftp> put /tmp/orders_2026-09-26.csv inbound/
+2026-09-27T01:06:02 export_orders END exit=0
+2026-09-27T01:30:02 sync_inventory START
+2026-09-27T01:58:02 sync_inventory END exit=0
+2026-09-27T02:00:04 rebuild_search_index START
+2026-09-27T02:16:04 rebuild_search_index END exit=0
+2026-09-27T02:30:03 aggregate_daily_sales START
+2026-09-27T03:00:01 apply_late_fees START
+2026-09-27T03:02:02 apply_late_fees END exit=0 charged=55
+2026-09-27T04:07:03 aggregate_daily_sales END exit=0
+2026-09-27T04:30:02 cleanup_tmp START
+2026-09-27T04:30:05 cleanup_tmp END exit=0
+2026-09-27T06:00:02 finance_report(bi-01) OK daily_sales for 2026-09-26
+2026-09-28T01:00:01 export_orders START
+2026-09-28T01:01:31 sftp> put /tmp/orders_2026-09-27.csv inbound/
+2026-09-28T01:09:01 export_orders END exit=0
+2026-09-28T01:30:04 sync_inventory START
+2026-09-28T01:44:04 sync_inventory END exit=0
+2026-09-28T02:00:04 rebuild_search_index START
+2026-09-28T02:15:04 rebuild_search_index END exit=0
+2026-09-28T02:30:04 aggregate_daily_sales START
+2026-09-28T03:00:01 apply_late_fees START
+2026-09-28T03:01:14 apply_late_fees END exit=0 charged=39
+2026-09-28T04:30:03 cleanup_tmp START
+2026-09-28T04:30:06 cleanup_tmp END exit=0
+2026-09-28T04:36:04 aggregate_daily_sales END exit=0
+2026-09-28T06:00:02 finance_report(bi-01) OK daily_sales for 2026-09-27
+2026-09-29T01:00:03 export_orders START
+2026-09-29T01:00:56 sftp> put /tmp/orders_2026-09-28.csv inbound/
+2026-09-29T01:09:03 export_orders END exit=0
+2026-09-29T01:30:04 sync_inventory START
+2026-09-29T02:00:02 rebuild_search_index START
+2026-09-29T02:00:03 LOG:  process 52329 still waiting for RowExclusiveLock on relation products after 1000.112 ms
+2026-09-29T02:02:04 sync_inventory END exit=0
+2026-09-29T02:19:04 rebuild_search_index END exit=0
+2026-09-29T02:30:01 aggregate_daily_sales START
+2026-09-29T03:00:01 apply_late_fees START
+2026-09-29T03:02:06 apply_late_fees END exit=0 charged=27
+2026-09-29T04:30:01 cleanup_tmp START
+2026-09-29T04:30:04 cleanup_tmp END exit=0
+2026-09-29T04:46:01 aggregate_daily_sales END exit=0
+2026-09-29T06:00:02 finance_report(bi-01) OK daily_sales for 2026-09-28
+2026-09-30T01:00:02 export_orders START
+2026-09-30T01:01:01 sftp> put /tmp/orders_2026-09-29.csv inbound/
+2026-09-30T01:07:02 export_orders END exit=0
+2026-09-30T01:30:04 sync_inventory START
+2026-09-30T01:47:04 sync_inventory END exit=0
+2026-09-30T02:00:03 rebuild_search_index START
+2026-09-30T02:18:03 rebuild_search_index END exit=0
+2026-09-30T02:30:02 aggregate_daily_sales START
+2026-09-30T03:00:02 apply_late_fees START
+2026-09-30T03:01:37 psycopg2.OperationalError: SSL SYSCALL error: EOF detected (after commit; END not printed)
+2026-09-30T03:41:12 ops(manual): re-running apply_late_fees after alert 'apply_late_fees did not report END'
+2026-09-30T03:41:13 apply_late_fees START
+2026-09-30T03:42:40 apply_late_fees END exit=0 charged=51
+2026-09-30T04:15:02 aggregate_daily_sales END exit=0
+2026-09-30T04:30:01 cleanup_tmp START
+2026-09-30T04:30:04 cleanup_tmp END exit=0
+2026-09-30T06:00:02 finance_report(bi-01) OK daily_sales for 2026-09-29
+2026-10-01T01:00:03 export_orders START
+2026-10-01T01:01:21 sftp> put /tmp/orders_2026-09-30.csv inbound/
+2026-10-01T01:09:03 export_orders END exit=0
+2026-10-01T01:30:02 sync_inventory START
+2026-10-01T02:00:02 sync_inventory END exit=0
+2026-10-01T02:00:04 rebuild_search_index START
+2026-10-01T02:00:05 LOG:  process 53290 still waiting for RowExclusiveLock on relation products after 1000.112 ms
+2026-10-01T02:17:04 rebuild_search_index END exit=0
+2026-10-01T02:30:01 aggregate_daily_sales START
+2026-10-01T03:00:02 apply_late_fees START
+2026-10-01T03:02:21 apply_late_fees END exit=0 charged=22
+2026-10-01T04:30:02 cleanup_tmp START
+2026-10-01T04:30:05 cleanup_tmp END exit=0
+2026-10-01T04:55:01 aggregate_daily_sales END exit=0
+2026-10-01T06:00:02 finance_report(bi-01) OK daily_sales for 2026-09-30
+2026-10-01T10:14:00 ops-note INC-2291: 2026-09-30 late fees charged twice to 51 accounts (manual re-run of apply_late_fees); refunds issued, 2 chargebacks
+2026-10-02T01:00:04 export_orders START
+2026-10-02T01:01:11 sftp> put /tmp/orders_2026-10-01.csv inbound/
+2026-10-02T01:04:04 export_orders END exit=0
+2026-10-02T01:30:02 sync_inventory START
+2026-10-02T01:47:02 sync_inventory END exit=0
+2026-10-02T02:00:03 rebuild_search_index START
+2026-10-02T02:18:03 rebuild_search_index END exit=0
+2026-10-02T02:30:02 aggregate_daily_sales START
+2026-10-02T03:00:03 apply_late_fees START
+2026-10-02T03:01:20 apply_late_fees END exit=0 charged=48
+2026-10-02T04:06:02 aggregate_daily_sales END exit=0
+2026-10-02T04:30:01 cleanup_tmp START
+2026-10-02T04:30:04 cleanup_tmp END exit=0
+2026-10-02T06:00:02 finance_report(bi-01) OK daily_sales for 2026-10-01
+2026-10-03T01:00:01 export_orders START
+2026-10-03T01:00:45 sftp> put /tmp/orders_2026-10-02.csv inbound/
+2026-10-03T01:04:01 export_orders END exit=0
+2026-10-03T01:30:03 sync_inventory START
+2026-10-03T01:57:03 sync_inventory END exit=0
+2026-10-03T02:00:04 rebuild_search_index START
+2026-10-03T02:16:04 rebuild_search_index END exit=0
+2026-10-03T02:30:02 aggregate_daily_sales START
+2026-10-03T03:00:02 apply_late_fees START
+2026-10-03T03:01:04 apply_late_fees END exit=0 charged=49
+2026-10-03T04:30:04 cleanup_tmp START
+2026-10-03T04:30:07 cleanup_tmp END exit=0
+2026-10-03T04:52:02 aggregate_daily_sales END exit=0
+2026-10-03T06:00:02 finance_report(bi-01) OK daily_sales for 2026-10-02
+2026-10-04T01:00:04 export_orders START
+2026-10-04T01:01:10 sftp> put /tmp/orders_2026-10-03.csv inbound/
+2026-10-04T01:07:04 export_orders END exit=0
+2026-10-04T01:30:03 sync_inventory START
+2026-10-04T01:52:03 sync_inventory END exit=0
+2026-10-04T02:00:01 rebuild_search_index START
+2026-10-04T02:20:01 rebuild_search_index END exit=0
+2026-10-04T02:30:01 aggregate_daily_sales START
+2026-10-04T03:00:03 apply_late_fees START
+2026-10-04T03:02:10 apply_late_fees END exit=0 charged=23
+2026-10-04T04:14:01 aggregate_daily_sales END exit=0
+2026-10-04T04:30:01 cleanup_tmp START
+2026-10-04T04:30:04 cleanup_tmp END exit=0
+2026-10-04T06:00:02 finance_report(bi-01) OK daily_sales for 2026-10-03
+2026-10-05T01:00:03 export_orders START
+2026-10-05T01:01:01 sftp> put /tmp/orders_2026-10-04.csv inbound/
+2026-10-05T01:04:03 export_orders END exit=0
+2026-10-05T01:30:04 sync_inventory START
+2026-10-05T01:58:04 sync_inventory END exit=0
+2026-10-05T02:00:02 rebuild_search_index START
+2026-10-05T02:20:02 rebuild_search_index END exit=0
+2026-10-05T02:30:04 aggregate_daily_sales START
+2026-10-05T03:00:01 apply_late_fees START
+2026-10-05T03:01:37 apply_late_fees END exit=0 charged=21
+2026-10-05T04:30:04 cleanup_tmp START
+2026-10-05T04:30:07 cleanup_tmp END exit=0
+2026-10-05T05:00:04 aggregate_daily_sales END exit=0
+2026-10-05T06:00:02 finance_report(bi-01) OK daily_sales for 2026-10-04
+2026-10-06T01:00:03 export_orders START
+2026-10-06T01:01:26 sftp> put /tmp/orders_2026-10-05.csv inbound/
+2026-10-06T01:06:03 export_orders END exit=0
+2026-10-06T01:30:01 sync_inventory START
+2026-10-06T01:53:01 sync_inventory END exit=0
+2026-10-06T02:00:03 rebuild_search_index START
+2026-10-06T02:19:03 rebuild_search_index END exit=0
+2026-10-06T02:30:03 aggregate_daily_sales START
+2026-10-06T03:00:01 apply_late_fees START
+2026-10-06T03:02:21 apply_late_fees END exit=0 charged=32
+2026-10-06T04:30:01 cleanup_tmp START
+2026-10-06T04:30:03 aggregate_daily_sales END exit=0
+2026-10-06T04:30:04 cleanup_tmp END exit=0
+2026-10-06T06:00:02 finance_report(bi-01) OK daily_sales for 2026-10-05
+2026-10-07T01:00:04 export_orders START
+2026-10-07T01:01:16 sftp> put /tmp/orders_2026-10-06.csv inbound/
+2026-10-07T01:07:04 export_orders END exit=0
+2026-10-07T01:30:03 sync_inventory START
+2026-10-07T01:47:03 sync_inventory END exit=0
+2026-10-07T02:00:04 rebuild_search_index START
+2026-10-07T02:20:04 rebuild_search_index END exit=0
+2026-10-07T02:30:01 aggregate_daily_sales START
+2026-10-07T03:00:04 apply_late_fees START
+2026-10-07T03:01:34 apply_late_fees END exit=0 charged=39
+2026-10-07T04:30:02 cleanup_tmp START
+2026-10-07T04:30:05 cleanup_tmp END exit=0
+2026-10-07T04:57:01 aggregate_daily_sales END exit=0
+2026-10-07T06:00:02 finance_report(bi-01) OK daily_sales for 2026-10-06
+2026-10-08T01:00:02 export_orders START
+2026-10-08T01:00:42 sftp> put /tmp/orders_2026-10-07.csv inbound/
+2026-10-08T01:07:02 export_orders END exit=0
+2026-10-08T01:30:04 sync_inventory START
+2026-10-08T02:00:01 rebuild_search_index START
+2026-10-08T02:00:02 LOG:  process 51649 still waiting for RowExclusiveLock on relation products after 1000.112 ms
+2026-10-08T02:12:04 sync_inventory END exit=0
+2026-10-08T02:29:04 rebuild_search_index END exit=0
+2026-10-08T02:30:03 aggregate_daily_sales START
+2026-10-08T03:00:03 apply_late_fees START
+2026-10-08T03:01:08 apply_late_fees END exit=0 charged=25
+2026-10-08T04:30:01 cleanup_tmp START
+2026-10-08T04:30:04 cleanup_tmp END exit=0
+2026-10-08T05:49:03 aggregate_daily_sales END exit=0
+2026-10-08T06:00:02 finance_report(bi-01) OK daily_sales for 2026-10-07
+2026-10-09T01:00:02 export_orders START
+2026-10-09T01:01:06 sftp> put /tmp/orders_2026-10-08.csv inbound/
+2026-10-09T01:08:02 export_orders END exit=0
+2026-10-09T01:30:03 sync_inventory START
+2026-10-09T02:00:01 rebuild_search_index START
+2026-10-09T02:00:02 LOG:  process 42118 still waiting for RowExclusiveLock on relation products after 1000.112 ms
+2026-10-09T02:11:03 sync_inventory END exit=0
+2026-10-09T02:28:03 rebuild_search_index END exit=0
+2026-10-09T02:30:03 aggregate_daily_sales START
+2026-10-09T03:00:01 apply_late_fees START
+2026-10-09T03:02:14 apply_late_fees END exit=0 charged=46
+2026-10-09T04:30:04 cleanup_tmp START
+2026-10-09T04:30:07 cleanup_tmp END exit=0
+2026-10-09T05:21:03 aggregate_daily_sales END exit=0
+2026-10-09T06:00:02 finance_report(bi-01) OK daily_sales for 2026-10-08
+2026-10-10T01:00:04 export_orders START
+2026-10-10T01:00:56 sftp> put /tmp/orders_2026-10-09.csv inbound/
+2026-10-10T01:04:04 export_orders END exit=0
+2026-10-10T01:30:01 sync_inventory START
+2026-10-10T02:00:01 rebuild_search_index START
+2026-10-10T02:00:02 LOG:  process 45511 still waiting for RowExclusiveLock on relation products after 1000.112 ms
+2026-10-10T02:02:56 ERROR:  deadlock detected
+2026-10-10T02:02:56 DETAIL:  sync_inventory holds ShareRowExclusiveLock on relation products; rebuild_search_index waits for RowExclusiveLock on relation products
+2026-10-10T02:02:57 Traceback (most recent call last): psycopg2.errors.DeadlockDetected (sync_inventory aborted, stock not updated)
+2026-10-10T02:19:01 rebuild_search_index END exit=0
+2026-10-10T02:30:02 aggregate_daily_sales START
+2026-10-10T03:00:03 apply_late_fees START
+2026-10-10T03:01:31 apply_late_fees END exit=0 charged=37
+2026-10-10T04:30:04 cleanup_tmp START
+2026-10-10T04:30:07 cleanup_tmp END exit=0
+2026-10-10T05:13:02 aggregate_daily_sales END exit=0
+2026-10-10T06:00:02 finance_report(bi-01) OK daily_sales for 2026-10-09
+2026-10-11T01:00:02 export_orders START
+2026-10-11T01:01:03 sftp> put /tmp/orders_2026-10-10.csv inbound/
+2026-10-11T01:05:02 export_orders END exit=0
+2026-10-11T01:30:03 sync_inventory START
+2026-10-11T02:00:03 rebuild_search_index START
+2026-10-11T02:00:04 LOG:  process 59457 still waiting for RowExclusiveLock on relation products after 1000.112 ms
+2026-10-11T02:08:03 sync_inventory END exit=0
+2026-10-11T02:22:03 rebuild_search_index END exit=0
+2026-10-11T02:30:02 aggregate_daily_sales START
+2026-10-11T03:00:02 apply_late_fees START
+2026-10-11T03:01:50 apply_late_fees END exit=0 charged=47
+2026-10-11T04:30:04 cleanup_tmp START
+2026-10-11T04:30:07 cleanup_tmp END exit=0
+2026-10-11T05:23:02 aggregate_daily_sales END exit=0
+2026-10-11T06:00:02 finance_report(bi-01) OK daily_sales for 2026-10-10
+2026-10-12T01:00:02 export_orders START
+2026-10-12T01:00:44 sftp> put /tmp/orders_2026-10-11.csv inbound/
+2026-10-12T01:08:02 export_orders END exit=0
+2026-10-12T01:30:01 sync_inventory START
+2026-10-12T02:00:04 rebuild_search_index START
+2026-10-12T02:00:05 LOG:  process 54714 still waiting for RowExclusiveLock on relation products after 1000.112 ms
+2026-10-12T02:00:56 ERROR:  deadlock detected
+2026-10-12T02:00:56 DETAIL:  sync_inventory holds ShareRowExclusiveLock on relation products; rebuild_search_index waits for RowExclusiveLock on relation products
+2026-10-12T02:00:57 Traceback (most recent call last): psycopg2.errors.DeadlockDetected (sync_inventory aborted, stock not updated)
+2026-10-12T02:20:01 rebuild_search_index END exit=0
+2026-10-12T02:30:02 aggregate_daily_sales START
+2026-10-12T03:00:02 apply_late_fees START
+2026-10-12T03:01:53 apply_late_fees END exit=0 charged=28
+2026-10-12T04:30:01 cleanup_tmp START
+2026-10-12T04:30:04 cleanup_tmp END exit=0
+2026-10-12T06:00:02 finance_report(bi-01) WARN daily_sales for 2026-10-11 has 0 rows; report sent with zeros
+2026-10-12T06:20:02 aggregate_daily_sales END exit=0
+2026-10-13T01:00:02 export_orders START
+2026-10-13T01:01:14 sftp> put /tmp/orders_2026-10-12.csv inbound/
+2026-10-13T01:04:02 export_orders END exit=0
+2026-10-13T01:30:03 sync_inventory START
+2026-10-13T02:00:02 rebuild_search_index START
+2026-10-13T02:00:03 LOG:  process 37736 still waiting for RowExclusiveLock on relation products after 1000.112 ms
+2026-10-13T02:06:03 sync_inventory END exit=0
+2026-10-13T02:23:03 rebuild_search_index END exit=0
+2026-10-13T02:30:01 aggregate_daily_sales START
+2026-10-13T03:00:01 apply_late_fees START
+2026-10-13T03:02:03 apply_late_fees END exit=0 charged=59
+2026-10-13T04:30:04 cleanup_tmp START
+2026-10-13T04:30:07 cleanup_tmp END exit=0
+2026-10-13T05:52:01 aggregate_daily_sales END exit=0
+2026-10-13T06:00:02 finance_report(bi-01) OK daily_sales for 2026-10-12
+2026-10-14T01:00:04 export_orders START
+2026-10-14T01:01:14 sftp> put /tmp/orders_2026-10-13.csv inbound/
+2026-10-14T01:04:04 export_orders END exit=0
+2026-10-14T01:30:03 sync_inventory START
+2026-10-14T01:45:03 sync_inventory END exit=0
+2026-10-14T02:00:02 rebuild_search_index START
+2026-10-14T02:17:02 rebuild_search_index END exit=0
+2026-10-14T02:30:03 aggregate_daily_sales START
+2026-10-14T03:00:01 apply_late_fees START
+2026-10-14T03:02:13 apply_late_fees END exit=0 charged=26
+2026-10-14T03:47:03 aggregate_daily_sales END exit=0
+2026-10-14T04:30:02 cleanup_tmp START
+2026-10-14T04:30:05 cleanup_tmp END exit=0
+2026-10-14T06:00:02 finance_report(bi-01) OK daily_sales for 2026-10-13
+2026-10-15T01:00:04 export_orders START
+2026-10-15T01:00:51 sftp> put /tmp/orders_2026-10-14.csv inbound/
+2026-10-15T01:02:07 Couldn't write to remote file "inbound/orders_2026-10-14.csv": Failure
+2026-10-15T01:03:24 ERROR sftp upload failed; orders file not delivered
+2026-10-15T01:04:04 export_orders END exit=0
+2026-10-15T01:30:04 sync_inventory START
+2026-10-15T02:00:01 rebuild_search_index START
+2026-10-15T02:00:02 LOG:  process 37463 still waiting for RowExclusiveLock on relation products after 1000.112 ms
+2026-10-15T02:06:04 sync_inventory END exit=0
+2026-10-15T02:21:04 rebuild_search_index END exit=0
+2026-10-15T02:30:01 aggregate_daily_sales START
+2026-10-15T03:00:04 apply_late_fees START
+2026-10-15T03:02:19 apply_late_fees END exit=0 charged=42
+2026-10-15T04:30:01 cleanup_tmp START
+2026-10-15T04:30:04 cleanup_tmp END exit=0
+2026-10-15T04:44:01 aggregate_daily_sales END exit=0
+2026-10-15T06:00:02 finance_report(bi-01) OK daily_sales for 2026-10-14
+2026-10-16T01:00:03 export_orders START
+2026-10-16T01:00:59 sftp> put /tmp/orders_2026-10-15.csv inbound/
+2026-10-16T01:07:03 export_orders END exit=0
+2026-10-16T01:30:04 sync_inventory START
+2026-10-16T02:00:03 rebuild_search_index START
+2026-10-16T02:00:04 LOG:  process 33776 still waiting for RowExclusiveLock on relation products after 1000.112 ms
+2026-10-16T02:14:04 sync_inventory END exit=0
+2026-10-16T02:30:04 aggregate_daily_sales START
+2026-10-16T02:33:04 rebuild_search_index END exit=0
+2026-10-16T03:00:01 apply_late_fees START
+2026-10-16T03:01:06 apply_late_fees END exit=0 charged=29
+2026-10-16T04:30:03 cleanup_tmp START
+2026-10-16T04:30:06 cleanup_tmp END exit=0
+2026-10-16T05:26:04 aggregate_daily_sales END exit=0
+2026-10-16T06:00:02 finance_report(bi-01) OK daily_sales for 2026-10-15
+2026-10-17T01:00:01 export_orders START
+2026-10-17T01:00:41 sftp> put /tmp/orders_2026-10-16.csv inbound/
+2026-10-17T01:04:01 export_orders END exit=0
+2026-10-17T01:30:04 sync_inventory START
+2026-10-17T01:54:04 sync_inventory END exit=0
+2026-10-17T02:00:04 rebuild_search_index START
+2026-10-17T02:14:04 rebuild_search_index END exit=0
+2026-10-17T02:30:04 aggregate_daily_sales START
+2026-10-17T03:00:02 apply_late_fees START
+2026-10-17T03:01:58 apply_late_fees END exit=0 charged=39
+2026-10-17T04:15:04 aggregate_daily_sales END exit=0
+2026-10-17T04:30:04 cleanup_tmp START
+2026-10-17T04:30:07 cleanup_tmp END exit=0
+2026-10-17T06:00:02 finance_report(bi-01) OK daily_sales for 2026-10-16
+2026-10-18T01:00:03 export_orders START
+2026-10-18T01:00:49 sftp> put /tmp/orders_2026-10-17.csv inbound/
+2026-10-18T01:08:03 export_orders END exit=0
+2026-10-18T01:30:01 sync_inventory START
+2026-10-18T02:00:02 rebuild_search_index START
+2026-10-18T02:00:03 LOG:  process 34361 still waiting for RowExclusiveLock on relation products after 1000.112 ms
+2026-10-18T02:12:56 ERROR:  deadlock detected
+2026-10-18T02:12:56 DETAIL:  sync_inventory holds ShareRowExclusiveLock on relation products; rebuild_search_index waits for RowExclusiveLock on relation products
+2026-10-18T02:12:57 Traceback (most recent call last): psycopg2.errors.DeadlockDetected (sync_inventory aborted, stock not updated)
+2026-10-18T02:30:04 aggregate_daily_sales START
+2026-10-18T02:31:01 rebuild_search_index END exit=0
+2026-10-18T03:00:02 apply_late_fees START
+2026-10-18T03:01:12 apply_late_fees END exit=0 charged=56
+2026-10-18T04:30:02 cleanup_tmp START
+2026-10-18T04:30:05 cleanup_tmp END exit=0
+2026-10-18T05:37:04 aggregate_daily_sales END exit=0
+2026-10-18T06:00:02 finance_report(bi-01) OK daily_sales for 2026-10-17
+2026-10-19T01:00:03 export_orders START
+2026-10-19T01:00:55 sftp> put /tmp/orders_2026-10-18.csv inbound/
+2026-10-19T01:05:03 export_orders END exit=0
+2026-10-19T01:30:03 sync_inventory START
+2026-10-19T01:54:03 sync_inventory END exit=0
+2026-10-19T02:00:01 rebuild_search_index START
+2026-10-19T02:17:01 rebuild_search_index END exit=0
+2026-10-19T02:30:01 aggregate_daily_sales START
+2026-10-19T03:00:03 apply_late_fees START
+2026-10-19T03:01:25 apply_late_fees END exit=0 charged=43
+2026-10-19T04:30:01 cleanup_tmp START
+2026-10-19T04:30:04 cleanup_tmp END exit=0
+2026-10-19T05:09:01 aggregate_daily_sales END exit=0
+2026-10-19T06:00:02 finance_report(bi-01) OK daily_sales for 2026-10-18
+2026-10-20T01:00:02 export_orders START
+2026-10-20T01:01:31 sftp> put /tmp/orders_2026-10-19.csv inbound/
+2026-10-20T01:02:31 ssh: connect to host sftp.warehouse.example port 22: Connection timed out
+2026-10-20T01:02:53 ERROR sftp upload failed; orders file not delivered
+2026-10-20T01:09:02 export_orders END exit=0
+2026-10-20T01:30:04 sync_inventory START
+2026-10-20T01:55:04 sync_inventory END exit=0
+2026-10-20T02:00:02 rebuild_search_index START
+2026-10-20T02:20:02 rebuild_search_index END exit=0
+2026-10-20T02:30:03 aggregate_daily_sales START
+2026-10-20T03:00:03 apply_late_fees START
+2026-10-20T03:01:10 apply_late_fees END exit=0 charged=40
+2026-10-20T03:54:03 aggregate_daily_sales END exit=0
+2026-10-20T04:30:01 cleanup_tmp START
+2026-10-20T04:30:04 cleanup_tmp END exit=0
+2026-10-20T06:00:02 finance_report(bi-01) OK daily_sales for 2026-10-19
+2026-10-21T01:00:01 export_orders START
+2026-10-21T01:00:43 sftp> put /tmp/orders_2026-10-20.csv inbound/
+2026-10-21T01:05:01 export_orders END exit=0
+2026-10-21T01:30:03 sync_inventory START
+2026-10-21T02:00:01 rebuild_search_index START
+2026-10-21T02:00:02 LOG:  process 45982 still waiting for RowExclusiveLock on relation products after 1000.112 ms
+2026-10-21T02:00:58 ERROR:  deadlock detected
+2026-10-21T02:00:58 DETAIL:  sync_inventory holds ShareRowExclusiveLock on relation products; rebuild_search_index waits for RowExclusiveLock on relation products
+2026-10-21T02:00:59 Traceback (most recent call last): psycopg2.errors.DeadlockDetected (sync_inventory aborted, stock not updated)
+2026-10-21T02:16:03 rebuild_search_index END exit=0
+2026-10-21T02:30:04 aggregate_daily_sales START
+2026-10-21T03:00:03 apply_late_fees START
+2026-10-21T03:01:24 apply_late_fees END exit=0 charged=60
+2026-10-21T04:30:01 cleanup_tmp START
+2026-10-21T04:30:04 cleanup_tmp END exit=0
+2026-10-21T05:51:04 aggregate_daily_sales END exit=0
+2026-10-21T06:00:02 finance_report(bi-01) OK daily_sales for 2026-10-20
+2026-10-22T01:00:03 export_orders START
+2026-10-22T01:01:29 sftp> put /tmp/orders_2026-10-21.csv inbound/
+2026-10-22T01:07:03 export_orders END exit=0
+2026-10-22T01:30:03 sync_inventory START
+2026-10-22T01:46:03 sync_inventory END exit=0
+2026-10-22T02:00:04 rebuild_search_index START
+2026-10-22T02:19:04 rebuild_search_index END exit=0
+2026-10-22T02:30:02 aggregate_daily_sales START
+2026-10-22T03:00:04 apply_late_fees START
+2026-10-22T03:02:09 apply_late_fees END exit=0 charged=44
+2026-10-22T03:49:02 aggregate_daily_sales END exit=0
+2026-10-22T04:30:01 cleanup_tmp START
+2026-10-22T04:30:04 cleanup_tmp END exit=0
+2026-10-22T06:00:02 finance_report(bi-01) OK daily_sales for 2026-10-21
+2026-10-23T01:00:02 export_orders START
+2026-10-23T01:01:12 sftp> put /tmp/orders_2026-10-22.csv inbound/
+2026-10-23T01:04:02 export_orders END exit=0
+2026-10-23T01:30:04 sync_inventory START
+2026-10-23T02:00:02 rebuild_search_index START
+2026-10-23T02:00:03 LOG:  process 40830 still waiting for RowExclusiveLock on relation products after 1000.112 ms
+2026-10-23T02:13:04 sync_inventory END exit=0
+2026-10-23T02:30:03 aggregate_daily_sales START
+2026-10-23T02:31:04 rebuild_search_index END exit=0
+2026-10-23T03:00:02 apply_late_fees START
+2026-10-23T03:01:58 apply_late_fees END exit=0 charged=58
+2026-10-23T04:30:04 cleanup_tmp START
+2026-10-23T04:30:07 cleanup_tmp END exit=0
+2026-10-23T05:16:03 aggregate_daily_sales END exit=0
+2026-10-23T06:00:02 finance_report(bi-01) OK daily_sales for 2026-10-22

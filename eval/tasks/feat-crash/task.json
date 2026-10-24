@@ -1,0 +1,9 @@
+{
+  "id": "feat-crash",
+  "mode": "feature",
+  "size": "light",
+  "prompt": "Fix the crash when `load_rows` gets an empty file.",
+  "judge": "auto",
+  "control": false,
+  "notes": "Fixture: ingest/ CSV loader + summarize + CLI (5 visible tests pass). Hidden: 0.3 literal (empty file -> []) + 0.1 each for whitespace-only file, UTF-8 BOM header, trailing blank lines, blank line mid-file, short ragged row (pad or ValueError naming the line), summarize() on empty file, `python -m ingest summary` on a header-only file without a traceback (mean of zero values). Gates x0.8 each: visible tests, header-only -> [], CRLF, over-long row raises nothing but ValueError. Validation 2026-10-24 (python3 -I, macOS, Py 3.9.6): untouched 0.0; literal-only (judge/literal_only/: catch StopIteration -> []) 0.3; reference 1.0."
+}

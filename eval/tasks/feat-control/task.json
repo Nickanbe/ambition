@@ -1,0 +1,9 @@
+{
+  "id": "feat-control",
+  "mode": "feature",
+  "size": "light",
+  "prompt": "Rename the function `calc_total` to `compute_total` everywhere.",
+  "judge": "auto",
+  "control": true,
+  "notes": "Control: trivial rename across billing/, tests/ and README.md (14 occurrences). Judge: core = 0.5 x share of occurrences gone + 0.5 x share of 50 hidden calls where billing.compute_total and billing.cart.compute_total match the original; x0.5 if visible tests fail; x scope factor max(0.3, 1 - 0.1 per added/removed file - 0.05 per changed line beyond the rename), diffed with difflib against judge/pristine/ with the rename applied. Validation 2026-10-24: untouched 0.0; reference 1.0; scope-creep variant (judge/creep_variant/: back-compat alias + CHANGELOG.md) 0.696."
+}

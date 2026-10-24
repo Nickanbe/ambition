@@ -1,0 +1,11 @@
+{
+ "README.md": "d0f68ae9a03960d1b5f7e47ba93329f249bea0ff928706d62c0ccfb8de25dcf8",
+ "crontab": "827b5942b8cb8ad9122898e79f1ca61e3fed7bdd3c033f597802bf2732d26780",
+ "jobs/aggregate_daily_sales.py": "e2caebaa549daa2243287de9005f0c1c97e7bb2fd668e38e1f71b5bdd525f895",
+ "jobs/apply_late_fees.py": "baebcde0dceffd31b62fb67db02271b5e581d4320add3405a8d6837e50fa3f8e",
+ "jobs/cleanup_tmp.sh": "e15a546d304ca8e3ccf1cf5ab6bb1aab858ce284757ac4e072d6c234fa4a58c7",
+ "jobs/export_orders.sh": "0c6b70583a9448b24253e28dd9ae40107796baa4948c973daea44d931156590c",
+ "jobs/rebuild_search_index.sh": "d182bfc784fa242f32ac0b7c73a490b1fe4d1693bd3a488d24504b3a30c566ad",
+ "jobs/sync_inventory.py": "a3d84f188c6a7c7e972e540e5571fb340896f7cd9f5cc258ce91e33f883fd17a",
+ "logs/nightly.log": "ea36c9e0695ec8b86d8c9c1e68c845bf69feaa239da74e94e84bbb2de639f28b"
+}

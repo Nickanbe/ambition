@@ -1,0 +1,9 @@
+[
+  {"email": "ada@example.com", "name": "Ada Lovelace", "phone": "+1 (555) 010-0001", "tags": ["VIP", "newsletter"], "note": "Met at PyCon"},
+  {"email": "grace@example.com", "name": "Grace Hopper", "phone": "555.010.0002", "tags": ["navy"]},
+  {"email": " ADA@Example.com ", "name": "", "phone": "", "tags": ["vip", "beta"], "note": "Asked about pricing"},
+  {"email": null, "name": "Walk-in", "phone": "555-010-0003", "tags": []},
+  {"email": "linus@example.com", "name": "Linus", "tags": ["Kernel "]},
+  {"email": "grace@EXAMPLE.com", "name": "Rear Admiral Hopper", "phone": "15550100002", "tags": ["Navy", "cobol"], "note": "Prefers email"},
+  {"email": "", "name": "Unknown caller", "phone": "", "tags": ["lead"]}
+]

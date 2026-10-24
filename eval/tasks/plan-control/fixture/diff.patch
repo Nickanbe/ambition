@@ -1,0 +1,11 @@
+diff --git a/src/validators.py b/src/validators.py
+index 3b1f2a4..8c7d9e0 100644
+--- a/src/validators.py
++++ b/src/validators.py
+@@ -10,5 +10,5 @@ class ValidationError(ValueError):
+ def validate_email(value: str) -> str:
+     value = value.strip()
+     if not EMAIL_RE.match(value):
+-        raise ValidationError(f"Invalid emial address: {value!r}")
++        raise ValidationError(f"Invalid email address: {value!r}")
+     return value.lower()

@@ -1,0 +1,6 @@
+id,customer,amount,currency,status
+1001,Northwind Traders,250.00,USD,paid
+1002,Contoso Ltd,99.5,USD,paid
+1003,Fabrikam,NA,USD,pending
+1004,Adventure Works,1200,USD,paid
+1005,Tailspin Toys,  42.10 ,USD,refunded

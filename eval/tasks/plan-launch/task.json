@@ -1,0 +1,9 @@
+{
+  "id": "plan-launch",
+  "mode": "planning",
+  "size": "light",
+  "prompt": "Write a launch plan for raising our Pro price from $20 to $25. Write the plan to plan.md.",
+  "judge": "human",
+  "control": false,
+  "notes": "Planning task, primary judge is Nick's blind X/Y ranking with judge/rubric.md. judge/judge.py is a secondary, lenient auto signal: keyword/regex checks (with synonyms, proximity window 350 chars) on plan.md (fallback: any new top-level .md/.txt). score = fraction of checks passed. Checks: annual_contracts_grandfathered, eu_30_day_notice, heavy_single_seat_downgrade, new_tenure_churn_2024 (the 4 planted facts), plus grounded_in_data (>= 3 numbers from the data). Validation (python3 -I, fixture copied fresh, reference dir overlaid): untouched fixture = 0.0; judge/reference = 1.0; judge/reference_generic (a plausible plan written without reading the data) = 0.0. Fixture data is generated deterministically (seeded) and no network is needed."
+}

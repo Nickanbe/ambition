@@ -1,0 +1,9 @@
+{
+  "id": "plan-migration",
+  "mode": "planning",
+  "size": "light",
+  "prompt": "Plan moving our nightly cron scripts to a job queue. Write the plan to plan.md.",
+  "judge": "human",
+  "control": false,
+  "notes": "Planning task, primary judge is Nick's blind X/Y ranking with judge/rubric.md. judge/judge.py is a secondary, lenient auto signal: keyword/regex checks (with synonyms, proximity window 350 chars) on plan.md (fallback: any new top-level .md/.txt). score = fraction of checks passed. Checks: overlap_contention, silent_failure, non_idempotent_retry, hard_6am_deadline (the 4 planted facts), plus grounded_in_log (>= 2 log-derived numbers or dates). Validation (python3 -I, fixture copied fresh, reference dir overlaid): untouched fixture = 0.0; judge/reference = 1.0; judge/reference_generic (a plausible plan written without reading the data) = 0.0. Fixture data is generated deterministically (seeded) and no network is needed."
+}

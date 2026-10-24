@@ -1,0 +1,16 @@
+{
+  "feb_daily_events": 403.57,
+  "mar_daily_events": 327.45,
+  "drop_pct": 0.1886,
+  "tracking_share": 0.589,
+  "price_share": 0.29,
+  "noise_share": 0.121,
+  "billing_drop_pct": 0.0776,
+  "bug_browser": "Safari 19.3",
+  "bug_start": "2026-03-03",
+  "price_country": "IN",
+  "red_herring_channel": "paid_social",
+  "paid_social_mar_vs_feb_2026": -0.446,
+  "paid_social_mar_vs_feb_2025": -0.325,
+  "total_mar_vs_feb_2025": -0.0107
+}

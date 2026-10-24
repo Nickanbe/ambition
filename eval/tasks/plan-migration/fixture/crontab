@@ -1,0 +1,9 @@
+# nightly batch on db-batch-01 (Postgres 15 primary: shopdb)
+# m  h  dom mon dow  command
+0    1  *   *   *    /opt/jobs/export_orders.sh        >> /var/log/nightly.log 2>&1
+30   1  *   *   *    /opt/jobs/sync_inventory.py       >> /var/log/nightly.log 2>&1
+0    2  *   *   *    /opt/jobs/rebuild_search_index.sh >> /var/log/nightly.log 2>&1
+30   2  *   *   *    /opt/jobs/aggregate_daily_sales.py >> /var/log/nightly.log 2>&1
+0    3  *   *   *    /opt/jobs/apply_late_fees.py      >> /var/log/nightly.log 2>&1
+30   4  *   *   *    /opt/jobs/cleanup_tmp.sh          >> /var/log/nightly.log 2>&1
+# 06:00 finance_report runs on the BI box (not ours) and reads daily_sales

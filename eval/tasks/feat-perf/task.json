@@ -1,0 +1,9 @@
+{
+  "id": "feat-perf",
+  "mode": "feature",
+  "size": "light",
+  "prompt": "`merge_contacts` is too slow on big inputs. Make it faster.",
+  "judge": "auto",
+  "control": false,
+  "notes": "Fixture: contacts/ dedupe with four hot spots: linear scan of merged contacts per record, full rescan of all records per contact for count, list membership for tags, repeated string concatenation for notes. Judge: 0.3 x fraction of 64 hidden cases matching the original implementation (judge/oracle/ is a pristine copy) + 0.7 x speed, speed counted only if all cases match, input is not mutated and both benchmark outputs hash-match the oracle. Speed = mean over workloads 'many' (2,500 records) and 'hot' (6,000 records, one account) of a log curve on speedup vs the oracle timed in the same run (<=1.2x 0, 2x 0.3, 100x 1.0); ratio-based so laptop speed does not matter, oracle ~1.8-2.5 s per workload, judge ~15 s total. Validation 2026-10-24: untouched 0.3 (correct, 1.0x); index-only partial fix (judge/partial_index_only/: dict lookup + incremental count, tags/notes untouched) 0.65 (407x many, 1.0x hot); reference 1.0 (470x / 273x)."
+}

@@ -1,0 +1,9 @@
+{
+  "id": "res-churn",
+  "mode": "research",
+  "size": "light",
+  "prompt": "Which accounts are most likely to cancel next month? Give me a ranked list. The data is in this directory; README.md describes the files. Besides any write-up you want, save the list to answer.json in this form: {\"ranking\": [{\"account_id\": \"...\", \"score\": <number, higher = more likely to cancel>}, ...]}, ordered most likely first, covering the current customers.",
+  "judge": "auto",
+  "control": false,
+  "notes": "Planted (generate.py, seed 4242): 3,000 accounts simulated weekly Mar-Sep 2026 with latent health; monthly hazard driven by health level, 6-week health decline, admin (champion) leaving, recent billing tickets; annual contracts cancel only in their renewal month (x0.03 otherwise). ~600 historical cancellations Apr-Sep are in the fixture for backtesting. Holdout = October cancellations among 2,398 active accounts (99 churners, base 4.1%) in judge/labels.csv. Oracle (true hazard) AUC 0.892, p@100 0.36. Judge: 0.10 ranking present; 0.70 AUC scaled 0.5->0, 0.85->1; 0.20 precision@100 scaled base->0, 0.25->1; omitted accounts tie at the bottom. Validation: untouched 0.0; reference (IRLS logistic on snapshot features, judge/reference/analysis.py) AUC 0.844, p@100 0.21, score 0.95; shallow 'fewest sessions last 4 weeks' AUC 0.603, score 0.36; 'fewest sessions per seat' AUC 0.643, score 0.43 (judge/shallow/make_shallow.py)."
+}

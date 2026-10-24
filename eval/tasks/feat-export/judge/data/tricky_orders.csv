@@ -1,0 +1,14 @@
+order_id,customer,region,amount,date
+T-1,"Café ""Le Coin"", Paris",EU,120.00,2026-07-01
+T-2,"Two
+Lines Ltd",NA,75.50,2026-07-02
+T-3,Zoë Østergaard 東京商事,APAC,980.00,2026-07-03
+T-4,"=HYPERLINK(""http://evil.example/x"",""click"")",NA,10.00,2026-07-04
+T-5,+1 Plumbing,NA,20.00,2026-07-05
+T-6,-Minus Corp,EU,30.00,2026-07-06
+T-7,@Risk Partners,EU,40.00,2026-07-07
+T-8,Refund Co,EU,-12.50,2026-07-08
+T-9,"Acme, Inc.",NA,1500.00,2026-07-09
+T-10,"Acme, Inc.",NA,234.56,2026-08-10
+T-11,Long Name Holdings International Group,NA,3000.00,2026-08-11
+T-12,"Café ""Le Coin"", Paris",EU,5.25,2026-09-12

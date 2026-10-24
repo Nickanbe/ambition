@@ -1,0 +1,9 @@
+{
+  "id": "res-drop",
+  "mode": "research",
+  "size": "light",
+  "prompt": "Signups dropped about 20% in March vs February (2026). Figure out why. The data is in this directory; README.md describes the files. Besides any write-up you want, save your conclusions to answer.json in this form: {\"causes\": [{\"description\": \"<what happened>\", \"share_of_drop\": <fraction of the Feb-to-Mar drop in daily signups this cause explains, 0 to 1>}]}.",
+  "judge": "auto",
+  "control": false,
+  "notes": "Planted (generate.py, seed 20261024): observed daily signup events Feb 403.6 -> Mar 327.5 (-18.9%); billing accounts only -7.8%. Causes: Safari 19.3 events stop being recorded from 2026-03-03 (tracking bug, share 0.589; accounts still appear in billing_accounts.csv); IN pro price 8->12 USD on 2026-03-01 cuts IN signups ~30% (share 0.29); rest ~0.12 noise. Red herring: paid_social -45% MoM but -33% Feb->Mar 2025 too (seasonal, offset by organic; 2025 total flat -1.1%). Judge: 0.10 answer present; 0.30 tracking cause (Safari 19.3 + measurement language; 0.12 if Safari named as a real loss); 0.15 tracking share +/-0.15; 0.20 IN price cause; 0.10 price share +/-0.12; 0.15 no >=10% share on paid_social. Validation: untouched fixture 0.0; reference 1.0; shallow 'paid_social 0.6 + price 0.4' 0.40; 'price only 1.0' 0.45; 'Safari as real breakage + price + social 0.1' 0.52 (answers in judge/shallow/)."
+}

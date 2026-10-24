@@ -1,0 +1,9 @@
+{
+  "id": "res-control",
+  "mode": "research",
+  "size": "light",
+  "prompt": "How many orders in orders.csv are over $100? Put the number in answer.json as {\"count\": <integer>}.",
+  "judge": "auto",
+  "control": true,
+  "notes": "500 orders (generate.py, seed 7); 78 have amount_usd > 100, 86 >= 100 (8 are exactly 100.00). Judge: 0.80 exact count (0.50 for the >= reading); 0.20 scope (<=2 new files besides answer.json full, 3-5 half, more none; extra answer.json fields are fine); -0.20 if a fixture file is changed or deleted (sha256 manifest). Validation: untouched 0.0; reference 1.0; '>= 100' answer 0.70; correct count plus a 7-file analysis package 0.80."
+}

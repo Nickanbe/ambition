@@ -1,0 +1,55 @@
+ticket_id,created_at,customer_id,plan,subject,body,tag
+T4100,2026-07-25,C11728,Pro,Invite email not received,My teammate never got the invite.,account
+T4101,2026-08-17,C11728,Pro,Notice for price changes,As an EU customer we expect the 30 days' notice in your terms if prices change. Last time it was two weeks.,billing
+T4102,2026-08-28,C12060,Pro,Webhook retries,Webhooks retry too aggressively.,integrations
+T4103,2026-09-12,C10211,Team,Invite email not received,My teammate never got the invite.,account
+T4104,2026-07-22,C10072,Team,Password reset loop,Reset link says expired.,account
+T4105,2026-08-06,C10127,Pro,Notice for price changes,As an EU customer we expect the 30 days' notice in your terms if prices change. Last time it was two weeks.,billing
+T4106,2026-09-27,C11625,Pro,Salesforce sync duplicates,Contacts show up twice after sync.,integrations
+T4107,2026-08-01,C10678,Pro,Is Pro worth it for one person?,"I'm the only user and I never touched integrations. I run a lot of events through it daily, but honestly Starter has everything I use. If Pro goes up at all I'll switch.",pricing
+T4108,2026-07-26,C11306,Pro,Pricing question,"Solo user here, heavy usage (60k+ events a month). What does Pro give me over Starter besides seats and integrations? I don't use either.",pricing
+T4109,2026-07-09,C11685,Starter,CSV export times out,Exporting more than 50k rows spins forever.,bug
+T4110,2026-07-04,C12387,Pro,Downgrade to Starter?,We're a one-person shop. Saw a rumor of a price increase. Can I move to Starter and keep my data and usage?,pricing
+T4111,2026-09-05,C10034,Pro,Invite email not received,My teammate never got the invite.,account
+T4112,2026-07-02,C10016,Starter,Invite email not received,My teammate never got the invite.,account
+T4113,2026-07-15,C10546,Team,Password reset loop,Reset link says expired.,account
+T4114,2026-07-26,C10818,Team,CSV export times out,Exporting more than 50k rows spins forever.,bug
+T4115,2026-08-10,C10970,Pro,Refund request,Charged after cancelling.,billing
+T4116,2026-09-01,C11093,Pro,Invoice needs VAT number,Please add our VAT ID to invoices.,billing
+T4117,2026-08-10,C11731,Team,Dark mode contrast,Charts are hard to read in dark mode.,ux
+T4118,2026-07-16,C10533,Pro,Our contract price,Our annual order form says the price is fixed for the term (ends 2027-04-08). Will the rumored increase affect us before renewal?,billing
+T4119,2026-09-09,C12371,Pro,Invoice needs VAT number,Please add our VAT ID to invoices.,billing
+T4120,2026-07-03,C10694,Pro,Webhook retries,Webhooks retry too aggressively.,integrations
+T4121,2026-09-18,C10417,Pro,Salesforce sync duplicates,Contacts show up twice after sync.,integrations
+T4122,2026-08-23,C10200,Pro,Considering Starter,"I live in this app all day but just me, no Slack/Salesforce. Starter would save me money.",pricing
+T4123,2026-07-03,C12271,Starter,Feature request: scheduled reports,Would love weekly email reports.,feature
+T4124,2026-08-15,C10027,Starter,SSO question,Do you support Okta on Pro?,sales
+T4125,2026-07-23,C10690,Pro,Is Pro worth it for one person?,"I'm the only user and I never touched integrations. I run a lot of events through it daily, but honestly Starter has everything I use. If Pro goes up at all I'll switch.",pricing
+T4126,2026-09-25,C11897,Pro,Feature request: scheduled reports,Would love weekly email reports.,feature
+T4127,2026-08-19,C10772,Pro,Notice for price changes,As an EU customer we expect the 30 days' notice in your terms if prices change. Last time it was two weeks.,billing
+T4128,2026-07-22,C11400,Pro,CSV export times out,Exporting more than 50k rows spins forever.,bug
+T4129,2026-09-09,C12394,Pro,Our contract price,Our annual order form says the price is fixed for the term (ends 2027-04-24). Will the rumored increase affect us before renewal?,billing
+T4130,2026-09-20,C11975,Pro,Just signed up,Just started the Pro plan last week. Is the price I signed up at guaranteed for a while?,pricing
+T4131,2026-08-12,C11530,Pro,Salesforce sync duplicates,Contacts show up twice after sync.,integrations
+T4132,2026-07-02,C10543,Pro,Password reset loop,Reset link says expired.,account
+T4133,2026-08-17,C12165,Pro,Notice for price changes,As an EU customer we expect the 30 days' notice in your terms if prices change. Last time it was two weeks.,billing
+T4134,2026-07-06,C10260,Starter,Refund request,Charged after cancelling.,billing
+T4135,2026-09-27,C10832,Starter,SSO question,Do you support Okta on Pro?,sales
+T4136,2026-07-06,C10455,Pro,Our contract price,Our annual order form says the price is fixed for the term (ends 2027-03-26). Will the rumored increase affect us before renewal?,billing
+T4137,2026-07-28,C10532,Pro,Just signed up,Just started the Pro plan last week. Is the price I signed up at guaranteed for a while?,pricing
+T4138,2026-07-07,C11552,Pro,Webhook retries,Webhooks retry too aggressively.,integrations
+T4139,2026-07-16,C10332,Pro,SSO question,Do you support Okta on Pro?,sales
+T4140,2026-08-19,C12354,Pro,Just signed up,Just started the Pro plan last week. Is the price I signed up at guaranteed for a while?,pricing
+T4141,2026-09-18,C11237,Pro,Considering Starter,"I live in this app all day but just me, no Slack/Salesforce. Starter would save me money.",pricing
+T4142,2026-08-03,C12035,Pro,Password reset loop,Reset link says expired.,account
+T4143,2026-07-18,C10570,Pro,CSV export times out,Exporting more than 50k rows spins forever.,bug
+T4144,2026-08-19,C10876,Pro,Just signed up,Just started the Pro plan last week. Is the price I signed up at guaranteed for a while?,pricing
+T4145,2026-08-18,C10348,Pro,Feature request: scheduled reports,Would love weekly email reports.,feature
+T4146,2026-07-21,C11964,Pro,Pricing question,"Solo user here, heavy usage (60k+ events a month). What does Pro give me over Starter besides seats and integrations? I don't use either.",pricing
+T4147,2026-07-19,C10690,Pro,Invoice needs VAT number,Please add our VAT ID to invoices.,billing
+T4148,2026-09-14,C10840,Pro,Invoice needs VAT number,Please add our VAT ID to invoices.,billing
+T4149,2026-09-10,C10459,Pro,Feature request: scheduled reports,Would love weekly email reports.,feature
+T4150,2026-09-17,C10160,Pro,Our contract price,Our annual order form says the price is fixed for the term (ends 2027-06-25). Will the rumored increase affect us before renewal?,billing
+T4151,2026-09-21,C10168,Pro,Refund request,Charged after cancelling.,billing
+T4152,2026-07-21,C10568,Starter,Dark mode contrast,Charts are hard to read in dark mode.,ux
+T4153,2026-09-18,C10139,Pro,Downgrade to Starter?,We're a one-person shop. Saw a rumor of a price increase. Can I move to Starter and keep my data and usage?,pricing

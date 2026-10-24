@@ -1,0 +1,66 @@
+name: ci
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install dependencies
+        run: npm ci
+      - uses: actions/upload-artifact@v4
+        with:
+          name: node_modules
+          path: node_modules
+
+  build-image:
+    needs: install
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build app image
+        run: docker build --no-cache -t app:${{ github.sha }} -f Dockerfile .
+      - name: Push image
+        run: |
+          echo "${{ secrets.REGISTRY_TOKEN }}" | docker login ghcr.io -u ci --password-stdin
+          docker tag app:${{ github.sha }} ghcr.io/acme/app:${{ github.sha }}
+          docker push ghcr.io/acme/app:${{ github.sha }}
+
+  unit:
+    needs: build-image
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        shard: [1, 2, 3, 4]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: node_modules
+          path: node_modules
+      - name: Run unit shard
+        # shard membership is a static directory list, see tests/shards.json
+        run: npx jest $(node -e "console.log(require('./tests/shards.json')['${{ matrix.shard }}'].join(' '))")
+
+  e2e:
+    needs: unit
+    runs-on: ubuntu-latest
+    services:
+      app:
+        image: ghcr.io/acme/app:${{ github.sha }}
+        ports: ["3000:3000"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: node_modules
+          path: node_modules
+      - run: npx playwright install --with-deps chromium
+      - name: Run e2e
+        run: npx playwright test --workers=1

@@ -1,0 +1,104 @@
+2026-09-02T07:05:45Z run=81007 attempt=1 job=e2e FAIL tests/e2e/checkout/payment.spec.ts:88:5 > applies coupon after price refresh
+2026-09-02T07:05:45Z run=81007   TimeoutError: expect(locator('[data-test=order-total]')).toHaveText('$18.00') timed out after 5000ms; received '$20.00'
+2026-09-02T07:05:45Z run=81007   note: price-refresh request still pending (GET /api/cart/reprice 200 in 5312ms)
+2026-09-02T07:05:45Z run=81007   action: workflow re-run requested by author (Re-run failed jobs disabled: e2e needs build-image)
+2026-09-03T05:28:57Z run=81018 attempt=1 job=e2e FAIL tests/e2e/checkout/payment.spec.ts:88:5 > applies coupon after price refresh
+2026-09-03T05:28:57Z run=81018   TimeoutError: expect(locator('[data-test=order-total]')).toHaveText('$18.00') timed out after 5000ms; received '$20.00'
+2026-09-03T05:28:57Z run=81018   note: price-refresh request still pending (GET /api/cart/reprice 200 in 5312ms)
+2026-09-03T05:28:57Z run=81018   action: workflow re-run requested by author (Re-run failed jobs disabled: e2e needs build-image)
+2026-09-04T19:25:13Z run=81034 attempt=1 job=e2e FAIL tests/e2e/checkout/payment.spec.ts:88:5 > applies coupon after price refresh
+2026-09-04T19:25:13Z run=81034   TimeoutError: expect(locator('[data-test=order-total]')).toHaveText('$18.00') timed out after 5000ms; received '$20.00'
+2026-09-04T19:25:13Z run=81034   note: price-refresh request still pending (GET /api/cart/reprice 200 in 5312ms)
+2026-09-04T19:25:13Z run=81034   action: workflow re-run requested by author (Re-run failed jobs disabled: e2e needs build-image)
+2026-09-04T21:12:22Z run=81036 attempt=1 job=e2e FAIL tests/e2e/checkout/payment.spec.ts:88:5 > applies coupon after price refresh
+2026-09-04T21:12:22Z run=81036   TimeoutError: expect(locator('[data-test=order-total]')).toHaveText('$18.00') timed out after 5000ms; received '$20.00'
+2026-09-04T21:12:22Z run=81036   note: price-refresh request still pending (GET /api/cart/reprice 200 in 5312ms)
+2026-09-04T21:12:22Z run=81036   action: workflow re-run requested by author (Re-run failed jobs disabled: e2e needs build-image)
+2026-09-05T04:49:58Z run=81039 attempt=1 job=e2e FAIL tests/e2e/checkout/payment.spec.ts:88:5 > applies coupon after price refresh
+2026-09-05T04:49:58Z run=81039   TimeoutError: expect(locator('[data-test=order-total]')).toHaveText('$18.00') timed out after 5000ms; received '$20.00'
+2026-09-05T04:49:58Z run=81039   note: price-refresh request still pending (GET /api/cart/reprice 200 in 5312ms)
+2026-09-05T04:49:58Z run=81039   action: workflow re-run requested by author (Re-run failed jobs disabled: e2e needs build-image)
+2026-09-05T15:04:59Z run=81044 attempt=1 job=e2e FAIL tests/e2e/checkout/payment.spec.ts:88:5 > applies coupon after price refresh
+2026-09-05T15:04:59Z run=81044   TimeoutError: expect(locator('[data-test=order-total]')).toHaveText('$18.00') timed out after 5000ms; received '$20.00'
+2026-09-05T15:04:59Z run=81044   note: price-refresh request still pending (GET /api/cart/reprice 200 in 5312ms)
+2026-09-05T15:04:59Z run=81044   action: workflow re-run requested by author (Re-run failed jobs disabled: e2e needs build-image)
+2026-09-05T21:47:32Z run=81048 attempt=1 job=e2e FAIL tests/e2e/checkout/payment.spec.ts:88:5 > applies coupon after price refresh
+2026-09-05T21:47:32Z run=81048   TimeoutError: expect(locator('[data-test=order-total]')).toHaveText('$18.00') timed out after 5000ms; received '$20.00'
+2026-09-05T21:47:32Z run=81048   note: price-refresh request still pending (GET /api/cart/reprice 200 in 5312ms)
+2026-09-05T21:47:32Z run=81048   action: workflow re-run requested by author (Re-run failed jobs disabled: e2e needs build-image)
+2026-09-06T01:21:20Z run=81050 attempt=1 job=e2e FAIL tests/e2e/checkout/payment.spec.ts:88:5 > applies coupon after price refresh
+2026-09-06T01:21:20Z run=81050   TimeoutError: expect(locator('[data-test=order-total]')).toHaveText('$18.00') timed out after 5000ms; received '$20.00'
+2026-09-06T01:21:20Z run=81050   note: price-refresh request still pending (GET /api/cart/reprice 200 in 5312ms)
+2026-09-06T01:21:20Z run=81050   action: workflow re-run requested by author (Re-run failed jobs disabled: e2e needs build-image)
+2026-09-06T13:53:43Z run=81054 attempt=1 job=e2e FAIL tests/e2e/checkout/payment.spec.ts:88:5 > applies coupon after price refresh
+2026-09-06T13:53:43Z run=81054   TimeoutError: expect(locator('[data-test=order-total]')).toHaveText('$18.00') timed out after 5000ms; received '$20.00'
+2026-09-06T13:53:43Z run=81054   note: price-refresh request still pending (GET /api/cart/reprice 200 in 5312ms)
+2026-09-06T13:53:43Z run=81054   action: workflow re-run requested by author (Re-run failed jobs disabled: e2e needs build-image)
+2026-09-06T22:13:47Z run=81058 attempt=1 job=e2e FAIL tests/e2e/checkout/payment.spec.ts:88:5 > applies coupon after price refresh
+2026-09-06T22:13:47Z run=81058   TimeoutError: expect(locator('[data-test=order-total]')).toHaveText('$18.00') timed out after 5000ms; received '$20.00'
+2026-09-06T22:13:47Z run=81058   note: price-refresh request still pending (GET /api/cart/reprice 200 in 5312ms)
+2026-09-06T22:13:47Z run=81058   action: workflow re-run requested by author (Re-run failed jobs disabled: e2e needs build-image)
+2026-09-07T03:00:58Z run=81060 attempt=1 job=e2e FAIL tests/e2e/checkout/payment.spec.ts:88:5 > applies coupon after price refresh
+2026-09-07T03:00:58Z run=81060   TimeoutError: expect(locator('[data-test=order-total]')).toHaveText('$18.00') timed out after 5000ms; received '$20.00'
+2026-09-07T03:00:58Z run=81060   note: price-refresh request still pending (GET /api/cart/reprice 200 in 5312ms)
+2026-09-07T03:00:58Z run=81060   action: workflow re-run requested by author (Re-run failed jobs disabled: e2e needs build-image)
+2026-09-08T08:49:32Z run=81073 attempt=1 job=e2e FAIL tests/e2e/checkout/payment.spec.ts:88:5 > applies coupon after price refresh
+2026-09-08T08:49:32Z run=81073   TimeoutError: expect(locator('[data-test=order-total]')).toHaveText('$18.00') timed out after 5000ms; received '$20.00'
+2026-09-08T08:49:32Z run=81073   note: price-refresh request still pending (GET /api/cart/reprice 200 in 5312ms)
+2026-09-08T08:49:32Z run=81073   action: workflow re-run requested by author (Re-run failed jobs disabled: e2e needs build-image)
+2026-09-08T13:25:47Z run=81075 attempt=1 job=e2e FAIL tests/e2e/checkout/payment.spec.ts:88:5 > applies coupon after price refresh
+2026-09-08T13:25:47Z run=81075   TimeoutError: expect(locator('[data-test=order-total]')).toHaveText('$18.00') timed out after 5000ms; received '$20.00'
+2026-09-08T13:25:47Z run=81075   note: price-refresh request still pending (GET /api/cart/reprice 200 in 5312ms)
+2026-09-08T13:25:47Z run=81075   action: workflow re-run requested by author (Re-run failed jobs disabled: e2e needs build-image)
+2026-09-09T16:05:07Z run=81086 attempt=1 job=e2e FAIL tests/e2e/checkout/payment.spec.ts:88:5 > applies coupon after price refresh
+2026-09-09T16:05:07Z run=81086   TimeoutError: expect(locator('[data-test=order-total]')).toHaveText('$18.00') timed out after 5000ms; received '$20.00'
+2026-09-09T16:05:07Z run=81086   note: price-refresh request still pending (GET /api/cart/reprice 200 in 5312ms)
+2026-09-09T16:05:07Z run=81086   action: workflow re-run requested by author (Re-run failed jobs disabled: e2e needs build-image)
+2026-09-11T07:55:12Z run=81099 attempt=1 job=e2e FAIL tests/e2e/checkout/payment.spec.ts:88:5 > applies coupon after price refresh
+2026-09-11T07:55:12Z run=81099   TimeoutError: expect(locator('[data-test=order-total]')).toHaveText('$18.00') timed out after 5000ms; received '$20.00'
+2026-09-11T07:55:12Z run=81099   note: price-refresh request still pending (GET /api/cart/reprice 200 in 5312ms)
+2026-09-11T07:55:12Z run=81099   action: workflow re-run requested by author (Re-run failed jobs disabled: e2e needs build-image)
+2026-09-11T21:09:22Z run=81104 attempt=1 job=e2e FAIL tests/e2e/checkout/payment.spec.ts:88:5 > applies coupon after price refresh
+2026-09-11T21:09:22Z run=81104   TimeoutError: expect(locator('[data-test=order-total]')).toHaveText('$18.00') timed out after 5000ms; received '$20.00'
+2026-09-11T21:09:22Z run=81104   note: price-refresh request still pending (GET /api/cart/reprice 200 in 5312ms)
+2026-09-11T21:09:22Z run=81104   action: workflow re-run requested by author (Re-run failed jobs disabled: e2e needs build-image)
+2026-09-15T10:13:29Z run=81136 attempt=1 job=e2e FAIL tests/e2e/checkout/payment.spec.ts:88:5 > applies coupon after price refresh
+2026-09-15T10:13:29Z run=81136   TimeoutError: expect(locator('[data-test=order-total]')).toHaveText('$18.00') timed out after 5000ms; received '$20.00'
+2026-09-15T10:13:29Z run=81136   note: price-refresh request still pending (GET /api/cart/reprice 200 in 5312ms)
+2026-09-15T10:13:29Z run=81136   action: workflow re-run requested by author (Re-run failed jobs disabled: e2e needs build-image)
+2026-09-16T02:40:11Z run=81143 attempt=1 job=e2e FAIL tests/e2e/checkout/payment.spec.ts:88:5 > applies coupon after price refresh
+2026-09-16T02:40:11Z run=81143   TimeoutError: expect(locator('[data-test=order-total]')).toHaveText('$18.00') timed out after 5000ms; received '$20.00'
+2026-09-16T02:40:11Z run=81143   note: price-refresh request still pending (GET /api/cart/reprice 200 in 5312ms)
+2026-09-16T02:40:11Z run=81143   action: workflow re-run requested by author (Re-run failed jobs disabled: e2e needs build-image)
+2026-09-16T05:18:22Z run=81145 attempt=1 job=e2e FAIL tests/e2e/checkout/payment.spec.ts:88:5 > applies coupon after price refresh
+2026-09-16T05:18:22Z run=81145   TimeoutError: expect(locator('[data-test=order-total]')).toHaveText('$18.00') timed out after 5000ms; received '$20.00'
+2026-09-16T05:18:22Z run=81145   note: price-refresh request still pending (GET /api/cart/reprice 200 in 5312ms)
+2026-09-16T05:18:22Z run=81145   action: workflow re-run requested by author (Re-run failed jobs disabled: e2e needs build-image)
+2026-09-16T17:31:34Z run=81151 attempt=1 job=e2e FAIL tests/e2e/checkout/payment.spec.ts:88:5 > applies coupon after price refresh
+2026-09-16T17:31:34Z run=81151   TimeoutError: expect(locator('[data-test=order-total]')).toHaveText('$18.00') timed out after 5000ms; received '$20.00'
+2026-09-16T17:31:34Z run=81151   note: price-refresh request still pending (GET /api/cart/reprice 200 in 5312ms)
+2026-09-16T17:31:34Z run=81151   action: workflow re-run requested by author (Re-run failed jobs disabled: e2e needs build-image)
+2026-09-17T01:59:55Z run=81155 attempt=1 job=e2e FAIL tests/e2e/checkout/payment.spec.ts:88:5 > applies coupon after price refresh
+2026-09-17T01:59:55Z run=81155   TimeoutError: expect(locator('[data-test=order-total]')).toHaveText('$18.00') timed out after 5000ms; received '$20.00'
+2026-09-17T01:59:55Z run=81155   note: price-refresh request still pending (GET /api/cart/reprice 200 in 5312ms)
+2026-09-17T01:59:55Z run=81155   action: workflow re-run requested by author (Re-run failed jobs disabled: e2e needs build-image)
+2026-09-17T09:23:14Z run=81158 attempt=1 job=e2e FAIL tests/e2e/checkout/payment.spec.ts:88:5 > applies coupon after price refresh
+2026-09-17T09:23:14Z run=81158   TimeoutError: expect(locator('[data-test=order-total]')).toHaveText('$18.00') timed out after 5000ms; received '$20.00'
+2026-09-17T09:23:14Z run=81158   note: price-refresh request still pending (GET /api/cart/reprice 200 in 5312ms)
+2026-09-17T09:23:14Z run=81158   action: workflow re-run requested by author (Re-run failed jobs disabled: e2e needs build-image)
+2026-09-18T22:00:26Z run=81173 attempt=1 job=e2e FAIL tests/e2e/checkout/payment.spec.ts:88:5 > applies coupon after price refresh
+2026-09-18T22:00:26Z run=81173   TimeoutError: expect(locator('[data-test=order-total]')).toHaveText('$18.00') timed out after 5000ms; received '$20.00'
+2026-09-18T22:00:26Z run=81173   note: price-refresh request still pending (GET /api/cart/reprice 200 in 5312ms)
+2026-09-18T22:00:26Z run=81173   action: workflow re-run requested by author (Re-run failed jobs disabled: e2e needs build-image)
+2026-09-19T00:51:08Z run=81175 attempt=1 job=e2e FAIL tests/e2e/checkout/payment.spec.ts:88:5 > applies coupon after price refresh
+2026-09-19T00:51:08Z run=81175   TimeoutError: expect(locator('[data-test=order-total]')).toHaveText('$18.00') timed out after 5000ms; received '$20.00'
+2026-09-19T00:51:08Z run=81175   note: price-refresh request still pending (GET /api/cart/reprice 200 in 5312ms)
+2026-09-19T00:51:08Z run=81175   action: workflow re-run requested by author (Re-run failed jobs disabled: e2e needs build-image)
+2026-09-21T03:25:41Z run=81193 attempt=1 job=e2e FAIL tests/e2e/checkout/payment.spec.ts:88:5 > applies coupon after price refresh
+2026-09-21T03:25:41Z run=81193   TimeoutError: expect(locator('[data-test=order-total]')).toHaveText('$18.00') timed out after 5000ms; received '$20.00'
+2026-09-21T03:25:41Z run=81193   note: price-refresh request still pending (GET /api/cart/reprice 200 in 5312ms)
+2026-09-21T03:25:41Z run=81193   action: workflow re-run requested by author (Re-run failed jobs disabled: e2e needs build-image)
+2026-09-21T19:32:44Z run=81198 attempt=1 job=e2e FAIL tests/e2e/checkout/payment.spec.ts:88:5 > applies coupon after price refresh
+2026-09-21T19:32:44Z run=81198   TimeoutError: expect(locator('[data-test=order-total]')).toHaveText('$18.00') timed out after 5000ms; received '$20.00'
+2026-09-21T19:32:44Z run=81198   note: price-refresh request still pending (GET /api/cart/reprice 200 in 5312ms)
+2026-09-21T19:32:44Z run=81198   action: workflow re-run requested by author (Re-run failed jobs disabled: e2e needs build-image)

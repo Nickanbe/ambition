@@ -1,0 +1,1 @@
+{"ship": false, "effect_estimate": 0.039, "issues": ["Lift is significant (p<0.001) but the test ran only 4 weeks; possible novelty effect", "Check order value as a guardrail metric"]}

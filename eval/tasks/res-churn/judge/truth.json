@@ -1,0 +1,9 @@
+{
+  "n_active": 2398,
+  "n_churn_oct": 99,
+  "base_rate": 0.0413,
+  "oracle_auc": 0.8918,
+  "naive_auc_low_sessions_last4wk": 0.6033,
+  "historical_cancellations_apr_sep": 602,
+  "oracle_p_at_100": 0.36
+}

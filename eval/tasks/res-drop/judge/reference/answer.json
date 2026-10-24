@@ -1,0 +1,24 @@
+{
+  "causes": [
+    {
+      "description": "Tracking bug: signup events from Safari 19.3 stopped being recorded from 2026-03-03; the accounts were still created in billing (signups happened, analytics lost them).",
+      "share_of_drop": 0.589
+    },
+    {
+      "description": "Price increase in IN (India): pro price shown rose [('2026-01', '8'), ('2026-02', '8'), ('2026-03', '12')]; real IN signups fell ~32% vs the trend in other countries.",
+      "share_of_drop": 0.296
+    },
+    {
+      "description": "Residual / noise: small across-the-board dip within normal variation.",
+      "share_of_drop": 0.115
+    }
+  ],
+  "not_causes": [
+    {
+      "description": "paid_social decline is seasonal: Mar vs Feb was -33% in 2025 too, offset by organic_search; total signups were flat Feb->Mar 2025 (-1.1%).",
+      "share_of_drop": 0
+    }
+  ],
+  "observed_drop_pct": 0.1886,
+  "real_drop_pct_billing": 0.0776
+}

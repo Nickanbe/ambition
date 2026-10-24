@@ -1,0 +1,9 @@
+{
+  "id": "plan-ci",
+  "mode": "planning",
+  "size": "light",
+  "prompt": "Our CI takes 38 minutes. Make a plan to get it down. Write the plan to plan.md.",
+  "judge": "human",
+  "control": false,
+  "notes": "Planning task, primary judge is Nick's blind X/Y ranking with judge/rubric.md. judge/judge.py is a secondary, lenient auto signal: keyword/regex checks (with synonyms, proximity window 350 chars) on plan.md (fallback: any new top-level .md/.txt). score = fraction of checks passed. Checks: shard_imbalance, deps_not_cached, flaky_reruns, docker_rebuilt_unchanged, e2e_serial (the 5 planted facts), plus target_with_measurement and quantified_from_data (>= 4 data-derived numbers). Validation (python3 -I, fixture copied fresh, reference dir overlaid): untouched fixture = 0.0; judge/reference = 1.0; judge/reference_generic (a plausible plan written without reading the data) = 0.143. Fixture data is generated deterministically (seeded) and no network is needed."
+}
