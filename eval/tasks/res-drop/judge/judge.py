@@ -20,7 +20,7 @@ TRACK = re.compile(r"track|instrument|analytics (bug|issue|gap|loss|outage|pipel
                    r"not (a )?real (drop|decline|loss)|signups? (still )?(happened|occurred)", re.I)
 SAFARI = re.compile(r"safari|19\.3", re.I)
 PRICE = re.compile(r"pric", re.I)
-INDIA = re.compile(r"india|\bIN\b")
+INDIA = re.compile(r"(?i:india)|\bIN\b")
 SOCIAL = re.compile(r"paid[_ ]social|social", re.I)
 
 
