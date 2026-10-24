@@ -1,0 +1,66 @@
+<div class="amb">
+  <p>This started with Felix Rieseberg's essay <a href="https://felixrieseberg.com/how-to-be-more-ambitious-a-tutorial-for-humans-with-models/" target="_blank" rel="noopener">How to be more ambitious</a>. He makes a clear and generous case that a task is only our best guess at the outcome we want, and that the bigger wins come from asking for a different task: one that sits higher, goes deeper, or pulls in more fields. I highly recommend reading it first. It takes eight minutes, and the framework here is all his.</p>
+  <p>Ambition packages that framework as an agent skill. Hand it a task and it returns the baseline, the more ambitious versions ranked by payoff against cost, and a rewritten brief you can run. Every upgrade names something other than the model that would prove it worked. Then it stops, so the choice of what to take on stays yours.</p>
+
+  <h3>Four kinds of ambition</h3>
+  <figure class="amb-figure">{{diagram}}</figure>
+  <div class="amb-types">
+    <div><b>Speed</b><q>The same work in less time.</q><span>Felix skips it as the easy one. The skill keeps it as the baseline every upgrade is measured against.</span></div>
+    <div><b>Altitude</b><q>Going up in abstraction and considering the outcome rather than the individual task.</q><span>“Fix this crash” becomes “keep the app crash-free.”</span></div>
+    <div><b>Depth</b><q>Considering a task the way a field-leading expert would.</q><span>Raw data instead of summaries, the instruments professionals use, and a judge that isn't the model.</span></div>
+    <div><b>Range</b><q>Drawing on multiple fields rather than just the one the task might need at the surface.</q><span>Turn the deliverable's nouns into verbs, then assemble the crew that does those verbs, including an adversary.</span></div>
+  </div>
+
+  <h3>Writing a prompt</h3>
+  <p>Type <code>/ambition</code> and the task, the way you would have asked for it anyway. Two optional words steer it:</p>
+  <ul>
+    <li><code>planning</code>, <code>research</code> or <code>feature</code> picks which type leads: Altitude for plans, Depth for research, Depth then Altitude for features.</li>
+    <li><code>light</code> or <code>full</code> sets how deep it goes. Light is one line per type and the top three upgrades in about 400 words. Full answers every question, runs the crew as parallel subagents, and is picked on its own when the result feeds a decision that's costly to reverse.</li>
+  </ul>
+  <div class="amb-cmd"><pre><code>/ambition why did our open rate drop from 41% to 33%? research</code></pre></div>
+  <p>You don't need the slash command. Agents that support skills also pick it up when you ask them to think bigger or make something more ambitious.</p>
+
+  <h3>What it does</h3>
+  <ol class="amb-steps">
+    <li><b>Baseline.</b> Write the literal task in one sentence and the fastest competent way to do it. This is the control.</li>
+    <li><b>Altitude.</b> Climb from the task to the outcome in two or three rungs, each with the access it needs. Stop where the result can no longer be measured. “Go make money” is past that point.</li>
+    <li><b>Depth.</b> Answer Felix's four questions: what a top professional would add, the rawest material they would start from, the real methods and tools, and what outside judge would show it is right. Then set a stretch target, name an assumption to test, and look for one thing nobody knows yet.</li>
+    <li><b>Range.</b> Rewrite the deliverable as verbs, pick three to five fields including an adversary, and state the method each field brings. In full mode each field runs as its own read-only subagent.</li>
+    <li><b>Synthesis.</b> A table of upgrades with type, cost, payoff and judge, ranked by payoff against cost. Then a recommended brief and a list of what it needs from you. Then it stops.</li>
+  </ol>
+
+  <h3>Three real runs</h3>
+  <p class="amb-note">Unedited output from Claude Opus 5.5 running the skill on three made-up tasks on 16 October 2026. None had access to real data, which is why each one ends with what it needs. Open one to read it.</p>
+  {{runs}}
+
+  <h3>Rules it keeps</h3>
+  <ul>
+    <li><b>No self-grading.</b> Every upgrade names a judge other than the model: a test suite, holdout data, a benchmark, a reviewer, real users. Felix: “Do not ask the model to judge itself.”</li>
+    <li><b>Methods, not voices.</b> Fields bring what they do, not how they talk. “Don't ask the model to write like a short seller, ask it to do what a short seller does.”</li>
+    <li><b>Stretch targets are meant.</b> A page asked to load in 5 seconds gets a 200 millisecond target. If one proves infeasible after a real attempt, the skill says what blocked it and offers the next-best target.</li>
+    <li><b>Cost in model terms.</b> Cost is model time plus what you have to supply, never human work-weeks. Those anchor on how long things took before models and talk the plan down.</li>
+    <li><b>Your scope, your call.</b> It never starts the bigger version on its own. You pick the upgrades, then run the brief.</li>
+  </ul>
+
+  <h3>Install</h3>
+  <p>One command installs it into Claude Code, Codex, Cursor, Gemini CLI, GitHub Copilot, OpenCode and dozens of other agents:</p>
+  <div class="amb-cmd"><pre><code>npx skills add https://nickbeaird.com/ambition/ambition.zip</code></pre><button type="button" class="amb-copy">Copy</button></div>
+  <p>Or download the zip and unzip it into your agent's skills folder: <code>~/.claude/skills</code> for Claude Code, or <code>.agents/skills</code> in a repo for Codex, Cursor, Gemini CLI, Copilot and OpenCode. In the Claude app, upload the zip under Customize, then Skills.</p>
+  <p class="amb-actions"><a class="amb-download" href="/ambition/ambition.zip" download data-download="ambition" data-from="homepage install"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v8.5M4.5 7 8 10.5 11.5 7M3 13.5h10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Download ambition.zip</a></p>
+  <p>No skill support? The skill is plain Markdown. Paste <a href="/ambition/SKILL.md" target="_blank" rel="noopener">SKILL.md</a> into any chat with your task underneath, or save it in your repo as <code>docs/ambition.md</code> and add one line to your <code>AGENTS.md</code>:</p>
+  <div class="amb-cmd"><pre><code>When asked to make a task more ambitious, follow docs/ambition.md.</code></pre><button type="button" class="amb-copy">Copy</button></div>
+
+  <h3>Limits</h3>
+  <ul>
+    <li><b>It plans; it doesn't do the work.</b> The output is a better brief. The ambitious version is the next run, and it costs what the table says.</li>
+    <li><b>It's only as ambitious as its access.</b> Every kind of ambition needs a model with a computer it can install software on and connectors to real data. Without them most upgrades land under “Needs from you”.</li>
+    <li><b>Altitude has a ceiling.</b> Asking for the outcome works until the outcome can't be measured or acted on. “Claude, go make money” still doesn't work for most businesses.</li>
+    <li><b>Creative work gets less from Altitude.</b> A song or a short story has no goal beyond the goal. Depth and Range still help.</li>
+  </ul>
+
+  <h3>Questions</h3>
+  <p><b>Is this official?</b> No. The four types of ambition and the techniques are Felix's. This is my independent packaging, not made or endorsed by Felix or Anthropic.</p>
+  <p><b>Why a skill and not AGENTS.md?</b> <code>AGENTS.md</code> holds standing instructions for one repository and loads into every conversation there. A skill loads only when the task calls for it and travels with you between projects. The one-line pointer above covers agents that only read <code>AGENTS.md</code>.</p>
+  <p><b>Can I change it?</b> Yes. It's one Markdown file, MIT licensed. Rename the modes, change the output table, or add guardrails that fit your team.</p>
+  <p class="amb-note">This write-up also lives at <a href="/ambition/" target="_blank" rel="noopener">nickbeaird.com/ambition</a>, the address the install command uses. Plate: Francisco de Goya, <i>Modo de volar</i>, published 1864, National Gallery of Art, CC0.</p>
+</div>

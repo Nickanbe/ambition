@@ -1,0 +1,638 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ambition · an agent skill</title>
+<meta name="description" content="Hand your agent a task and get back the more ambitious version of it, with an outside judge for every upgrade. An agent skill built on Felix Rieseberg's four types of ambition.">
+<meta property="og:title" content="Ambition · an agent skill">
+<meta property="og:description" content="Hand your agent a task and get back the more ambitious version of it, with an outside judge for every upgrade.">
+<meta property="og:image" content="https://nickbeaird.com/ambition/goya.jpg">
+<link rel="canonical" href="https://nickbeaird.com/ambition/">
+<meta name="color-scheme" content="light dark">
+<style>
+  @font-face { font-family: 'Geist'; src: url('/fonts/Geist-Regular.woff2') format('woff2'); font-weight: 400; font-display: swap; }
+  @font-face { font-family: 'Geist'; src: url('/fonts/Geist-Medium.woff2') format('woff2'); font-weight: 500; font-display: swap; }
+  @font-face { font-family: 'Geist'; src: url('/fonts/Geist-SemiBold.woff2') format('woff2'); font-weight: 600; font-display: swap; }
+
+  :root {
+    --paper: #f5f2ea;
+    --paper-raised: #fbf9f4;
+    --ink: #161513;
+    --ink-soft: #3d3b36;
+    --muted: #77736a;
+    --rule: #e1dccf;
+    --code-bg: #ebe6d9;
+    --accent: #8f3a1e;
+    --accent-soft: rgba(143, 58, 30, 0.10);
+    --sans: 'Geist', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+    --serif: 'Iowan Old Style', 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
+    --mono: ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #151412;
+      --paper-raised: #1c1b18;
+      --ink: #ece8de;
+      --ink-soft: #c9c4b8;
+      --muted: #969185;
+      --rule: #2d2b27;
+      --code-bg: #24221e;
+      --accent: #e08b62;
+      --accent-soft: rgba(224, 139, 98, 0.12);
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; scroll-padding-top: 24px; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font: 400 17px/1.65 var(--sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  a { color: inherit; text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 3px; text-decoration-thickness: 1px; }
+  a:hover { text-decoration-color: var(--ink); }
+  em, .serif-em { font-family: var(--serif); font-style: italic; font-size: 1.04em; }
+  code, kbd {
+    font-family: var(--mono);
+    font-size: 0.86em;
+    background: var(--code-bg);
+    border-radius: 4px;
+    padding: 0.12em 0.36em;
+  }
+  ::selection { background: var(--accent-soft); }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 3px; }
+
+  /* ---------- layout ---------- */
+  .page {
+    display: grid;
+    grid-template-columns: 1fr minmax(0, 780px) 1fr;
+    gap: 0 56px;
+    padding: 56px 16px 0;
+  }
+  .side { grid-column: 1; justify-self: end; width: 190px; }
+  main { grid-column: 2; min-width: 0; }
+  .toc { position: sticky; top: 56px; font-size: 14px; line-height: 1.85; }
+  .toc ol { list-style: none; margin: 0; padding: 0; }
+  .toc a { color: var(--muted); text-decoration: none; display: inline-flex; gap: 10px; transition: color .15s; }
+  .toc a span { font-variant-numeric: tabular-nums; opacity: .6; width: 1.4em; }
+  .toc a:hover, .toc a[aria-current="true"] { color: var(--ink); }
+  .toc-mark { display: block; width: 28px; height: 28px; margin-bottom: 22px; color: var(--ink); }
+  @media (max-width: 1259px) {
+    .page { grid-template-columns: minmax(0, 780px); justify-content: center; padding-top: 32px; }
+    .side { display: none; }
+    main { grid-column: 1; }
+  }
+
+  /* ---------- hero ---------- */
+  .masthead { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; }
+  h1 { font-size: 16px; font-weight: 500; margin: 0; letter-spacing: -0.005em; }
+  h1 .sub { color: var(--muted); font-weight: 400; }
+  .masthead a { color: var(--muted); font-size: 14px; text-decoration: none; }
+  .masthead a:hover { color: var(--ink); }
+  .tagline { font-size: 25px; line-height: 1.4; letter-spacing: -0.012em; margin: 22px 0 28px; font-weight: 400; text-wrap: balance; }
+  .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 22px; margin: 0 0 32px; }
+  .actions > a:not(.download) { color: var(--muted); font-size: 15px; text-decoration: none; }
+  .actions > a:not(.download):hover { color: var(--ink); }
+  .plate { margin: 0; }
+  .plate img { display: block; width: 100%; height: auto; border-radius: 3px; box-shadow: 0 1px 2px rgba(0,0,0,.06), 0 12px 32px -12px rgba(0,0,0,.25); }
+  .plate figcaption { font-size: 13px; color: var(--muted); margin-top: 10px; line-height: 1.5; }
+  .meta {
+    display: flex; flex-wrap: wrap; gap: 4px 0; align-items: center;
+    font-size: 14px; color: var(--muted);
+    border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
+    padding: 12px 0; margin: 28px 0 32px;
+  }
+  .meta > * + *::before { content: "·"; margin: 0 10px; opacity: .6; }
+  .meta code { background: none; padding: 0; font-size: 13px; color: var(--ink-soft); }
+  @media (max-width: 560px) {
+    body { font-size: 16px; }
+    .tagline { font-size: 22px; }
+    .meta { gap: 6px 18px; }
+    .meta > * + *::before { content: none; }
+  }
+
+  .lede p { margin: 0 0 18px; }
+
+  /* ---------- sections ---------- */
+  section { margin-top: 96px; }
+  .num { display: block; font-size: 13px; color: var(--accent); font-variant-numeric: tabular-nums; letter-spacing: .04em; margin-bottom: 6px; }
+  h2 { font-size: 28px; font-weight: 500; letter-spacing: -0.02em; line-height: 1.2; margin: 0 0 20px; }
+  h3 { font-size: 16px; font-weight: 600; margin: 32px 0 8px; }
+  section p { margin: 0 0 16px; }
+  .note { font-size: 14px; color: var(--muted); }
+
+  /* ---------- four types ---------- */
+  .compass { margin: 28px 0 8px; }
+  .compass svg { display: block; width: 100%; height: auto; overflow: visible; }
+  .compass .g { transition: opacity .2s; }
+  .compass[data-focus] .g { opacity: .18; }
+  .compass[data-focus="speed"] .g-speed,
+  .compass[data-focus="altitude"] .g-altitude,
+  .compass[data-focus="depth"] .g-depth,
+  .compass[data-focus="range"] .g-range,
+  .compass .g-core { opacity: 1; }
+  @media (max-width: 560px) {
+    .compass .t-name { font-size: 22px; }
+    .compass .t-sub { font-size: 17px; }
+    .compass .fields { display: none; }
+  }
+  .types { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 24px 0 0; padding: 0; list-style: none; }
+  .types li {
+    background: var(--paper-raised); border: 1px solid var(--rule); border-radius: 10px;
+    padding: 16px 18px; cursor: default; transition: border-color .15s, transform .15s;
+  }
+  .types li:hover, .types li:focus-within, .types li.on { border-color: var(--ink-soft); }
+  .types b { display: block; font-weight: 600; font-size: 15px; margin-bottom: 4px; }
+  .types q { display: block; font-family: var(--serif); font-style: italic; font-size: 15.5px; line-height: 1.45; quotes: "\201C" "\201D"; color: var(--ink); margin-bottom: 8px; }
+  .types span { display: block; font-size: 14px; color: var(--muted); line-height: 1.5; }
+  @media (max-width: 560px) { .types { grid-template-columns: 1fr; } }
+
+  /* ---------- prompts ---------- */
+  .chips { display: grid; grid-template-columns: max-content 1fr; gap: 10px 16px; margin: 20px 0 28px; align-items: baseline; }
+  .chips code { justify-self: start; }
+  .chips span { font-size: 15px; color: var(--ink-soft); }
+  .prompts { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--rule); }
+  .prompts li { display: grid; grid-template-columns: 9.5em 1fr; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--rule); align-items: baseline; }
+  .prompts .lbl { font-size: 14px; color: var(--muted); }
+  .prompts code { background: none; padding: 0; font-size: 14px; color: var(--ink); overflow-wrap: anywhere; }
+  @media (max-width: 560px) { .prompts li { grid-template-columns: 1fr; gap: 2px; } }
+
+  /* ---------- steps ---------- */
+  .steps { list-style: none; padding: 0; margin: 24px 0 0; counter-reset: step -1; }
+  .steps li { counter-increment: step; display: grid; grid-template-columns: 2.4em 1fr; gap: 0 12px; padding: 14px 0; border-top: 1px solid var(--rule); }
+  .steps li:last-child { border-bottom: 1px solid var(--rule); }
+  .steps li::before { content: counter(step); font-variant-numeric: tabular-nums; color: var(--accent); font-size: 14px; padding-top: 2px; }
+  .steps b { font-weight: 600; }
+  .steps p { margin: 2px 0 0; font-size: 15px; color: var(--ink-soft); }
+
+  table { border-collapse: collapse; width: 100%; font-size: 14px; line-height: 1.5; }
+  th, td { text-align: left; vertical-align: top; padding: 9px 12px 9px 0; border-bottom: 1px solid var(--rule); }
+  th { font-weight: 500; color: var(--muted); font-size: 13px; }
+  .table-wrap { overflow-x: auto; margin: 20px 0; -webkit-overflow-scrolling: touch; }
+
+  /* ---------- runs ---------- */
+  .tabs { display: flex; gap: 4px; border-bottom: 1px solid var(--rule); margin: 24px 0 0; overflow-x: auto; }
+  .tabs button {
+    font: inherit; font-size: 14px; color: var(--muted); background: none; border: 0; cursor: pointer;
+    padding: 10px 12px 11px; margin-bottom: -1px; border-bottom: 2px solid transparent; white-space: nowrap;
+  }
+  .tabs button:hover { color: var(--ink); }
+  .tabs button[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--ink); }
+  .run { padding-top: 20px; }
+  .run[hidden] { display: none; }
+  .run .ask { font-family: var(--mono); font-size: 13.5px; background: var(--code-bg); border-radius: 8px; padding: 12px 14px; margin: 0 0 20px; overflow-wrap: anywhere; }
+  .run .ask::before { content: "> "; color: var(--muted); }
+  .out { background: var(--paper-raised); border: 1px solid var(--rule); border-radius: 12px; padding: 4px 20px 8px; }
+  .out h2 { font-size: 17px; font-weight: 600; letter-spacing: -0.01em; margin: 18px 0 6px; }
+  .out h3 { font-size: 13px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); font-weight: 500; margin: 24px 0 8px; }
+  .out p, .out li { font-size: 14.5px; color: var(--ink-soft); }
+  .out ul, .out ol { padding-left: 20px; margin: 0 0 12px; }
+  .out li + li { margin-top: 4px; }
+  .out blockquote { margin: 0 0 12px; padding: 2px 0 2px 14px; border-left: 2px solid var(--rule); }
+  .out .table-wrap { margin: 8px 0 12px; }
+  .out table { font-size: 13px; min-width: 540px; }
+  .out h2 .date { white-space: nowrap; }
+  @media (max-width: 560px) { .out { padding: 2px 14px 6px; } }
+  .out td:first-child, .out th:first-child { width: 1.6em; color: var(--muted); }
+  .out code { font-size: 0.84em; }
+
+  /* ---------- rules ---------- */
+  .rules { list-style: none; padding: 0; margin: 20px 0 0; display: grid; gap: 1px; background: var(--rule); border: 1px solid var(--rule); border-radius: 12px; overflow: hidden; }
+  .rules li { background: var(--paper); padding: 16px 18px; }
+  .rules b { display: block; font-weight: 600; margin-bottom: 2px; }
+  .rules span { color: var(--ink-soft); font-size: 15px; }
+
+  /* ---------- install ---------- */
+  .cmd { position: relative; margin: 10px 0 22px; }
+  .cmd pre {
+    margin: 0; font-family: var(--mono); font-size: 14px; line-height: 1.5;
+    background: var(--ink); color: var(--paper); border-radius: 10px;
+    padding: 15px 72px 15px 16px; white-space: pre-wrap; overflow-wrap: anywhere;
+  }
+  .cmd pre::before { content: "$ "; opacity: .45; }
+  .cmd pre.plain::before { content: none; }
+  .cmd pre code { background: none; padding: 0; border-radius: 0; font-size: inherit; color: inherit; }
+  .copy {
+    position: absolute; top: 9px; right: 9px;
+    font: 500 12px var(--sans); color: var(--paper); background: rgba(255,255,255,.12);
+    border: 0; border-radius: 6px; padding: 6px 9px; cursor: pointer;
+  }
+  @media (prefers-color-scheme: dark) { .copy { background: rgba(0,0,0,.10); } }
+  .copy:hover { background: rgba(255,255,255,.2); }
+  .download {
+    display: inline-flex; align-items: center; gap: 8px; text-decoration: none;
+    font-weight: 500; font-size: 15px; border: 1px solid var(--ink-soft); border-radius: 999px;
+    padding: 9px 16px; margin: 4px 0 8px;
+  }
+  .download:hover { background: var(--ink); color: var(--paper); }
+  .download.primary { background: var(--ink); color: var(--paper); border-color: var(--ink); margin: 0; }
+  .download.primary:hover { opacity: .85; }
+  details.source { margin-top: 28px; border-top: 1px solid var(--rule); padding-top: 14px; }
+  details.source summary { cursor: pointer; font-weight: 500; }
+  details.source pre {
+    font-family: var(--mono); font-size: 12.5px; line-height: 1.55; white-space: pre-wrap; overflow-wrap: anywhere;
+    background: var(--paper-raised); border: 1px solid var(--rule); border-radius: 10px; padding: 16px; margin: 14px 0 0;
+    max-height: 560px; overflow-y: auto;
+  }
+
+  /* ---------- faq ---------- */
+  dl.faq { margin: 20px 0 0; }
+  dl.faq dt { font-weight: 600; margin-top: 22px; }
+  dl.faq dd { margin: 4px 0 0; color: var(--ink-soft); }
+
+  /* ---------- footer ---------- */
+  footer { grid-column: 1 / -1; margin-top: 120px; border-top: 1px solid var(--rule); padding: 28px 0 56px; }
+  footer .inner { max-width: 780px; margin: 0 auto; font-size: 13.5px; color: var(--muted); line-height: 1.7; }
+  footer p { margin: 0 0 10px; }
+  @media (max-width: 1259px) { footer { grid-column: 1; } }
+</style>
+<!-- Vercel Web Analytics -->
+<script>
+  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
+</head>
+<body>
+<div class="page">
+  <aside class="side">
+    <nav class="toc" aria-label="Contents">
+      <svg class="toc-mark" viewBox="0 0 28 28" aria-hidden="true"><circle cx="14" cy="14" r="2.6" fill="currentColor"/><circle cx="14" cy="14" r="6.5" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="2 2"/><path d="M14 7.5V1.5M11.5 4 14 1.5 16.5 4M14 20.5v6M7.5 14H2M20.5 14H26" stroke="currentColor" stroke-width="1.2" fill="none" stroke-linecap="round"/></svg>
+      <ol>
+        <li><a href="#types"><span>01</span>Four kinds of ambition</a></li>
+        <li><a href="#prompt"><span>02</span>Writing a prompt</a></li>
+        <li><a href="#process"><span>03</span>What the agent does</a></li>
+        <li><a href="#runs"><span>04</span>Three real runs</a></li>
+        <li><a href="#rules"><span>05</span>Rules it keeps</a></li>
+        <li><a href="#install"><span>06</span>Install</a></li>
+        <li><a href="#limits"><span>07</span>Limits</a></li>
+        <li><a href="#questions"><span>08</span>Questions</a></li>
+      </ol>
+    </nav>
+  </aside>
+
+  <main>
+    <header>
+      <div class="masthead">
+        <h1>Ambition <span class="sub">· an agent skill</span></h1>
+        <a href="https://felixrieseberg.com/how-to-be-more-ambitious-a-tutorial-for-humans-with-models/">The essay ↗</a>
+      </div>
+      <p class="tagline">Hand your agent a task. Get back <em>the more ambitious version</em> of it, and the judge that will prove it worked.</p>
+      <div class="actions">
+        <a class="download primary" href="/ambition/ambition.zip" download data-from="page header">
+          <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v8.5M4.5 7 8 10.5 11.5 7M3 13.5h10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Download Skill
+        </a>
+        <a href="#install">Other ways to install ↓</a>
+      </div>
+      <figure class="plate">
+        <img src="/ambition/goya.jpg" width="1400" height="985" alt="Goya's etching Modo de volar: a man strapped into huge bat-like wings soars through a black sky while smaller winged figures glide below him.">
+        <figcaption>Francisco de Goya, <em>Modo de volar</em> (A Way of Flying), from <em>Los Disparates</em>, published 1864. Felix's essay opens with the same plate.</figcaption>
+      </figure>
+      <div class="meta">
+        <code>/ambition</code>
+        <span>after <a href="https://felixrieseberg.com/how-to-be-more-ambitious-a-tutorial-for-humans-with-models/">Felix Rieseberg</a></span>
+        <span>by <a href="https://nickbeaird.com">Nick Beaird</a></span>
+        <span>16 October 2026</span>
+      </div>
+    </header>
+
+    <div class="lede">
+      <p>Most of the time we ask a model for the task we already had in mind. In <a href="https://felixrieseberg.com/how-to-be-more-ambitious-a-tutorial-for-humans-with-models/">“How to be more ambitious”</a>, Felix Rieseberg, an engineering manager at Anthropic, makes a clear and generous case that a task is only our best guess at the outcome we want. His essay inspired this skill, and I highly recommend <a href="https://felixrieseberg.com/how-to-be-more-ambitious-a-tutorial-for-humans-with-models/">reading it first</a>. It takes eight minutes, and the framework here is all his. The bigger wins, he shows, come from asking for a different task: one that sits higher, goes deeper, or pulls in more fields.</p>
+      <p>Ambition is an agent skill that does that pass for you, in Claude, Codex, Cursor or any agent that reads <code>SKILL.md</code>. Give it a task and it returns the baseline, a ranked list of more ambitious versions, and a rewritten brief you can run. Each version names something other than the model that would prove it worked. Then it stops, so the choice of what to take on stays yours.</p>
+    </div>
+
+    <section id="types">
+      <span class="num">01</span>
+      <h2>Four kinds of ambition</h2>
+      <p>Felix sorts ambition into four types. The skill runs all four on every task and lets the kind of work decide which one leads.</p>
+      <div class="compass" id="compass">
+        <svg viewBox="0 0 600 380" role="img" aria-labelledby="compass-title">
+          <title id="compass-title">The task sits at the center inside a dashed ring for Speed. Altitude rises above it toward the outcome, Depth descends through layers below it, and Range fans out to other fields on both sides.</title>
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1 9 5 1 9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></marker>
+          </defs>
+          <g fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" font-family="Geist, ui-sans-serif, system-ui, sans-serif" style="color: var(--ink)">
+            <!-- Range -->
+            <g class="g g-range" style="color: var(--ink-soft)">
+              <path d="M268 190 C233 190 216 120 169 104" />
+              <path d="M268 190 C233 190 212 190 157 190" />
+              <path d="M268 190 C233 190 216 260 169 276" />
+              <path d="M332 190 C367 190 384 120 431 104" />
+              <path d="M332 190 C367 190 388 190 443 190" />
+              <path d="M332 190 C367 190 384 260 431 276" />
+              <g fill="var(--paper)">
+                <circle cx="165" cy="103" r="4.5"/><circle cx="153" cy="190" r="4.5"/><circle cx="165" cy="277" r="4.5"/>
+                <circle cx="435" cy="103" r="4.5"/><circle cx="447" cy="190" r="4.5"/><circle cx="435" cy="277" r="4.5"/>
+              </g>
+              <g stroke="none" fill="var(--muted)" font-size="12" class="fields">
+                <text x="153" y="107" text-anchor="end">analyst</text>
+                <text x="141" y="194" text-anchor="end">journalist</text>
+                <text x="153" y="281" text-anchor="end">editor</text>
+                <text x="447" y="107">statistician</text>
+                <text x="459" y="194">short seller</text>
+                <text x="447" y="281">forensic accountant</text>
+              </g>
+              <text x="40" y="38" stroke="none" fill="var(--ink)" font-size="14" font-weight="600" class="t-name">Range</text>
+              <text x="40" y="56" stroke="none" fill="var(--muted)" font-size="12.5" class="t-sub">other fields, both sides</text>
+            </g>
+            <!-- Altitude -->
+            <g class="g g-altitude">
+              <path d="M300 158 V30" marker-end="url(#arrow)"/>
+              <path d="M292 136 h16 M292 104 h16 M292 72 h16" stroke-width="1"/>
+              <text x="560" y="38" text-anchor="end" stroke="none" fill="var(--ink)" font-size="14" font-weight="600" class="t-name">Altitude</text>
+              <text x="560" y="56" text-anchor="end" stroke="none" fill="var(--muted)" font-size="12.5" class="t-sub">the outcome, not the task</text>
+            </g>
+            <!-- Depth -->
+            <g class="g g-depth">
+              <path d="M300 222 V352" marker-end="url(#arrow)"/>
+              <path d="M262 246 h76 M246 280 h108 M230 314 h140" stroke-width="1" stroke-dasharray="2 4" style="color: var(--muted)"/>
+              <text x="560" y="344" text-anchor="end" stroke="none" fill="var(--ink)" font-size="14" font-weight="600" class="t-name">Depth</text>
+              <text x="560" y="362" text-anchor="end" stroke="none" fill="var(--muted)" font-size="12.5" class="t-sub">one layer below</text>
+            </g>
+            <!-- Speed -->
+            <g class="g g-speed">
+              <circle cx="300" cy="190" r="26" stroke-dasharray="3 3"/>
+              <text x="40" y="344" stroke="none" fill="var(--ink)" font-size="14" font-weight="600" class="t-name">Speed</text>
+              <text x="40" y="362" stroke="none" fill="var(--muted)" font-size="12.5" class="t-sub">the dashed ring, the baseline</text>
+            </g>
+            <g class="g-core">
+              <circle cx="300" cy="190" r="7" fill="var(--ink)" stroke="none"/>
+            </g>
+          </g>
+        </svg>
+      </div>
+      <ul class="types" id="types-list">
+        <li tabindex="0" data-type="speed"><b>Speed</b><q>The same work in less time.</q><span>Felix skips it as the easy one. The skill keeps it as the baseline that every upgrade is measured against.</span></li>
+        <li tabindex="0" data-type="altitude"><b>Altitude</b><q>Going up in abstraction and considering the outcome rather than the individual task.</q><span>“Fix this crash” becomes “keep the app crash-free.”</span></li>
+        <li tabindex="0" data-type="depth"><b>Depth</b><q>Considering a task the way a field-leading expert would.</q><span>Raw data instead of summaries, the instruments professionals use, and a judge that isn't the model.</span></li>
+        <li tabindex="0" data-type="range"><b>Range</b><q>Drawing on multiple fields rather than just the one the task might need at the surface.</q><span>Turn the deliverable's nouns into verbs, then assemble the crew that does those verbs, including an adversary.</span></li>
+      </ul>
+    </section>
+
+    <section id="prompt">
+      <span class="num">02</span>
+      <h2>Writing a prompt</h2>
+      <p>Type <code>/ambition</code> and the task, the way you would have asked for it anyway. Two optional words steer it.</p>
+      <div class="chips">
+        <code>planning</code><span>Altitude leads: the outcome, the decisions it feeds, a workflow that keeps running.</span>
+        <code>research</code><span>Depth leads: raw data, a challenged assumption, something new checked on unseen data.</span>
+        <code>feature</code><span>Depth, then Altitude: tests or benchmarks as the judge, then owning the outcome.</span>
+        <code>light</code><span>One line per type and the top three upgrades, in about 400 words.</span>
+        <code>full</code><span>Every question answered, the crew run as parallel subagents, and the top five upgrades. Picked on its own when the result feeds a decision that's costly to reverse: money, headcount, a launch, a public claim.</span>
+      </div>
+      <ul class="prompts">
+        <li><span class="lbl">A feature</span><code>/ambition add a CSV export button to the orders table</code></li>
+        <li><span class="lbl">A research question</span><code>/ambition why did our open rate drop from 41% to 33%? research</code></li>
+        <li><span class="lbl">A plan</span><code>/ambition plan our team's two-day offsite, full</code></li>
+        <li><span class="lbl">Anything</span><code>/ambition write the onboarding email for new customers</code></li>
+      </ul>
+      <p class="note" style="margin-top:16px">You don't need the slash command. Agents that support skills also pick it up when you ask them to think bigger or make something more ambitious, and each agent has its own way to call a skill by name.</p>
+    </section>
+
+    <section id="process">
+      <span class="num">03</span>
+      <h2>What the agent does</h2>
+      <p>Five steps, in order. Steps one to three are Felix's techniques, mostly in his words; the baseline and the synthesis are what turn them into something you can run.</p>
+      <ol class="steps">
+        <li><div><b>Baseline.</b><p>Write the literal task in one sentence and the fastest competent way to do it. This is the control.</p></div></li>
+        <li><div><b>Altitude.</b><p>Climb from the task to the outcome in two or three rungs, each with the access it needs. Stop where the result can no longer be measured. “Go make money” is past that point.</p></div></li>
+        <li><div><b>Depth.</b><p>Answer Felix's four questions: what a top professional would add, the rawest material they would start from, the real methods and tools, and what outside judge would show it is right. Then set a stretch target, name an assumption to test, and look for one thing nobody knows yet.</p></div></li>
+        <li><div><b>Range.</b><p>Rewrite the deliverable as verbs, pick three to five fields including an adversary, and state the method each field brings. In full mode each field runs as its own read-only subagent.</p></div></li>
+        <li><div><b>Synthesis.</b><p>A ranked table of upgrades with type, cost, payoff and judge, ranked by payoff against cost rather than one per type. Then a recommended brief and a list of what it needs from you. Then it stops.</p></div></li>
+      </ol>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Size</th><th>What you get</th><th>When</th></tr></thead>
+          <tbody>
+            <tr><td>Light</td><td>One line per type, top 3 upgrades, no subagents, about 400 words</td><td>The default</td></tr>
+            <tr><td>Full</td><td>Every question answered, the crew as subagents, top 5 upgrades, a brief ready to run</td><td>When the result feeds a costly decision, or when you ask</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">If a task is trivial, the skill says so in one line and just does it.</p>
+    </section>
+
+    <section id="runs">
+      <span class="num">04</span>
+      <h2>Three real runs</h2>
+      <p>Unedited output from Claude Opus 5.5 running the skill on three made-up tasks on 16 October 2026. None of them had access to real data, which is why each one ends with a list of what it needs.</p>
+      <div class="tabs" role="tablist" aria-label="Example runs">
+        <!-- tabs:start -->
+<button role="tab" id="tab-feature" aria-controls="run-feature" aria-selected="true" tabindex="0" type="button">A feature</button>
+<button role="tab" id="tab-research" aria-controls="run-research" aria-selected="false" tabindex="-1" type="button">A research question</button>
+<button role="tab" id="tab-planning" aria-controls="run-planning" aria-selected="false" tabindex="-1" type="button">A plan</button>
+<!-- tabs:end -->
+      </div>
+      <!-- runs:start -->
+<div class="run" role="tabpanel" id="run-feature" aria-labelledby="tab-feature"><p class="ask">/ambition Add a CSV export button to the orders table in our admin dashboard. light</p><div class="out"><h2>Ambition: Add CSV export to the orders table [feature] [light] <span class="date">2026-10-16</span></h2>
+<h3>Baseline</h3>
+<p>Add an "Export CSV" button that turns the rows already loaded in the orders table into a CSV in the browser and downloads it.</p>
+<h3>Passes</h3>
+<ul><li><b>Altitude:</b> The CSV is someone's guess at an outcome. Find where the file goes next (bookkeeping, a 3PL, refunds) and own that handoff, so nobody has to export at all.</li><li><b>Depth:</b> Stream every row that matches the current filters from Postgres on the server, with a fixed column contract and formula-injection escaping. Stretch target: 1M orders with flat memory and first byte under 300 ms.</li><li><b>Range:</b> As a verb, the export is "get order data to where the next decision is made, without leaking it." Crew: an accountant (columns that tie to payouts), a data engineer (streaming and the column contract), a pen tester (who can pull customer PII, CSV injection).</li></ul>
+<h3>Upgrades (ranked)</h3>
+<div class="table-wrap"><table><thead><tr><th>#</th><th>Type</th><th>Upgrade</th><th>Cost</th><th>Payoff</th><th>Judge</th></tr></thead><tbody><tr><td>1</td><td>Depth</td><td>Server-streamed export of all filtered rows, fixed columns, injection-escaped</td><td>~1-2 h agent; column list from ops; seeded DB</td><td>Right file at any size, opens cleanly in Excel</td><td>Round-trip test against the DB on a hostile fixture; 1M-row load test</td></tr><tr><td>2</td><td>Range</td><td>Role-gate the export, drop unneeded PII, write an audit row per export</td><td>~1 h agent; a decision on roles and PII</td><td>Customer data cannot leave silently</td><td>Tests: a disallowed role gets 403; each export writes an audit row</td></tr><tr><td>3</td><td>Altitude</td><td>Replace the recurring export with scheduled delivery to its real destination</td><td>Hours of agent work; 15 min with the ops lead; two weeks elapsed</td><td>The manual step disappears</td><td>Audit log shows manual exports falling to zero over two weeks while totals still tie to payouts</td></tr></tbody></table></div>
+<h3>Recommended brief</h3>
+<blockquote><p>Add CSV export to the orders admin. In a server route, stream every order that matches the table's current filters from Postgres (cursor or COPY, never buffered in full). Use a fixed, documented column list, RFC 4180 quoting, a <code>'</code> prefix on cells starting with <code>=</code>, <code>+</code>, <code>-</code>, <code>@</code>, a tab or a CR, UTF-8 with a BOM, money as decimal strings and timestamps in ISO 8601 UTC. Allow only [roles], leave out [PII columns], and insert an <code>order_exports</code> row (user, filters, row count, time) for every export. Prove it with a round-trip test on a hostile fixture (formulas, commas, quotes, emoji), authz and audit integration tests, and a 1M-row seeded load test that reports first-byte time and peak memory.</p></blockquote>
+<h3>Needs from you</h3>
+<ul><li>Access to the repo and to a seeded or staging Postgres, and whether the agent can run tests there (all unknown).</li><li>The columns ops needs, and where the file goes after it downloads.</li><li>Which roles may export and which fields count as PII.</li><li>The host's response-time limit (a serverless timeout caps how long a stream can run).</li></ul></div></div>
+<div class="run" role="tabpanel" id="run-research" aria-labelledby="tab-research" hidden><p class="ask">/ambition Figure out why our newsletter&#x27;s open rate dropped from 41% to 33% over the last two months. full</p><div class="out"><h2>Ambition: Explain newsletter open-rate drop from 41% to 33% [research] [full] <span class="date">2026-10-16</span></h2>
+<h3>Baseline</h3>
+<p>Export per-send stats from the ESP dashboard, chart open rate against known changes (subject lines, send time, list growth, template), and write a one-page memo naming the likely cause.</p>
+<h3>Passes</h3>
+<p><b>Altitude</b></p>
+<ol><li>Explain the 8-point drop and what to change before the next send. Needs: ESP exports, a dated log of changes since June.</li><li>Know whether readers are receiving and reading each issue, by mailbox provider and cohort (the number that matters if sponsorships are priced on opens). Needs: event-level data, Google Postmaster Tools, Microsoft SNDS, DMARC reports.</li><li>Own reader engagement continuously: after every send, split any change into measurement, list mix, deliverability and content, track a human-engagement metric instead of raw opens, and alert before a slide reaches 2 points. Needs: read-only ESP API, a scheduled job, an alert channel.</li></ol>
+<p>Stop there: "grow the newsletter" is past what this access can measure.</p>
+<p><b>Depth</b></p>
+<ol><li><i>Unasked:</i> check whether the ruler moved before the readers did. Since Apple Mail Privacy Protection, many opens are machine prefetches, and ESPs change how they filter machine and scanner opens. A filtering change, a shift in the Apple share, or a new denominator (sent vs delivered, suppression rules) can move the rate 8 points with no change in reading. Then check inbox placement by provider.</li><li><i>Raw material:</i> per-recipient events for 26 weeks (every open and click with timestamp, IP and user agent; bounce and deferral codes; unsubscribes; complaints), the subscriber table, DMARC aggregate XML, Postmaster history, raw headers from a seed send. Not the dashboard percentage.</li><li><i>Methods and tools:</i> DuckDB over the export; rule-based classification of opens and clicks (Apple proxy, scanner hits seconds after delivery, human); Kitagawa decomposition of the 8 points into list mix vs within-segment rate across provider x signup cohort x source; change-point detection (ruptures) to date each break against the change log; a fixed cohort present all 26 weeks; a seed-list placement test (GlockApps or similar).</li><li><i>Outside judge:</i> human clicks per delivered, scanner clicks stripped; Postmaster Tools and seed placement; the ESP's written confirmation of any tracking or filtering change and its date; forecasts scored against the next three sends.</li></ol>
+<p><b>Stretch target:</b> named causes summing to at least 7.6 of the 8 points (95%), each confirmed outside the analysis, plus a forecast of each of the next three sends' open rate within ±1 point, recorded before they go out.</p>
+<p><b>Assumption to challenge:</b> "Fewer people are reading." Rebuild the fixed cohort's rate from raw opens with machine opens removed. If human opens and clicks are flat, the drop is measurement or mix, and the 41% may have been the inflated number.</p>
+<p><b>New knowledge:</b> what share of this list's opens are human, by provider, and whether a composite of human opens, clicks and replies predicts 90-day retention better than raw opens. Fit on a random 80% of subscribers; test on the held-out 20% and the next four sends.</p>
+<p><b>Range</b></p>
+<p>Verbs: not "a memo on why opens fell" but "tell readers from machines, find who stopped receiving or reading and why, and decide what to change before the next send."</p>
+<p>Subagents skipped: no raw material in reach yet.</p>
+<div class="table-wrap"><table><thead><tr><th>Field</th><th>Method</th><th>Artifact</th><th>Needs</th></tr></thead><tbody><tr><td>Deliverability engineering</td><td>Authentication alignment, reputation history, bounce codes by provider, seed placement</td><td>Per-provider placement timeline</td><td>DNS, Postmaster, SNDS, DMARC reports, seed tool</td></tr><tr><td>Demography</td><td>Rate standardization, Kitagawa decomposition by cohort</td><td>Composition vs within-segment waterfall summing to -8 pts</td><td>Subscriber table with signup date, source, domain</td></tr><tr><td>Ad-fraud measurement</td><td>Classify machine opens and clicks by IP range, user agent, latency</td><td>Human-only open and click series per send</td><td>Event-level opens and clicks with IP, UA, timestamps</td></tr><tr><td>Survey research</td><td>One-question survey and short interviews of readers who went from clicking to silent</td><td>Reasons in readers' words, coded by frequency</td><td>OK to email a targeted segment</td></tr><tr><td>Forensic accounting (adversarial)</td><td>Restate six months under one metric definition; hunt definition breaks; test whether 41% was inflated</td><td>Restated series and dated list of breaks</td><td>ESP changelog, the export, figures quoted to sponsors</td></tr></tbody></table></div>
+<h3>Upgrades (ranked)</h3>
+<div class="table-wrap"><table><thead><tr><th>#</th><th>Type</th><th>Upgrade</th><th>Cost</th><th>Payoff</th><th>Judge</th></tr></thead><tbody><tr><td>1</td><td>Depth</td><td>Restate the series from raw events: human vs machine opens, fixed cohort, per provider</td><td>~1 hour of agent time; you supply the event export</td><td>Know whether readers left or the ruler moved</td><td>Human-click series; ESP's written confirmation of any filtering change</td></tr><tr><td>2</td><td>Depth</td><td>Decompose the 8 points into mix vs rate, date each break, forecast the next sends</td><td>Hours of agent time; subscriber table and change log; three weekly sends</td><td>Named causes covering at least 95% of the drop</td><td>Forecasts within ±1 pt on the next three sends</td></tr><tr><td>3</td><td>Depth</td><td>Deliverability audit plus seed-list placement test</td><td>~1 hour of agent time; DNS, Postmaster, SNDS access; seed-tool subscription; one send</td><td>Learn whether Gmail or Outlook are sending you to spam</td><td>Seed placement results; Postmaster spam rate and reputation</td></tr><tr><td>4</td><td>Altitude</td><td>Post-send monitor: decomposition, human-engagement metric, alert at 2-point drift</td><td>~1 day of agent time; API key, alert channel, 30 minutes to approve the metric; six sends</td><td>Catch the next slide in a week, not two months</td><td>Backtest alerts on this drop within two sends; then live over six</td></tr><tr><td>5</td><td>Range</td><td>Survey and interviews of readers who went silent</td><td>~1 hour of agent time; your OK to send, 3-4 calls; two weeks elapsed</td><td>Causes in readers' own words</td><td>The respondents; reasons checked against #2</td></tr></tbody></table></div>
+<h3>Recommended brief</h3>
+<blockquote><p>Explain the newsletter's open-rate drop from 41% to 33% over the last eight weeks, covering at least 95% of the 8 points, each cause confirmed by a source outside this analysis. Work from raw data, not the dashboard: per-recipient events for 26 weeks, the subscriber table, a dated change log, DMARC reports, Postmaster and SNDS history.</p>
+<ol><li>Load everything into DuckDB. Classify every open and click as Apple proxy, scanner or human. Restate weekly open rate as human opens / delivered and say whether the 41% survives.</li><li>Compare a fixed cohort (present all 26 weeks) with the full list on human opens and clicks.</li><li>Kitagawa-decompose the change across provider x signup cohort x source into list mix and within-segment rate. Date each break with change-point detection and match it to the change log.</li><li>Audit deliverability: authentication alignment, reputation and spam rate, bounce codes by provider, one seed-list placement test.</li><li>Try to break the conclusion twice: argue it is a measurement artifact, then a deliverability problem. Keep what survives.</li><li>Deliver a waterfall of named causes with their outside confirmations, and a recorded forecast of the next three sends' open rate by segment within ±1 point.</li></ol>
+<p>Do not change send settings, lists or DNS. List what you could not confirm and what would confirm it.</p></blockquote>
+<h3>Needs from you</h3>
+<ul><li>Per-recipient events for 26 weeks (opens and clicks with timestamp, IP, user agent; bounces; unsubscribes; complaints), or a read-only ESP API key.</li><li>Subscriber table with signup date, source, mailbox domain.</li><li>Dated changes since June: ESP notices, template, send time, sending domain or IP, list imports or cleanups.</li><li>Read access to DNS, Postmaster Tools, SNDS, DMARC reports.</li><li>Decision: seed-tool budget; OK to send one seed test and one survey.</li><li>Whether open rate is quoted to sponsors.</li><li>Whether the agent can run Python and DuckDB, and later schedule jobs.</li></ul></div></div>
+<div class="run" role="tabpanel" id="run-planning" aria-labelledby="tab-planning" hidden><p class="ask">/ambition Plan the agenda for our 12-person engineering team&#x27;s two-day offsite in January. light</p><div class="out"><h2>Ambition: Plan two-day January engineering offsite agenda [planning] [light] <span class="date">2026-10-16</span></h2>
+<h3>Baseline</h3>
+<p>Fill a standard two-day offsite template (kickoff, retro, roadmap, workshops, team dinner) with generic sessions for 12 engineers, in minutes.</p>
+<h3>Passes</h3>
+<ul><li><b>Altitude (lead):</b> The real outcome is not a full agenda. It is the 3 to 5 decisions the team keeps putting off, made, owned and still holding in April.</li><li><b>Depth:</b> Pick topics from raw material (an anonymous pre-survey, postmortems, cycle-time and on-call data). Stretch target: every session ends in a written decision with an owner, and 80% of those decisions are done or still in force at 90 days. Test the assumption "we need alignment" against the survey.</li><li><b>Range:</b> As verbs: get 12 people to settle what they can't settle async, and keep it settled. Adversary: a pre-mortem run by engineers outside the planning group.</li></ul>
+<h3>Upgrades (ranked)</h3>
+<div class="table-wrap"><table><thead><tr><th>#</th><th>Type</th><th>Upgrade</th><th>Cost</th><th>Payoff</th><th>Judge</th></tr></thead><tbody><tr><td>1</td><td>Altitude</td><td>Build the agenda backward from 3 to 5 named decisions; each session produces a decision record with an owner</td><td>~1 hr agent; your deferred-decision list; 90 days elapsed</td><td>The offsite produces decisions, not just discussion</td><td>Mid-April review: 80% of decisions done or in force</td></tr><tr><td>2</td><td>Depth</td><td>Choose topics from an anonymous pre-survey plus incident, cycle-time and on-call data</td><td>~2 hrs agent; metrics access; 1 week for responses</td><td>Time goes to the team's real pain</td><td>Post-offsite anonymous survey: at least 10 of 12 say the time went to what mattered</td></tr><tr><td>3</td><td>Range</td><td>Pre-mortem on the draft ("It's April and nothing changed. Why?"); cut blocks that can't answer</td><td>~30 min agent; 30 min from 2 to 3 engineers</td><td>Weak blocks are cut before 12 people spend a day on them</td><td>Cut list from the non-organizer engineers</td></tr></tbody></table></div>
+<h3>Recommended brief</h3>
+<p>Plan our 12-person engineering team's two-day January offsite backward from outcomes. Draft a 5-question anonymous pre-survey. Use it plus [postmortems, cycle-time and on-call data] to name the 3 to 5 decisions the team must leave with. Build both days around them, and end each session with a one-page decision record (decision, owner, first step). Give every social block a stated purpose. Have 2 to 3 engineers outside the planning group run a 30-minute pre-mortem on the draft, and cut what fails. Deliver the agenda, the record template, the pre- and post-offsite surveys, and a mid-April review hold that scores decisions done or in force (target 80%).</p>
+<h3>Needs from you</h3>
+<ul><li>Dates, location, budget, and whether anyone joins remotely.</li><li>The decisions the team keeps putting off, and who has authority to make them.</li><li>Access to postmortems, cycle-time and on-call data (unknown whether any of it exists).</li><li>Approval to survey the team anonymously, and an owner for the April review.</li></ul></div></div>
+<!-- runs:end -->
+    </section>
+
+    <section id="rules">
+      <span class="num">05</span>
+      <h2>Rules it keeps</h2>
+      <ul class="rules">
+        <li><b>No self-grading.</b><span>Every upgrade names a judge other than the model: a test suite, holdout data, a benchmark, a reviewer, real users. Upgrades without one are cut or flagged. Felix: “Do not ask the model to judge itself.”</span></li>
+        <li><b>Methods, not voices.</b><span>Fields bring what they do, not how they talk. “Don't ask the model to write like a short seller, ask it to do what a short seller does.”</span></li>
+        <li><b>Stretch targets are meant.</b><span>A page asked to load in 5 seconds gets a 200 millisecond target. If one proves infeasible after a real attempt, the skill says what blocked it and offers the next-best target.</span></li>
+        <li><b>Cost in model terms.</b><span>Cost is model time plus what you have to supply, never human work-weeks. Those anchor on how long things took before models and talk the plan down.</span></li>
+        <li><b>Your scope, your call.</b><span>It never starts the bigger version on its own. You pick the upgrades, then run the brief.</span></li>
+      </ul>
+    </section>
+
+    <section id="install">
+      <span class="num">06</span>
+      <h2>Install</h2>
+      <p>One command installs it into Claude Code, Codex, Cursor, Gemini CLI, GitHub Copilot, OpenCode and <a href="https://github.com/vercel-labs/skills#supported-agents">dozens of other agents</a>. The <a href="https://github.com/vercel-labs/skills">skills CLI</a> asks which ones you use.</p>
+      <div class="cmd"><pre><code data-copy>npx skills add https://nickbeaird.com/ambition/ambition.zip</code></pre><button class="copy" type="button">Copy</button></div>
+      <p>Or download the skill and unzip it yourself:</p>
+      <a class="download" href="/ambition/ambition.zip" download data-from="page install">
+        <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v8.5M4.5 7 8 10.5 11.5 7M3 13.5h10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Download ambition.zip
+      </a>
+      <div class="table-wrap">
+        <table class="where">
+          <thead><tr><th>Agent</th><th>Unzip into</th></tr></thead>
+          <tbody>
+            <tr><td>Claude Code</td><td><code>~/.claude/skills</code></td></tr>
+            <tr><td>Codex, Cursor, Gemini CLI, Copilot, OpenCode (one project)</td><td><code>.agents/skills</code> in the repo</td></tr>
+            <tr><td>Claude app</td><td>Upload <code>ambition.zip</code> under Customize, then Skills</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>No skill support? The skill is plain Markdown, so it still works. Paste <a href="/ambition/SKILL.md">SKILL.md</a> into any chat with your task underneath, or save it in your repo as <code>docs/ambition.md</code> and point your <code>AGENTS.md</code> at it:</p>
+      <div class="cmd"><pre class="plain"><code data-copy>When asked to make a task more ambitious, follow docs/ambition.md.</code></pre><button class="copy" type="button">Copy</button></div>
+      <p>Then hand it something you were about to ask for anyway:</p>
+      <div class="cmd"><pre class="plain"><code data-copy>/ambition plan next quarter's roadmap review</code></pre><button class="copy" type="button">Copy</button></div>
+      <details class="source" id="source">
+        <summary>Read the whole skill</summary>
+        <p class="note" style="margin-top:12px">It's one Markdown file. <a href="/ambition/SKILL.md">Open it raw</a>.</p>
+        <pre id="skill-text">Loading…</pre>
+      </details>
+    </section>
+
+    <section id="limits">
+      <span class="num">07</span>
+      <h2>Limits</h2>
+      <p><b>It plans; it doesn't do the work.</b> The output is a better brief. The ambitious version is the next run, and it costs what the table says.</p>
+      <p><b>It's only as ambitious as its access.</b> Felix's point holds: every kind of ambition needs a model with a computer it can install software on and connectors to real data. Without them most upgrades land under “Needs from you”.</p>
+      <p><b>Altitude has a ceiling.</b> Asking for the outcome works until the outcome can't be measured or acted on. “Claude, go make money” still doesn't work for most businesses.</p>
+      <p><b>Creative work gets less from Altitude.</b> A song or a short story has no goal beyond the goal, so that step goes light. Depth and Range still help.</p>
+      <p><b>Cost and payoff are estimates.</b> The judges are what keep it honest, so check that each one is something you can actually run.</p>
+    </section>
+
+    <section id="questions">
+      <span class="num">08</span>
+      <h2>Questions</h2>
+      <dl class="faq">
+        <dt>Is this official?</dt>
+        <dd>No. The four types of ambition and the techniques are Felix Rieseberg's, from <a href="https://felixrieseberg.com/how-to-be-more-ambitious-a-tutorial-for-humans-with-models/">his essay</a>. This is an independent packaging by Nick Beaird, not made or endorsed by Felix or Anthropic. Read the essay; it's eight minutes and better than this page.</dd>
+        <dt>Which agents does it work with?</dt>
+        <dd><code>SKILL.md</code> is an <a href="https://agentskills.io">open format</a>, and Claude, Codex, Cursor, Gemini CLI, GitHub Copilot, OpenCode and many others read it. Nothing in the skill depends on one model; Felix's advice isn't model-specific either. Agents with subagents run the crew in parallel in full mode; the rest work through the fields in one pass.</dd>
+        <dt>Why a skill and not AGENTS.md?</dt>
+        <dd><code>AGENTS.md</code> holds standing instructions for one repository and loads into every conversation there. A skill loads only when the task calls for it and travels with you between projects. If your agent only reads <code>AGENTS.md</code>, the one-line pointer above gets you the same thing.</dd>
+        <dt>Why does it stop before doing the work?</dt>
+        <dd>The more ambitious version usually costs more and needs your access, data or decisions. Expanding scope without asking is how agents burn an afternoon on the wrong thing.</dd>
+        <dt>Can I change it?</dt>
+        <dd>Yes. It's one Markdown file. Rename the modes, change the output table, or add guardrails that fit your team.</dd>
+        <dt>License?</dt>
+        <dd>MIT for the skill file. The framework and the quoted lines are Felix's.</dd>
+      </dl>
+    </section>
+  </main>
+
+  <footer>
+    <div class="inner">
+      <p>Packaged by <a href="https://nickbeaird.com">Nick Beaird</a>. The framework is from Felix Rieseberg's <a href="https://felixrieseberg.com/how-to-be-more-ambitious-a-tutorial-for-humans-with-models/">“How to be more ambitious: A tutorial for humans with models”</a> (13 October 2026).</p>
+      <p>Plate: Francisco de Goya, <em>Modo de volar</em>, published 1864. National Gallery of Art, Washington, released under CC0. Set in Geist.</p>
+    </div>
+  </footer>
+</div>
+
+<script>
+(() => {
+  // Highlight one type in the diagram from its card.
+  const compass = document.getElementById('compass');
+  const cards = document.querySelectorAll('#types-list li');
+  const focus = (t) => { if (t) compass.dataset.focus = t; else delete compass.dataset.focus; };
+  cards.forEach((li) => {
+    li.addEventListener('mouseenter', () => focus(li.dataset.type));
+    li.addEventListener('mouseleave', () => focus(null));
+    li.addEventListener('focus', () => focus(li.dataset.type));
+    li.addEventListener('blur', () => focus(null));
+  });
+
+  // Count downloads in Vercel Web Analytics (Analytics > Events > Download).
+  document.querySelectorAll('a.download').forEach((a) => {
+    a.addEventListener('click', () => window.va('event', { name: 'Download', data: { skill: 'ambition', from: a.dataset.from } }));
+  });
+
+  // Copy buttons.
+  document.querySelectorAll('.cmd').forEach((box) => {
+    const btn = box.querySelector('.copy');
+    const text = box.querySelector('[data-copy]').textContent;
+    btn.addEventListener('click', async () => {
+      try { await navigator.clipboard.writeText(text); btn.textContent = 'Copied'; }
+      catch { btn.textContent = 'Select to copy'; }
+      setTimeout(() => { btn.textContent = 'Copy'; }, 1600);
+    });
+  });
+
+  // Tabs for the example runs.
+  const tabs = [...document.querySelectorAll('[role="tab"]')];
+  const select = (tab) => {
+    tabs.forEach((t) => {
+      const on = t === tab;
+      t.setAttribute('aria-selected', on);
+      t.tabIndex = on ? 0 : -1;
+      document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+    });
+  };
+  tabs.forEach((tab, i) => {
+    tab.addEventListener('click', () => select(tab));
+    tab.addEventListener('keydown', (e) => {
+      const d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+      if (!d) return;
+      const next = tabs[(i + d + tabs.length) % tabs.length];
+      select(next); next.focus(); e.preventDefault();
+    });
+  });
+
+  // Load the skill text on first open.
+  const source = document.getElementById('source');
+  source.addEventListener('toggle', async () => {
+    if (!source.open || source.dataset.loaded) return;
+    source.dataset.loaded = '1';
+    const pre = document.getElementById('skill-text');
+    try {
+      const res = await fetch('/ambition/SKILL.md');
+      if (!res.ok) throw new Error(res.status);
+      pre.textContent = await res.text();
+    } catch { pre.textContent = 'Could not load SKILL.md. Use the raw link above.'; }
+  });
+
+  // Mark the current section in the contents.
+  const links = [...document.querySelectorAll('.toc a')];
+  const byId = new Map(links.map((a) => [a.getAttribute('href').slice(1), a]));
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((en) => {
+      if (!en.isIntersecting) return;
+      links.forEach((a) => a.removeAttribute('aria-current'));
+      byId.get(en.target.id)?.setAttribute('aria-current', 'true');
+    });
+  }, { rootMargin: '-30% 0px -60% 0px' });
+  document.querySelectorAll('main section[id]').forEach((s) => io.observe(s));
+})();
+</script>
+</body>
+</html>
