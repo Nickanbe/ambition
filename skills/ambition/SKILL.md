@@ -21,7 +21,7 @@ Ask for a deeper version of the task, not a bigger one. Every upgrade names what
 - `size`: light | full. If the person says one, use it. Otherwise use light, and switch to full when the result feeds a decision that is costly to reverse (money, headcount, a launch, a public claim).
 - What is in reach: data, files, connectors, environments, and whether the model can install software and run code. Every type of ambition depends on this, so note what is missing.
 
-If the task is trivial (a model finishes it in minutes and nothing depends on it) and the person did not invoke this skill by name, say so in one line and do the task. When they did invoke it, run the pass anyway, but keep the Recommended brief to the task as asked plus at most one cheap check, and list anything bigger only as an upgrade to pick. A trivial task made heavy is not ambition.
+If the task is trivial (a model finishes it in minutes and nothing depends on it) and the person did not invoke this skill by name, say so in one line and do the task. When they did invoke it, run the pass anyway. Small is not trivial: a task is trivial only when the pass finds nothing worth adopting (a rename, a lookup, a one-line message). Then keep the Recommended brief to the task as asked plus at most one cheap check, and list anything bigger only as an upgrade to pick; a trivial task made heavy is not ambition. If the pass finds neighbouring failures or a wrong assumption, the task is not trivial and the brief adopts the top upgrades as usual.
 
 In full mode, if you do not know what decision or outcome the work feeds, ask that one question before starting any subagents.
 
