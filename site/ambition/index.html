@@ -382,7 +382,7 @@
         <code>planning</code><span>Altitude leads: the outcome, the decisions it feeds, a workflow that keeps running.</span>
         <code>research</code><span>Depth leads: raw data, a challenged assumption, something new checked on unseen data.</span>
         <code>feature</code><span>Depth, then Altitude: tests or benchmarks as the judge, then owning the outcome.</span>
-        <code>light</code><span>One line per type and the top three upgrades, in about 400 words.</span>
+        <code>light</code><span>One line per type and exactly three upgrades, in under 450 words.</span>
         <code>full</code><span>Every question answered, the crew run as parallel subagents, and the top five upgrades. Picked on its own when the result feeds a decision that's costly to reverse: money, headcount, a launch, a public claim.</span>
       </div>
       <ul class="prompts">
@@ -409,12 +409,12 @@
         <table>
           <thead><tr><th>Size</th><th>What you get</th><th>When</th></tr></thead>
           <tbody>
-            <tr><td>Light</td><td>One line per type, top 3 upgrades, no subagents, about 400 words</td><td>The default</td></tr>
+            <tr><td>Light</td><td>One line per type, exactly 3 upgrades, no subagents, under 450 words</td><td>The default</td></tr>
             <tr><td>Full</td><td>Every question answered, the crew as subagents, top 5 upgrades, a brief ready to run</td><td>When the result feeds a costly decision, or when you ask</td></tr>
           </tbody>
         </table>
       </div>
-      <p class="note">If a task is trivial, the skill says so in one line and just does it.</p>
+      <p class="note">If a task is trivial, the skill says so in one line and just does it. Called by name on a small task, it still runs the pass but keeps the brief to the task as asked.</p>
     </section>
 
     <section id="runs">
