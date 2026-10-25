@@ -87,11 +87,11 @@
     "judge": "auto",
     "A": {
       "score": null,
-      "error": "n3.9/subprocess.py\", line 951, in __init__\n    self._execute_child(args, executable, preexec_fn, close_fds,\n  File \"/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/subprocess.py\", line 1821, in _execute_child\n    raise child_exception_type(errno_num, err_msg, err_filename)\nFileNotFoundError: [Errno 2] No such file or directory: '/private/tmp/claude-501/-Users-nicholasbeaird/6b4d2056-9278-451f-b4bf-0f71c73093b5/scratchpad/runs/r3/feat-export/A'\n"
+      "error": "n3.9/subprocess.py\", line 951, in __init__\n    self._execute_child(args, executable, preexec_fn, close_fds,\n  File \"/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/subprocess.py\", line 1821, in _execute_child\n    raise child_exception_type(errno_num, err_msg, err_filename)\nFileNotFoundError: [Errno 2] No such file or directory: 'scratchpad/runs/r3/feat-export/A'\n"
     },
     "B": {
       "score": null,
-      "error": "n3.9/subprocess.py\", line 951, in __init__\n    self._execute_child(args, executable, preexec_fn, close_fds,\n  File \"/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/subprocess.py\", line 1821, in _execute_child\n    raise child_exception_type(errno_num, err_msg, err_filename)\nFileNotFoundError: [Errno 2] No such file or directory: '/private/tmp/claude-501/-Users-nicholasbeaird/6b4d2056-9278-451f-b4bf-0f71c73093b5/scratchpad/runs/r3/feat-export/B'\n"
+      "error": "n3.9/subprocess.py\", line 951, in __init__\n    self._execute_child(args, executable, preexec_fn, close_fds,\n  File \"/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/subprocess.py\", line 1821, in _execute_child\n    raise child_exception_type(errno_num, err_msg, err_filename)\nFileNotFoundError: [Errno 2] No such file or directory: 'scratchpad/runs/r3/feat-export/B'\n"
     },
     "delta": null
   },
@@ -101,11 +101,11 @@
     "judge": "auto",
     "A": {
       "score": null,
-      "error": "hon3.9/subprocess.py\", line 951, in __init__\n    self._execute_child(args, executable, preexec_fn, close_fds,\n  File \"/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/subprocess.py\", line 1821, in _execute_child\n    raise child_exception_type(errno_num, err_msg, err_filename)\nFileNotFoundError: [Errno 2] No such file or directory: '/private/tmp/claude-501/-Users-nicholasbeaird/6b4d2056-9278-451f-b4bf-0f71c73093b5/scratchpad/runs/r3/feat-perf/A'\n"
+      "error": "hon3.9/subprocess.py\", line 951, in __init__\n    self._execute_child(args, executable, preexec_fn, close_fds,\n  File \"/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/subprocess.py\", line 1821, in _execute_child\n    raise child_exception_type(errno_num, err_msg, err_filename)\nFileNotFoundError: [Errno 2] No such file or directory: 'scratchpad/runs/r3/feat-perf/A'\n"
     },
     "B": {
       "score": null,
-      "error": "hon3.9/subprocess.py\", line 951, in __init__\n    self._execute_child(args, executable, preexec_fn, close_fds,\n  File \"/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/subprocess.py\", line 1821, in _execute_child\n    raise child_exception_type(errno_num, err_msg, err_filename)\nFileNotFoundError: [Errno 2] No such file or directory: '/private/tmp/claude-501/-Users-nicholasbeaird/6b4d2056-9278-451f-b4bf-0f71c73093b5/scratchpad/runs/r3/feat-perf/B'\n"
+      "error": "hon3.9/subprocess.py\", line 951, in __init__\n    self._execute_child(args, executable, preexec_fn, close_fds,\n  File \"/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/subprocess.py\", line 1821, in _execute_child\n    raise child_exception_type(errno_num, err_msg, err_filename)\nFileNotFoundError: [Errno 2] No such file or directory: 'scratchpad/runs/r3/feat-perf/B'\n"
     },
     "delta": null
   },
@@ -115,11 +115,11 @@
     "judge": "human",
     "A": {
       "score": null,
-      "error": "-ci/judge/judge.py\", line 103, in <module>\n    main()\n  File \"/Users/nicholasbeaird/Code/ambition/eval/tasks/plan-ci/judge/judge.py\", line 95, in main\n    text, src = read_plan(workdir)\n  File \"/Users/nicholasbeaird/Code/ambition/eval/tasks/plan-ci/judge/judge.py\", line 33, in read_plan\n    for n in sorted(os.listdir(workdir)):\nFileNotFoundError: [Errno 2] No such file or directory: '/private/tmp/claude-501/-Users-nicholasbeaird/6b4d2056-9278-451f-b4bf-0f71c73093b5/scratchpad/runs/r3/plan-ci/A'\n"
+      "error": "-ci/judge/judge.py\", line 103, in <module>\n    main()\n  File \"eval/tasks/plan-ci/judge/judge.py\", line 95, in main\n    text, src = read_plan(workdir)\n  File \"eval/tasks/plan-ci/judge/judge.py\", line 33, in read_plan\n    for n in sorted(os.listdir(workdir)):\nFileNotFoundError: [Errno 2] No such file or directory: 'scratchpad/runs/r3/plan-ci/A'\n"
     },
     "B": {
       "score": null,
-      "error": "-ci/judge/judge.py\", line 103, in <module>\n    main()\n  File \"/Users/nicholasbeaird/Code/ambition/eval/tasks/plan-ci/judge/judge.py\", line 95, in main\n    text, src = read_plan(workdir)\n  File \"/Users/nicholasbeaird/Code/ambition/eval/tasks/plan-ci/judge/judge.py\", line 33, in read_plan\n    for n in sorted(os.listdir(workdir)):\nFileNotFoundError: [Errno 2] No such file or directory: '/private/tmp/claude-501/-Users-nicholasbeaird/6b4d2056-9278-451f-b4bf-0f71c73093b5/scratchpad/runs/r3/plan-ci/B'\n"
+      "error": "-ci/judge/judge.py\", line 103, in <module>\n    main()\n  File \"eval/tasks/plan-ci/judge/judge.py\", line 95, in main\n    text, src = read_plan(workdir)\n  File \"eval/tasks/plan-ci/judge/judge.py\", line 33, in read_plan\n    for n in sorted(os.listdir(workdir)):\nFileNotFoundError: [Errno 2] No such file or directory: 'scratchpad/runs/r3/plan-ci/B'\n"
     },
     "delta": null
   },
@@ -163,11 +163,11 @@
     "judge": "human",
     "A": {
       "score": null,
-      "error": "udge.py\", line 88, in <module>\n    main()\n  File \"/Users/nicholasbeaird/Code/ambition/eval/tasks/plan-launch/judge/judge.py\", line 80, in main\n    text, src = read_plan(workdir)\n  File \"/Users/nicholasbeaird/Code/ambition/eval/tasks/plan-launch/judge/judge.py\", line 33, in read_plan\n    for n in sorted(os.listdir(workdir)):\nFileNotFoundError: [Errno 2] No such file or directory: '/private/tmp/claude-501/-Users-nicholasbeaird/6b4d2056-9278-451f-b4bf-0f71c73093b5/scratchpad/runs/r3/plan-launch/A'\n"
+      "error": "udge.py\", line 88, in <module>\n    main()\n  File \"eval/tasks/plan-launch/judge/judge.py\", line 80, in main\n    text, src = read_plan(workdir)\n  File \"eval/tasks/plan-launch/judge/judge.py\", line 33, in read_plan\n    for n in sorted(os.listdir(workdir)):\nFileNotFoundError: [Errno 2] No such file or directory: 'scratchpad/runs/r3/plan-launch/A'\n"
     },
     "B": {
       "score": null,
-      "error": "udge.py\", line 88, in <module>\n    main()\n  File \"/Users/nicholasbeaird/Code/ambition/eval/tasks/plan-launch/judge/judge.py\", line 80, in main\n    text, src = read_plan(workdir)\n  File \"/Users/nicholasbeaird/Code/ambition/eval/tasks/plan-launch/judge/judge.py\", line 33, in read_plan\n    for n in sorted(os.listdir(workdir)):\nFileNotFoundError: [Errno 2] No such file or directory: '/private/tmp/claude-501/-Users-nicholasbeaird/6b4d2056-9278-451f-b4bf-0f71c73093b5/scratchpad/runs/r3/plan-launch/B'\n"
+      "error": "udge.py\", line 88, in <module>\n    main()\n  File \"eval/tasks/plan-launch/judge/judge.py\", line 80, in main\n    text, src = read_plan(workdir)\n  File \"eval/tasks/plan-launch/judge/judge.py\", line 33, in read_plan\n    for n in sorted(os.listdir(workdir)):\nFileNotFoundError: [Errno 2] No such file or directory: 'scratchpad/runs/r3/plan-launch/B'\n"
     },
     "delta": null
   },
@@ -177,11 +177,11 @@
     "judge": "human",
     "A": {
       "score": null,
-      "error": " line 96, in <module>\n    main()\n  File \"/Users/nicholasbeaird/Code/ambition/eval/tasks/plan-migration/judge/judge.py\", line 88, in main\n    text, src = read_plan(workdir)\n  File \"/Users/nicholasbeaird/Code/ambition/eval/tasks/plan-migration/judge/judge.py\", line 33, in read_plan\n    for n in sorted(os.listdir(workdir)):\nFileNotFoundError: [Errno 2] No such file or directory: '/private/tmp/claude-501/-Users-nicholasbeaird/6b4d2056-9278-451f-b4bf-0f71c73093b5/scratchpad/runs/r3/plan-migration/A'\n"
+      "error": " line 96, in <module>\n    main()\n  File \"eval/tasks/plan-migration/judge/judge.py\", line 88, in main\n    text, src = read_plan(workdir)\n  File \"eval/tasks/plan-migration/judge/judge.py\", line 33, in read_plan\n    for n in sorted(os.listdir(workdir)):\nFileNotFoundError: [Errno 2] No such file or directory: 'scratchpad/runs/r3/plan-migration/A'\n"
     },
     "B": {
       "score": null,
-      "error": " line 96, in <module>\n    main()\n  File \"/Users/nicholasbeaird/Code/ambition/eval/tasks/plan-migration/judge/judge.py\", line 88, in main\n    text, src = read_plan(workdir)\n  File \"/Users/nicholasbeaird/Code/ambition/eval/tasks/plan-migration/judge/judge.py\", line 33, in read_plan\n    for n in sorted(os.listdir(workdir)):\nFileNotFoundError: [Errno 2] No such file or directory: '/private/tmp/claude-501/-Users-nicholasbeaird/6b4d2056-9278-451f-b4bf-0f71c73093b5/scratchpad/runs/r3/plan-migration/B'\n"
+      "error": " line 96, in <module>\n    main()\n  File \"eval/tasks/plan-migration/judge/judge.py\", line 88, in main\n    text, src = read_plan(workdir)\n  File \"eval/tasks/plan-migration/judge/judge.py\", line 33, in read_plan\n    for n in sorted(os.listdir(workdir)):\nFileNotFoundError: [Errno 2] No such file or directory: 'scratchpad/runs/r3/plan-migration/B'\n"
     },
     "delta": null
   },

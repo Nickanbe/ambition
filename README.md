@@ -9,6 +9,12 @@ The framework is from Felix Rieseberg's essay [How to be more ambitious: A tutor
 ## Install
 
 ```
+npx skills add Nickanbe/ambition
+```
+
+or, from the download page:
+
+```
 npx skills add https://nickbeaird.com/ambition/ambition.zip
 ```
 
@@ -25,8 +31,13 @@ Or copy `skills/ambition/` into your agent's skills folder: `~/.claude/skills/` 
 - `skills/ambition/SKILL.md`: the skill
 - `examples/`: unedited runs of the skill on three made-up tasks
 - `site/`: the download page as served at nickbeaird.com (`site/ambition/` is `/ambition/`; `site/fonts/` mirrors the site's `/fonts/`)
+- `eval/`: a 12-task eval that compares the original task with the skill's rewritten brief, with a script judge per task (method in `eval/SPEC.md`, results in `eval/RESULTS.md`)
 - `scripts/build.py`: renders the examples into the page, writes `site/ambition/ambition.zip` and `site/ambition/SKILL.md`
+
+## Contributing
+
+Issues and pull requests are welcome. Every change to `SKILL.md` is read by a person before it merges, because whatever lands here runs inside other people's agents. Pull requests that add instructions unrelated to the skill's job will be closed.
 
 ## License
 
-MIT for the skill file. The framework and quoted lines are Felix Rieseberg's.
+MIT for the skill file. The framework and quoted lines are Felix Rieseberg's. The Geist fonts in `site/fonts/` are under the SIL Open Font License (`site/fonts/OFL.txt`).

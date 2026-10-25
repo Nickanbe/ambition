@@ -1,6 +1,6 @@
 import json, os, shutil, subprocess, sys, tempfile
-TASKS = "/Users/nicholasbeaird/Code/ambition/eval/tasks"
-SCR = "/private/tmp/claude-501/-Users-nicholasbeaird/6b4d2056-9278-451f-b4bf-0f71c73093b5/scratchpad/val"
+TASKS = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "tasks")
+SCR = tempfile.mkdtemp(prefix="ambition-validate-")
 os.makedirs(SCR, exist_ok=True)
 for tid in ["plan-ci", "plan-migration", "plan-launch", "plan-control"]:
     res = {}
