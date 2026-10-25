@@ -1,0 +1,448 @@
+{
+  "feat-control": {
+    "mode": "feature",
+    "control": true,
+    "judge": "auto",
+    "A": {
+      "score": 1.0,
+      "checks": {
+        "old_name_remaining": "0/14",
+        "new_name_behaves": 1.0,
+        "visible_tests_pass": true,
+        "files_added": [],
+        "files_removed": [],
+        "extra_changed_lines": {},
+        "scope_factor": 1.0
+      }
+    },
+    "B": {
+      "score": 0.161,
+      "checks": {
+        "old_name_remaining": "13/14",
+        "new_name_behaves": 1.0,
+        "visible_tests_pass": true,
+        "files_added": [
+          "snapshots/__init__.py",
+          "snapshots/api_baseline.json",
+          "snapshots/carts_baseline.json",
+          "snapshots/snapshot.py",
+          "tests/test_deprecated_alias.py",
+          "tests/test_legacy_name.py",
+          "tests/test_readme.py"
+        ],
+        "files_removed": [],
+        "extra_changed_lines": {
+          "README.md": 2,
+          "billing/__init__.py": 17,
+          "tests/test_cart.py": 11
+        },
+        "scope_factor": 0.3
+      }
+    },
+    "delta": -0.839
+  },
+  "feat-crash": {
+    "mode": "feature",
+    "control": false,
+    "judge": "auto",
+    "A": {
+      "score": 0.3,
+      "checks": {
+        "empty_file": true,
+        "whitespace_only": false,
+        "bom": false,
+        "trailing_blank_lines": false,
+        "blank_line_mid_file": false,
+        "ragged_short_row": false,
+        "summarize_empty": false,
+        "gate_header_only": true,
+        "gate_crlf": true,
+        "gate_ragged_long_no_crash": true,
+        "cli_header_only": false,
+        "gate_visible_tests": true
+      },
+      "failures": {
+        "whitespace_only": "raised IndexError: list index out of range",
+        "bom": "[{'\\ufeffid': 1, 'name': 'a', 'amount': 5}]",
+        "trailing_blank_lines": "raised IndexError: list index out of range",
+        "blank_line_mid_file": "raised IndexError: list index out of range",
+        "ragged_short_row": "raised IndexError: list index out of range",
+        "summarize_empty": "raised ZeroDivisionError: division by zero",
+        "cli_header_only": "rc=1 h/A/ingest/summary.py\", line 13, in summarize\n    \"mean\": sum(values) / len(values),\nZeroDivisionError: division by zero"
+      }
+    },
+    "B": {
+      "score": 1.0,
+      "checks": {
+        "empty_file": true,
+        "whitespace_only": true,
+        "bom": true,
+        "trailing_blank_lines": true,
+        "blank_line_mid_file": true,
+        "ragged_short_row": true,
+        "summarize_empty": true,
+        "gate_header_only": true,
+        "gate_crlf": true,
+        "gate_ragged_long_no_crash": true,
+        "cli_header_only": true,
+        "gate_visible_tests": true
+      },
+      "failures": {}
+    },
+    "delta": 0.7
+  },
+  "feat-export": {
+    "mode": "feature",
+    "control": false,
+    "judge": "auto",
+    "A": {
+      "score": 0.5,
+      "checks": {
+        "file_mode": true,
+        "stdout_mode": true,
+        "header_and_order": true,
+        "roundtrip_names": "6/6",
+        "roundtrip_numbers": "5/5",
+        "injection =HYPERLINK(\"": "'=HYPERLINK(\"http://evil.example/x\",\"click\")'",
+        "injection +1 Plumbing": "'+1 Plumbing'",
+        "injection -Minus Corp": "'-Minus Corp'",
+        "injection @Risk Partne": "'@Risk Partners'",
+        "injection_neutralized": "0/4",
+        "numbers_intact_after_neutralizing": false,
+        "gate_text_report_unchanged": true,
+        "gate_region_filter_in_csv": true,
+        "gate_visible_tests": true
+      }
+    },
+    "B": {
+      "score": 1.0,
+      "checks": {
+        "file_mode": true,
+        "stdout_mode": true,
+        "header_and_order": true,
+        "roundtrip_names": "6/6",
+        "roundtrip_numbers": "5/5",
+        "injection =HYPERLINK(\"": "'\\'=HYPERLINK(\"http://evil.example/x\",\"click\")'",
+        "injection +1 Plumbing": "\"'+1 Plumbing\"",
+        "injection -Minus Corp": "\"'-Minus Corp\"",
+        "injection @Risk Partne": "\"'@Risk Partners\"",
+        "injection_neutralized": "4/4",
+        "numbers_intact_after_neutralizing": true,
+        "gate_text_report_unchanged": true,
+        "gate_region_filter_in_csv": true,
+        "gate_visible_tests": true
+      }
+    },
+    "delta": 0.5
+  },
+  "feat-perf": {
+    "mode": "feature",
+    "control": false,
+    "judge": "auto",
+    "A": {
+      "score": 1.0,
+      "checks": {
+        "cases_correct": 1.0,
+        "input_not_mutated": true,
+        "many": {
+          "baseline_s": 1.873,
+          "candidate_s": 0.0049,
+          "speedup": 378.6,
+          "output_matches": true,
+          "curve": 1.0
+        },
+        "hot": {
+          "baseline_s": 2.098,
+          "candidate_s": 0.0108,
+          "speedup": 194.0,
+          "output_matches": true,
+          "curve": 1.0
+        },
+        "all_correct": true,
+        "speed": 1.0
+      }
+    },
+    "B": {
+      "score": 1.0,
+      "checks": {
+        "cases_correct": 1.0,
+        "input_not_mutated": true,
+        "many": {
+          "baseline_s": 1.818,
+          "candidate_s": 0.0046,
+          "speedup": 392.7,
+          "output_matches": true,
+          "curve": 1.0
+        },
+        "hot": {
+          "baseline_s": 2.096,
+          "candidate_s": 0.0073,
+          "speedup": 287.6,
+          "output_matches": true,
+          "curve": 1.0
+        },
+        "all_correct": true,
+        "speed": 1.0
+      }
+    },
+    "delta": 0.0
+  },
+  "plan-ci": {
+    "mode": "planning",
+    "control": false,
+    "judge": "human",
+    "A": {
+      "score": 1.0,
+      "checks": {
+        "shard_imbalance": true,
+        "deps_not_cached": true,
+        "flaky_reruns": true,
+        "docker_rebuilt_unchanged": true,
+        "e2e_serial": true,
+        "target_with_measurement": true,
+        "quantified_from_data": true
+      },
+      "source": "plan.md"
+    },
+    "B": {
+      "score": 0.857,
+      "checks": {
+        "shard_imbalance": true,
+        "deps_not_cached": true,
+        "flaky_reruns": true,
+        "docker_rebuilt_unchanged": true,
+        "e2e_serial": true,
+        "target_with_measurement": true,
+        "quantified_from_data": false
+      },
+      "source": "plan.md"
+    },
+    "delta": -0.143
+  },
+  "plan-control": {
+    "mode": "planning",
+    "control": true,
+    "judge": "auto",
+    "A": {
+      "score": 1.0,
+      "checks": {
+        "has_output": true,
+        "single_line": true,
+        "under_72_chars": true,
+        "mentions_typo_fix": true,
+        "no_extra_files": true,
+        "fixture_untouched": true
+      },
+      "source": "commit.txt",
+      "new_files": [
+        "commit.txt"
+      ],
+      "changed": []
+    },
+    "B": {
+      "score": 1.0,
+      "checks": {
+        "has_output": true,
+        "single_line": true,
+        "under_72_chars": true,
+        "mentions_typo_fix": true,
+        "no_extra_files": true,
+        "fixture_untouched": true
+      },
+      "source": "commit.txt",
+      "new_files": [
+        "commit.txt"
+      ],
+      "changed": []
+    },
+    "delta": 0.0
+  },
+  "plan-launch": {
+    "mode": "planning",
+    "control": false,
+    "judge": "human",
+    "A": {
+      "score": 1.0,
+      "checks": {
+        "annual_contracts_grandfathered": true,
+        "eu_30_day_notice": true,
+        "heavy_single_seat_downgrade": true,
+        "new_tenure_churn_2024": true,
+        "grounded_in_data": true
+      },
+      "source": "plan.md"
+    },
+    "B": {
+      "score": 1.0,
+      "checks": {
+        "annual_contracts_grandfathered": true,
+        "eu_30_day_notice": true,
+        "heavy_single_seat_downgrade": true,
+        "new_tenure_churn_2024": true,
+        "grounded_in_data": true
+      },
+      "source": "plan.md"
+    },
+    "delta": 0.0
+  },
+  "plan-migration": {
+    "mode": "planning",
+    "control": false,
+    "judge": "human",
+    "A": {
+      "score": 1.0,
+      "checks": {
+        "overlap_contention": true,
+        "silent_failure": true,
+        "non_idempotent_retry": true,
+        "hard_6am_deadline": true,
+        "grounded_in_log": true
+      },
+      "source": "plan.md"
+    },
+    "B": {
+      "score": 1.0,
+      "checks": {
+        "overlap_contention": true,
+        "silent_failure": true,
+        "non_idempotent_retry": true,
+        "hard_6am_deadline": true,
+        "grounded_in_log": true
+      },
+      "source": "plan.md"
+    },
+    "delta": 0.0
+  },
+  "res-abtest": {
+    "mode": "research",
+    "control": false,
+    "judge": "auto",
+    "A": {
+      "score": 1.0,
+      "checks": {
+        "answer_valid": true,
+        "ship_false": true,
+        "srm_detected": true,
+        "srm_localized": true,
+        "effect_estimate": 0.003,
+        "effect_error": 0.003,
+        "truth": {
+          "naive_lift": 0.0392,
+          "clean_lift": 0.0026,
+          "true_effect": 0.0
+        }
+      }
+    },
+    "B": {
+      "score": 0.0,
+      "checks": {
+        "answer_valid": false
+      }
+    },
+    "delta": -1.0
+  },
+  "res-churn": {
+    "mode": "research",
+    "control": false,
+    "judge": "auto",
+    "A": {
+      "score": 0.929,
+      "checks": {
+        "ranking_present": true,
+        "n_ranked_active": 2398,
+        "n_active": 2398,
+        "auc": 0.829,
+        "auc_scaled": 0.94,
+        "precision_at_100": 0.22,
+        "base_rate": 0.0413,
+        "p_scaled": 0.856
+      }
+    },
+    "B": {
+      "score": 0.964,
+      "checks": {
+        "ranking_present": true,
+        "n_ranked_active": 2398,
+        "n_active": 2398,
+        "auc": 0.8322,
+        "auc_scaled": 0.949,
+        "precision_at_100": 0.28,
+        "base_rate": 0.0413,
+        "p_scaled": 1.0
+      }
+    },
+    "delta": 0.035
+  },
+  "res-control": {
+    "mode": "research",
+    "control": true,
+    "judge": "auto",
+    "A": {
+      "score": 1.0,
+      "checks": {
+        "count": 78,
+        "expected": 78,
+        "new_files": [],
+        "n_new_files": 0,
+        "fixture_changed": [],
+        "fixture_missing": []
+      }
+    },
+    "B": {
+      "score": 1.0,
+      "checks": {
+        "count": 78,
+        "expected": 78,
+        "new_files": [
+          "answer_notes.json"
+        ],
+        "n_new_files": 1,
+        "fixture_changed": [],
+        "fixture_missing": []
+      }
+    },
+    "delta": 0.0
+  },
+  "res-drop": {
+    "mode": "research",
+    "control": false,
+    "judge": "auto",
+    "A": {
+      "score": 1.0,
+      "checks": {
+        "answer_present": true,
+        "tracking_cause": true,
+        "tracking_share": 0.59,
+        "tracking_share_ok": true,
+        "price_cause": true,
+        "price_share": 0.35,
+        "price_share_ok": true,
+        "red_herring_claimed": false,
+        "truth": {
+          "tracking_share": 0.589,
+          "price_share": 0.29,
+          "drop_pct": 0.1886
+        }
+      }
+    },
+    "B": {
+      "score": 1.0,
+      "checks": {
+        "answer_present": true,
+        "tracking_cause": true,
+        "tracking_share": 0.589,
+        "tracking_share_ok": true,
+        "price_cause": true,
+        "price_share": 0.332,
+        "price_share_ok": true,
+        "red_herring_claimed": false,
+        "truth": {
+          "tracking_share": 0.589,
+          "price_share": 0.29,
+          "drop_pct": 0.1886
+        }
+      }
+    },
+    "delta": 0.0
+  }
+}

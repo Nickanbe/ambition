@@ -21,7 +21,9 @@ Ask for a deeper version of the task, not a bigger one. Every upgrade names what
 - `size`: light | full. If the person says one, use it. Otherwise use light, and switch to full when the result feeds a decision that is costly to reverse (money, headcount, a launch, a public claim).
 - What is in reach: data, files, connectors, environments, and whether the model can install software and run code. Every type of ambition depends on this, so note what is missing.
 
-If the task is trivial (a model finishes it in minutes and nothing depends on it) and the person did not invoke this skill by name, say so in one line and do the task. When they did invoke it, run the pass anyway.
+If the task is trivial (a model finishes it in minutes and nothing depends on it) and the person did not invoke this skill by name, say so in one line and do the task. When they did invoke it, run the pass anyway. Small is not trivial: a task is trivial only when the pass finds nothing worth adopting (a rename, a lookup, a one-line message). Then keep the Recommended brief to the task as asked plus at most one cheap check, and list anything bigger only as an upgrade to pick; a trivial task made heavy is not ambition. If the pass finds neighbouring failures or a wrong assumption, the task is not trivial and the brief adopts the top upgrades as usual.
+
+In full mode, if you do not know what decision or outcome the work feeds, ask that one question before starting any subagents.
 
 ## Step 0: Baseline (Speed)
 
@@ -95,7 +97,7 @@ Output in Markdown:
 |---|---|---|---|---|---|
 
 ### Recommended brief
-<the task rewritten as a prompt that adopts the top upgrades, ready to run>
+<the task rewritten as a prompt that adopts the top upgrades, ready to run. It must stand alone: whoever runs it may see nothing else, so restate every explicit requirement of the original (files, formats, schemas, deadlines) word for word, and never point to the upgrades table by number>
 
 ### Needs from you
 - <access, data, environments, decisions>
@@ -103,16 +105,16 @@ Output in Markdown:
 
 The brackets in the header are literal, for example `## Ambition: Add CSV export [feature] [light] 2026-10-16`.
 
-- **Cost** is model time (rounded to minutes, hours or days of agent work; do not fake precision), plus what a person must supply (access, data, a decision, their own time in a meeting), plus elapsed time when the judge needs it ("two weekly sends"). Never estimate the work itself in human work-days; that anchors on how long it took before models and talks the plan down.
+- **Cost** is model time (rounded to minutes, hours or days of agent work; do not fake precision), plus what a person must supply (access, data, a decision, their own time in a meeting), plus elapsed time when the judge needs it ("two weekly sends"). Never estimate the work itself in human work-days; that anchors on how long it took before models and talks the plan down. List every prerequisite (keys, purchases, access) and count the person's back-and-forth steps; those run long far more often than agent time does.
 - **Payoff** is what changes for the person if the upgrade works, in one phrase.
 - **Rank** by payoff against cost, favoring the lead type. Types may repeat or be missing from the list; do not force one upgrade per type.
-- **Judge** is something that can actually run. It may run later (a 90-day review, the next three sends) if it is named and scheduled; put the wait under Cost. When the access it needs is unknown, keep the upgrade and put the access under "Needs from you".
+- **Judge** is something that can actually run. It may run later (a 90-day review, the next three sends) if it names who runs it, when, and how the result comes back to the person; put the wait under Cost. A sign-off with no owner or date is not a judge. When the access it needs is unknown, keep the upgrade and put the access under "Needs from you".
 
-Then stop. The person picks which upgrades to adopt. Never expand scope on your own.
+Then stop. The person picks which upgrades to adopt. Never expand scope on your own, and start no further research or subagents before they pick.
 
 ## Light vs full
 
-- **Light:** one line per type under Passes, naming that type's strongest move rather than answering every question in its step. Top 3 upgrades, no subagents, about 400 words in total. Keep table cells short.
+- **Light:** one line per type under Passes, naming that type's strongest move rather than answering every question in its step. Exactly 3 upgrades, no subagents, under 450 words in total; count before finishing and cut Passes first. Keep table cells short.
 - **Full:** every question answered, the crew run as subagents when available, top 5 upgrades, a brief ready to execute. Stay under about 1,200 words; cut anything that does not change the ranking or the brief.
 
 ## Example: Felix's running example, a quarterly business review
@@ -130,5 +132,5 @@ The Altitude row is his three-step escalation. The Depth and Range rows arrange 
 
 - No self-grading. An upgrade with no outside judge is cut or flagged as unverified.
 - No role-play; fields contribute methods, not voices.
-- Stretch targets are held honestly: if one proves infeasible after a real attempt, say what blocked it and propose the next-best target.
+- Stretch targets are held honestly: when the work runs, report the measured result next to the target. If one proves infeasible after a real attempt, say what blocked it and propose the next-best target.
 - Show cost beside every upgrade, and do not let cost talk the plan down.

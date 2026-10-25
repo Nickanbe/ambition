@@ -1,0 +1,14 @@
+{
+  "plan-ci": {
+    "X": "A",
+    "Y": "B"
+  },
+  "plan-launch": {
+    "X": "A",
+    "Y": "B"
+  },
+  "plan-migration": {
+    "X": "B",
+    "Y": "A"
+  }
+}

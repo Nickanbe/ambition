@@ -1,0 +1,262 @@
+{
+  "feat-control": {
+    "mode": "feature",
+    "control": true,
+    "judge": "auto",
+    "A": {
+      "score": 1.0,
+      "checks": {
+        "old_name_remaining": "0/14",
+        "new_name_behaves": 1.0,
+        "visible_tests_pass": true,
+        "files_added": [],
+        "files_removed": [],
+        "extra_changed_lines": {},
+        "scope_factor": 1.0
+      }
+    },
+    "B": {
+      "score": 0.95,
+      "checks": {
+        "old_name_remaining": "0/14",
+        "new_name_behaves": 1.0,
+        "visible_tests_pass": true,
+        "files_added": [],
+        "files_removed": [],
+        "extra_changed_lines": {
+          "README.md": 1
+        },
+        "scope_factor": 0.95
+      }
+    },
+    "delta": -0.05
+  },
+  "feat-crash": {
+    "mode": "feature",
+    "control": false,
+    "judge": "auto",
+    "A": {
+      "score": 0.3,
+      "checks": {
+        "empty_file": true,
+        "whitespace_only": false,
+        "bom": false,
+        "trailing_blank_lines": false,
+        "blank_line_mid_file": false,
+        "ragged_short_row": false,
+        "summarize_empty": false,
+        "gate_header_only": true,
+        "gate_crlf": true,
+        "gate_ragged_long_no_crash": true,
+        "cli_header_only": false,
+        "gate_visible_tests": true
+      },
+      "failures": {
+        "whitespace_only": "raised IndexError: list index out of range",
+        "bom": "[{'\\ufeffid': 1, 'name': 'a', 'amount': 5}]",
+        "trailing_blank_lines": "raised IndexError: list index out of range",
+        "blank_line_mid_file": "raised IndexError: list index out of range",
+        "ragged_short_row": "raised IndexError: list index out of range",
+        "summarize_empty": "raised ZeroDivisionError: division by zero",
+        "cli_header_only": "rc=1 h/A/ingest/summary.py\", line 13, in summarize\n    \"mean\": sum(values) / len(values),\nZeroDivisionError: division by zero"
+      }
+    },
+    "B": {
+      "score": 1.0,
+      "checks": {
+        "empty_file": true,
+        "whitespace_only": true,
+        "bom": true,
+        "trailing_blank_lines": true,
+        "blank_line_mid_file": true,
+        "ragged_short_row": true,
+        "summarize_empty": true,
+        "gate_header_only": true,
+        "gate_crlf": true,
+        "gate_ragged_long_no_crash": true,
+        "cli_header_only": true,
+        "gate_visible_tests": true
+      },
+      "failures": {}
+    },
+    "delta": 0.7
+  },
+  "feat-export": {
+    "mode": "feature",
+    "control": false,
+    "judge": "auto",
+    "A": {
+      "score": null,
+      "error": "n3.9/subprocess.py\", line 951, in __init__\n    self._execute_child(args, executable, preexec_fn, close_fds,\n  File \"/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/subprocess.py\", line 1821, in _execute_child\n    raise child_exception_type(errno_num, err_msg, err_filename)\nFileNotFoundError: [Errno 2] No such file or directory: '/private/tmp/claude-501/-Users-nicholasbeaird/6b4d2056-9278-451f-b4bf-0f71c73093b5/scratchpad/runs/r3/feat-export/A'\n"
+    },
+    "B": {
+      "score": null,
+      "error": "n3.9/subprocess.py\", line 951, in __init__\n    self._execute_child(args, executable, preexec_fn, close_fds,\n  File \"/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/subprocess.py\", line 1821, in _execute_child\n    raise child_exception_type(errno_num, err_msg, err_filename)\nFileNotFoundError: [Errno 2] No such file or directory: '/private/tmp/claude-501/-Users-nicholasbeaird/6b4d2056-9278-451f-b4bf-0f71c73093b5/scratchpad/runs/r3/feat-export/B'\n"
+    },
+    "delta": null
+  },
+  "feat-perf": {
+    "mode": "feature",
+    "control": false,
+    "judge": "auto",
+    "A": {
+      "score": null,
+      "error": "hon3.9/subprocess.py\", line 951, in __init__\n    self._execute_child(args, executable, preexec_fn, close_fds,\n  File \"/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/subprocess.py\", line 1821, in _execute_child\n    raise child_exception_type(errno_num, err_msg, err_filename)\nFileNotFoundError: [Errno 2] No such file or directory: '/private/tmp/claude-501/-Users-nicholasbeaird/6b4d2056-9278-451f-b4bf-0f71c73093b5/scratchpad/runs/r3/feat-perf/A'\n"
+    },
+    "B": {
+      "score": null,
+      "error": "hon3.9/subprocess.py\", line 951, in __init__\n    self._execute_child(args, executable, preexec_fn, close_fds,\n  File \"/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/subprocess.py\", line 1821, in _execute_child\n    raise child_exception_type(errno_num, err_msg, err_filename)\nFileNotFoundError: [Errno 2] No such file or directory: '/private/tmp/claude-501/-Users-nicholasbeaird/6b4d2056-9278-451f-b4bf-0f71c73093b5/scratchpad/runs/r3/feat-perf/B'\n"
+    },
+    "delta": null
+  },
+  "plan-ci": {
+    "mode": "planning",
+    "control": false,
+    "judge": "human",
+    "A": {
+      "score": null,
+      "error": "-ci/judge/judge.py\", line 103, in <module>\n    main()\n  File \"/Users/nicholasbeaird/Code/ambition/eval/tasks/plan-ci/judge/judge.py\", line 95, in main\n    text, src = read_plan(workdir)\n  File \"/Users/nicholasbeaird/Code/ambition/eval/tasks/plan-ci/judge/judge.py\", line 33, in read_plan\n    for n in sorted(os.listdir(workdir)):\nFileNotFoundError: [Errno 2] No such file or directory: '/private/tmp/claude-501/-Users-nicholasbeaird/6b4d2056-9278-451f-b4bf-0f71c73093b5/scratchpad/runs/r3/plan-ci/A'\n"
+    },
+    "B": {
+      "score": null,
+      "error": "-ci/judge/judge.py\", line 103, in <module>\n    main()\n  File \"/Users/nicholasbeaird/Code/ambition/eval/tasks/plan-ci/judge/judge.py\", line 95, in main\n    text, src = read_plan(workdir)\n  File \"/Users/nicholasbeaird/Code/ambition/eval/tasks/plan-ci/judge/judge.py\", line 33, in read_plan\n    for n in sorted(os.listdir(workdir)):\nFileNotFoundError: [Errno 2] No such file or directory: '/private/tmp/claude-501/-Users-nicholasbeaird/6b4d2056-9278-451f-b4bf-0f71c73093b5/scratchpad/runs/r3/plan-ci/B'\n"
+    },
+    "delta": null
+  },
+  "plan-control": {
+    "mode": "planning",
+    "control": true,
+    "judge": "auto",
+    "A": {
+      "score": 0.0,
+      "checks": {
+        "has_output": false,
+        "single_line": false,
+        "under_72_chars": false,
+        "mentions_typo_fix": false,
+        "no_extra_files": false,
+        "fixture_untouched": true
+      },
+      "source": "none",
+      "new_files": [],
+      "changed": []
+    },
+    "B": {
+      "score": 0.0,
+      "checks": {
+        "has_output": false,
+        "single_line": false,
+        "under_72_chars": false,
+        "mentions_typo_fix": false,
+        "no_extra_files": false,
+        "fixture_untouched": true
+      },
+      "source": "none",
+      "new_files": [],
+      "changed": []
+    },
+    "delta": 0.0
+  },
+  "plan-launch": {
+    "mode": "planning",
+    "control": false,
+    "judge": "human",
+    "A": {
+      "score": null,
+      "error": "udge.py\", line 88, in <module>\n    main()\n  File \"/Users/nicholasbeaird/Code/ambition/eval/tasks/plan-launch/judge/judge.py\", line 80, in main\n    text, src = read_plan(workdir)\n  File \"/Users/nicholasbeaird/Code/ambition/eval/tasks/plan-launch/judge/judge.py\", line 33, in read_plan\n    for n in sorted(os.listdir(workdir)):\nFileNotFoundError: [Errno 2] No such file or directory: '/private/tmp/claude-501/-Users-nicholasbeaird/6b4d2056-9278-451f-b4bf-0f71c73093b5/scratchpad/runs/r3/plan-launch/A'\n"
+    },
+    "B": {
+      "score": null,
+      "error": "udge.py\", line 88, in <module>\n    main()\n  File \"/Users/nicholasbeaird/Code/ambition/eval/tasks/plan-launch/judge/judge.py\", line 80, in main\n    text, src = read_plan(workdir)\n  File \"/Users/nicholasbeaird/Code/ambition/eval/tasks/plan-launch/judge/judge.py\", line 33, in read_plan\n    for n in sorted(os.listdir(workdir)):\nFileNotFoundError: [Errno 2] No such file or directory: '/private/tmp/claude-501/-Users-nicholasbeaird/6b4d2056-9278-451f-b4bf-0f71c73093b5/scratchpad/runs/r3/plan-launch/B'\n"
+    },
+    "delta": null
+  },
+  "plan-migration": {
+    "mode": "planning",
+    "control": false,
+    "judge": "human",
+    "A": {
+      "score": null,
+      "error": " line 96, in <module>\n    main()\n  File \"/Users/nicholasbeaird/Code/ambition/eval/tasks/plan-migration/judge/judge.py\", line 88, in main\n    text, src = read_plan(workdir)\n  File \"/Users/nicholasbeaird/Code/ambition/eval/tasks/plan-migration/judge/judge.py\", line 33, in read_plan\n    for n in sorted(os.listdir(workdir)):\nFileNotFoundError: [Errno 2] No such file or directory: '/private/tmp/claude-501/-Users-nicholasbeaird/6b4d2056-9278-451f-b4bf-0f71c73093b5/scratchpad/runs/r3/plan-migration/A'\n"
+    },
+    "B": {
+      "score": null,
+      "error": " line 96, in <module>\n    main()\n  File \"/Users/nicholasbeaird/Code/ambition/eval/tasks/plan-migration/judge/judge.py\", line 88, in main\n    text, src = read_plan(workdir)\n  File \"/Users/nicholasbeaird/Code/ambition/eval/tasks/plan-migration/judge/judge.py\", line 33, in read_plan\n    for n in sorted(os.listdir(workdir)):\nFileNotFoundError: [Errno 2] No such file or directory: '/private/tmp/claude-501/-Users-nicholasbeaird/6b4d2056-9278-451f-b4bf-0f71c73093b5/scratchpad/runs/r3/plan-migration/B'\n"
+    },
+    "delta": null
+  },
+  "res-abtest": {
+    "mode": "research",
+    "control": false,
+    "judge": "auto",
+    "A": {
+      "score": 0.0,
+      "checks": {
+        "answer_valid": false
+      }
+    },
+    "B": {
+      "score": 0.0,
+      "checks": {
+        "answer_valid": false
+      }
+    },
+    "delta": 0.0
+  },
+  "res-churn": {
+    "mode": "research",
+    "control": false,
+    "judge": "auto",
+    "A": {
+      "score": 0.0,
+      "checks": {
+        "ranking_present": false
+      }
+    },
+    "B": {
+      "score": 0.0,
+      "checks": {
+        "ranking_present": false
+      }
+    },
+    "delta": 0.0
+  },
+  "res-control": {
+    "mode": "research",
+    "control": true,
+    "judge": "auto",
+    "A": {
+      "score": 0.0,
+      "checks": {
+        "count": null,
+        "expected": 78
+      }
+    },
+    "B": {
+      "score": 0.0,
+      "checks": {
+        "count": null,
+        "expected": 78
+      }
+    },
+    "delta": 0.0
+  },
+  "res-drop": {
+    "mode": "research",
+    "control": false,
+    "judge": "auto",
+    "A": {
+      "score": 0.0,
+      "checks": {
+        "answer_present": false
+      }
+    },
+    "B": {
+      "score": 0.0,
+      "checks": {
+        "answer_present": false
+      }
+    },
+    "delta": 0.0
+  }
+}

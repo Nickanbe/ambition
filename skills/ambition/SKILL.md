@@ -97,7 +97,7 @@ Output in Markdown:
 |---|---|---|---|---|---|
 
 ### Recommended brief
-<the task rewritten as a prompt that adopts the top upgrades, ready to run. It must stand alone: whoever runs it may see nothing else, so restate every explicit requirement of the original (files, formats, schemas, deadlines) word for word>
+<the task rewritten as a prompt that adopts the top upgrades, ready to run. It must stand alone: whoever runs it may see nothing else, so restate every explicit requirement of the original (files, formats, schemas, deadlines) word for word, and never point to the upgrades table by number>
 
 ### Needs from you
 - <access, data, environments, decisions>
