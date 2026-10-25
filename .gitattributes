@@ -1,0 +1,5 @@
+# GitHub's language bar: the skill is Markdown. The eval, build script and web page support it.
+eval/** linguist-vendored
+scripts/** linguist-vendored
+site/** linguist-vendored
+*.md linguist-detectable
